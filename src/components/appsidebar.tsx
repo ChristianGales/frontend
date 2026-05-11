@@ -1,10 +1,11 @@
-import { Home, Inbox, Calendar, Search, Settings, User, ChevronUp, Plus, Projector, ChevronDown } from "lucide-react"
-import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupAction, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuBadge, SidebarMenuButton, SidebarMenuItem, SidebarSeparator } from "./ui/sidebar";
+import { Home, Inbox, Calendar, Search, Settings, User, ChevronUp, Plus, Projector, ChevronDown, PlusIcon } from "lucide-react"
+import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupAction, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuBadge, SidebarMenuButton, SidebarMenuItem, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem, SidebarSeparator } from "./ui/sidebar";
 import Link from "next/link";
 import Image from "next/image";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "./ui/collapsible"; // ✅ Added CollapsibleContent
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "./ui/collapsible"; 
 
+//
 const items = [
     { title: "Home",     url: "/",  icon: Home     },
     { title: "Inbox",    url: "#",  icon: Inbox    },
@@ -115,6 +116,41 @@ const AppSidebar = () => {
                         </CollapsibleContent>
                     </SidebarGroup>
                 </Collapsible>
+
+                {/* Nested group */}
+                <SidebarGroup> 
+                    <SidebarGroupLabel>Nested Items</SidebarGroupLabel> 
+                    <SidebarGroupContent>
+                        <SidebarMenu>
+                            <SidebarMenuItem>
+                                <SidebarMenuButton asChild>
+                                    <Link href="/#">
+                                        <Projector />
+                                        See All Projects
+                                    </Link>
+                                </SidebarMenuButton>
+                                <SidebarMenuSub>
+                                    <SidebarMenuSubItem>
+                                        <SidebarMenuSubButton asChild>
+                                            <Link href={"/"}>
+                                                <PlusIcon />
+                                                Add Project
+                                            </Link>
+                                        </SidebarMenuSubButton>
+                                    </SidebarMenuSubItem>
+                                    
+                                </SidebarMenuSub>
+                            </SidebarMenuItem>
+                         
+                        </SidebarMenu>
+                    </SidebarGroupContent>
+                </SidebarGroup>
+
+
+
+
+
+
             </SidebarContent>
 
             <SidebarFooter>
@@ -126,7 +162,7 @@ const AppSidebar = () => {
                                     <User /> Admin <ChevronUp className="ml-auto" />
                                 </SidebarMenuButton>
                             </DropdownMenuTrigger>
-                            <DropdownMenuContent align="end"> {/* ✅ Removed duplicate DropdownMenuContent wrapper */}
+                            <DropdownMenuContent align="end"> 
                                 <DropdownMenuItem>Account</DropdownMenuItem>
                                 <DropdownMenuItem>Settings</DropdownMenuItem>
                                 <DropdownMenuItem>Sign Out</DropdownMenuItem>
