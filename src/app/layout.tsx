@@ -44,7 +44,7 @@ export default async function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+   
 
       <ThemeProvider
             attribute="class"

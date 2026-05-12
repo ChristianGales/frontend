@@ -5,7 +5,7 @@ import Image from "next/image";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "./ui/collapsible"; 
 
-//
+//dummy records
 const items = [
     { title: "Home",     url: "/",  icon: Home     },
     { title: "Inbox",    url: "#",  icon: Inbox    },
@@ -16,12 +16,16 @@ const items = [
 
 const AppSidebar = () => {
     return (
+        
         <Sidebar collapsible="icon">
+
+            {/* Logo */}
             <SidebarHeader className="py-4"> 
                 <SidebarMenuItem>
                     <SidebarMenuButton asChild>
                         <Link href="/">
-                            <Image src="/logo.png" alt="logo" width={20} height={20} />
+                            <Image src="/images/nsc-logoo.png" alt="logo" width={40} height={40} />
+                            {/* <Image src="/images/NSC-Logo.png" alt="logo" width={40} height={40} /> */}
                             <span>NSC SMS</span>
                         </Link>
                     </SidebarMenuButton>
@@ -138,18 +142,11 @@ const AppSidebar = () => {
                                             </Link>
                                         </SidebarMenuSubButton>
                                     </SidebarMenuSubItem>
-                                    
                                 </SidebarMenuSub>
                             </SidebarMenuItem>
-                         
                         </SidebarMenu>
                     </SidebarGroupContent>
                 </SidebarGroup>
-
-
-
-
-
 
             </SidebarContent>
 
