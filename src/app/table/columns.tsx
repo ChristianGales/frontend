@@ -3,6 +3,17 @@
 import { ColumnDef } from "@tanstack/react-table"
 import { Eye, MoreHorizontal, Pencil, Trash2 } from "lucide-react"
 
+import {
+    AlertDialog,
+    AlertDialogAction,
+    AlertDialogCancel,
+    AlertDialogContent,
+    AlertDialogDescription,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogTitle,
+    AlertDialogTrigger,
+  } from "@/components/ui/alert-dialog"
  
 import { Button } from "@/components/ui/button"
 import {
@@ -63,38 +74,62 @@ export const columns: ColumnDef<Payment>[] = [
   
       return (
         <div className="flex items-center justify-center gap-1">
-  
-          {/* View */}
-          <Button
-            size="icon"
-            variant="ghost"
-            className="size-8"
-            onClick={() => console.log("View", payment.id)}
-          >
-            <Eye className="size-4" />
-          </Button>
-  
-          {/* Edit */}
-          <Button
-            size="icon"
-            variant="ghost"
-            className="size-8"
-            onClick={() => console.log("Edit", payment.id)}
-          >
-            <Pencil className="size-4" />
-          </Button>
-  
-          {/* Delete */}
-          <Button
-            size="icon"
-            variant="ghost"
-            className="size-8 text-red-500 hover:text-red-600"
-            onClick={() => console.log("Delete", payment.id)}
-          >
-            <Trash2 className="size-4" />
-          </Button>
-  
-        </div>
+
+        {/* View */}
+        <Button
+          size="icon"
+          variant="ghost"
+          className="size-8"
+        >
+          <Eye className="size-4" />
+        </Button>
+      
+        {/* Edit */}
+        <Button
+          size="icon"
+          variant="ghost"
+          className="size-8"
+        >
+          <Pencil className="size-4" />
+        </Button>
+      
+        {/* Delete */}
+        <AlertDialog>
+          <AlertDialogTrigger asChild>
+            <Button
+              size="icon"
+              variant="ghost"
+              className="size-8 text-red-500 hover:text-red-600"
+            >
+              <Trash2 className="size-4" />
+            </Button>
+          </AlertDialogTrigger>
+      
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>
+                Delete User?
+              </AlertDialogTitle>
+      
+              <AlertDialogDescription>
+                This action cannot be undone.
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+      
+            <AlertDialogFooter>
+              <AlertDialogCancel>
+                Cancel
+              </AlertDialogCancel>
+      
+              <AlertDialogAction
+                onClick={() => console.log("Delete")}
+              >
+                Delete
+              </AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
+      </div>
       )
     },
   }
