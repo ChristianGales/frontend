@@ -1,11 +1,12 @@
 import CardList from "@/components/CardList";
 import { Badge } from "@/components/ui/badge";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
-import { Button } from "@/components/ui/button";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 import { Progress } from "@/components/ui/progress";
-import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { BadgeCheck } from "lucide-react";
+import EditUserPage from "@/components/user/editUser";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import AppLineChart from "@/components/AppLineChart";
 
 const SingleUserpage = () => {
     return (
@@ -84,23 +85,13 @@ const SingleUserpage = () => {
 
                     {/* info  */}
                     <div className="bg-primary-foreground p-4 rounded-lg">
+                        <div className="flex item-center justify-between">
+                             <h1 className="text-xl font-semibold">User Information</h1>
+                             {/* Sheet Edit form */}
+                            <EditUserPage />
+
+                        </div>
                         
-                         <div className="flex items-center justify-between">
-                            <h1 className="text-xl font-semibold">User Information</h1>
-
-                                <Sheet>
-                                    <SheetTrigger asChild>
-                                        <Button>Edit User</Button>
-                                    </SheetTrigger>
-                                        <SheetContent>
-                                            <SheetHeader>
-                                            <SheetTitle>Are you absolutely sure?</SheetTitle>
-                                            <SheetDescription>This action cannot be undone.</SheetDescription>
-                                            </SheetHeader>
-                                        </SheetContent>
-                                </Sheet>
-
-                         </div>
                          <div className="space-y-4 mt-4">
                             <div className="flex flex-col gap-2 mb-8">
                                 <p className="text-sm text-muted-foreground">Profile Completion</p>
@@ -143,10 +134,28 @@ const SingleUserpage = () => {
             {/* right */}
                 <div className="w-full xl:w-2/3 space-y-6">
                     {/* user card */}
-                     <div className="bg-primary-foreground p-4 rounded-lg">User Card</div>
+                     <div className="bg-primary-foreground p-4 rounded-lg space-y-4">
+                        <div className="flex items-center gap-2">
+                            <Avatar className="size-12">
+                                <AvatarImage src="https://github.com/shadcn.png"></AvatarImage>
+                                  <AvatarFallback>JD</AvatarFallback>
+                            </Avatar>
+                            
+                            <h1 className="text-xl font-semibold">John Doe</h1>
+                           
+                        </div>
+                         <p className="text-sm text-muted-foreground ">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos tenetur impedit ipsa sunt eveniet vero iste neque consequuntur eaque quod incidunt asperiores at nesciunt unde consequatur aspernatur nulla, fugiat quia.
+                                Voluptate magnam eveniet sapiente maxime nemo quae dolor quo sed dolorem voluptatum rerum neque velit, non excepturi fuga veniam mollitia laborum deserunt provident ullam. Maxime veniam iure quia natus iste.
+                                Dolor, dicta a sunt officia quidem commodi? Voluptate ipsa temporibus voluptatibus, non enim architecto quo neque. Commodi, quod provident? Iure, dolorum pariatur! Doloribus corporis cupiditate odit sint! Ullam, reprehenderit facere.
+                            </p>
+                        
+                     </div>
 
                     {/* charts */}
-                     <div className="bg-primary-foreground p-4 rounded-lg">Charts</div>
+                     <div className="bg-primary-foreground p-4 rounded-lg">
+                        <AppLineChart />
+                     </div>
                 </div>
             </div>
             
