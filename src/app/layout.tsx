@@ -11,6 +11,7 @@ import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { SidebarProvider } from "@/components/ui/sidebar";
 
 import { cookies } from "next/headers";
+import AppBreadcrumb from "@/components/AppBreadCrumb";
 
 const figtree = Figtree({
   subsets: ["latin"],
@@ -64,9 +65,11 @@ export default async function RootLayout({
             <main className="flex-1 flex flex-col min-h-screen overflow-hidden">
               <Navbar />
 
+
               <div className="flex-1 px-4">
                 {children}
               </div>
+
 
               <div className="w-full flex justify-center border-t">
                 <AppFooter />

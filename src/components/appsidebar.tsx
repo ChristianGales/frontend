@@ -1,4 +1,4 @@
-import { Home, Inbox, Calendar, Search, Settings, User, ChevronUp, Plus, Projector, ChevronDown, PlusIcon, ShieldCheck, LayoutDashboard } from "lucide-react"
+import { Home, Inbox, Calendar, Search, Settings, User, ChevronUp, Plus, Projector, ChevronDown, PlusIcon, ShieldCheck, LayoutDashboard, Shield, ShieldCogCorner } from "lucide-react"
 import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupAction, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuBadge, SidebarMenuButton, SidebarMenuItem, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem, SidebarSeparator } from "./ui/sidebar";
 import Link from "next/link";
 import Image from "next/image";
@@ -7,8 +7,10 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "./ui/collap
 
 //dummy records
 const items = [
-    { title: "Home",     url: "/",  icon: Home     },
+    { title: "Dashboard",     url: "/",  icon: Home     },
+    { title: "RBAC",     url: "/rbac",  icon: ShieldCogCorner     },
     { title: "Inbox",    url: "#",  icon: Inbox    },
+
     { title: "Components",   url: "/components",  icon: LayoutDashboard   },
     { title: "Settings", url: "#",  icon: Settings },
 ];

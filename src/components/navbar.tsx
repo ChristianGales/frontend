@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { useTheme } from "next-themes"
 import { SidebarTrigger, useSidebar } from "./ui/sidebar"
+import AppBreadcrumb from "./AppBreadCrumb"
 
 const Navbar = () => {
 
@@ -29,7 +30,15 @@ const Navbar = () => {
             {/* {left} */}
             {/* sidem  bar collasable */}
             {/* <Button variant="outline" onClick={toggleSidebar}>Custom Button</Button> */}
-           <SidebarTrigger />
+
+           <div className="flex items-center ">
+            <SidebarTrigger />
+
+            <div className="min-w-0 flex-1">
+                <AppBreadcrumb />
+            </div>
+
+            </div>
             {/* {right} */}
             <div className="flex item-center gap-4">
                  <Link href="/">Dashboard</Link>
@@ -82,27 +91,6 @@ const Navbar = () => {
                         </DropdownMenuGroup>
                     </DropdownMenuContent>
                 </DropdownMenu>
-
-
-                {/* <DropdownMenu >
-                  <DropdownMenuTrigger asChild>
-                    <Button variant="outline" size="icon">
-                        <SquareMenuIcon />
-                            <span className="sr-only">Open Menu</span>
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent>
-                    <DropdownMenuItem>Menu Item 1</DropdownMenuItem>
-                    <DropdownMenuItem>Menu Item 2</DropdownMenuItem>
-                    <DropdownMenuItem>Menu Item 3</DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu> */}
-
-
-
-
-                
-
 
             </div>
            
