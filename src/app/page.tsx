@@ -1,32 +1,24 @@
-import AppAreaChart from "@/components/AppAreaChart";
-import AppBarChart from "@/components/AppBarChart";
-import AppBreadcrumb from "@/components/AppBreadCrumb";
-import AppPieChart from "@/components/AppPieChart";
-import TodoList from "@/components/AppToDoList";
-import CardList from "@/components/CardList";
+import Link from "next/link";
 
-const Homepage = () => {
+export default function HomePage() {
   return (
-    
-    <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-4 gap-4">
+    <main className="min-h-screen flex items-center justify-center">
+      <div className="text-center space-y-4">
+        <h1 className="text-4xl font-bold">
+          NSC SMS
+        </h1>
 
-      <div className="bg-primary-foreground p-4 rounded-lg lg-col-span-2 xl:col-span-1 2xl:col-span-2">
-        <AppBarChart />
+        <p className="text-muted-foreground">
+          Welcome to the Student Management System
+        </p>
+
+        <Link
+          href="/auth/login"
+          className="inline-flex items-center justify-center rounded-md bg-primary px-6 py-2 text-primary-foreground"
+        >
+          Login
+        </Link>
       </div>
-      <div className="bg-primary-foreground p-4 rounded-lg">
-        <CardList title="Latest Trasactions"/>
-      </div>
-      <div className="bg-primary-foreground p-4 rounded-lg">
-        <AppPieChart /></div>
-      <div className="bg-primary-foreground p-4 rounded-lg lg-col-span-2 xl:col-span-1 2xl:col-span-2">
-        <TodoList />
-      </div>
-      <div className="bg-primary-foreground p-4 rounded-lg lg-col-span-2 xl:col-span-1 2xl:col-span-2">
-        <AppAreaChart />
-        </div>
-      
-    </div>
+    </main>
   );
-};
-
-export default Homepage;
+}

@@ -7,7 +7,7 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "./ui/collap
 
 //dummy records
 const items = [
-    { title: "Dashboard",     url: "/",  icon: Home     },
+    { title: "Dashboard",     url: "/dashboard",  icon: Home     },
     { title: "RBAC",     url: "/rbac",  icon: ShieldCogCorner     },
     { title: "Inbox",    url: "#",  icon: Inbox    },
 
