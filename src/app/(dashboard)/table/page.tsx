@@ -162,8 +162,17 @@ export default async function DemoPage() {
   const data = await getData()
 
   return (
-    <div className="container mx-auto py-10">
-      <DataTable columns={columns} data={data} />
+    <div className="flex flex-col min-h-[calc(100vh-136px)] rounded-xl border border-dashed p-6 mb-4">
+      <div className="mb-6 pb-4 ">
+        <h1 className="text-3xl font-bold tracking-tight ">
+          Payments
+        </h1>
+      </div>
+      <div className="flex-1 w-full h-full">
+        <div className="w-full">
+          <DataTable columns={columns} data={data} />
+        </div>
+      </div>
     </div>
   )
 }

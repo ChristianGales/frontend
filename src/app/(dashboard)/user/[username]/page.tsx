@@ -8,30 +8,39 @@ import EditUserPage from "@/components/user/editUser";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import AppLineChart from "@/components/AppLineChart";
 
+
+
 const SingleUserpage = () => {
     return (
-        <div className="">
-            {/* change this to a reuseble component too long for each page */}
-            <Breadcrumb>
-                <BreadcrumbList>
-                    <BreadcrumbItem>
-                    <BreadcrumbLink href="/">Home</BreadcrumbLink>
-                    </BreadcrumbItem>
-                    <BreadcrumbSeparator />
-                    <BreadcrumbItem>
-                    <BreadcrumbLink href="/users">
-                        Components
-                    </BreadcrumbLink>
-                    </BreadcrumbItem>
-                    <BreadcrumbSeparator />
-                    <BreadcrumbItem>
-                    <BreadcrumbPage>User 1</BreadcrumbPage>
-                    </BreadcrumbItem>
-                </BreadcrumbList>
-            </Breadcrumb>
+        <div className="flex flex-col min-h-[calc(100vh-136px)] rounded-xl border border-dashed p-6 mb-4">
+            <div className="mb-6 pb-4 ">
+                <h1 className="text-3xl font-bold tracking-tight ">
+                    User Profile
+                </h1>
+            </div>
+            <div className="flex-1 w-full h-full">
+                <div>
+                    {/* change this to a reuseble component too long for each page */}
+                    <Breadcrumb>
+                    <BreadcrumbList>
+                        <BreadcrumbItem>
+                        <BreadcrumbLink href="/">Home</BreadcrumbLink>
+                        </BreadcrumbItem>
+                        <BreadcrumbSeparator />
+                        <BreadcrumbItem>
+                        <BreadcrumbLink href="/users">
+                            Components
+                        </BreadcrumbLink>
+                        </BreadcrumbItem>
+                        <BreadcrumbSeparator />
+                        <BreadcrumbItem>
+                        <BreadcrumbPage>User 1</BreadcrumbPage>
+                        </BreadcrumbItem>
+                    </BreadcrumbList>
+                </Breadcrumb>
 
-            {/* containter */}
-            <div className="mt-4 flex flex-col xl:flex-row gap-8">
+                {/* containter */}
+                <div className="mt-4 flex flex-col xl:flex-row gap-8">
             
             {/* left */}
                 <div className="w-full xl:w-1/3 space-y-6">
@@ -155,10 +164,14 @@ const SingleUserpage = () => {
                     {/* charts */}
                      <div className="bg-primary-foreground p-4 rounded-lg">
                         <AppLineChart />
+
+                       
                      </div>
                 </div>
             </div>
-            
+        </div>
+
+        </div>
         </div>
     );
     

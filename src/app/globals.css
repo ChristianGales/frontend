@@ -63,7 +63,7 @@
   --popover-foreground: oklch(0.22 0.02 255);
 
   /* =========================
-     PRIMARY BRAND (SCHOOL BLUE)
+     PRIMARY BRAND 
   ========================= */
   --primary: oklch(0.62 0.22 255);
   --primary-foreground: oklch(0.99 0 0);

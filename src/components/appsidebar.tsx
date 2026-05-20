@@ -1,4 +1,4 @@
-import { Home, Inbox, Calendar, Search, Settings, User, ChevronUp, Plus, Projector, ChevronDown, PlusIcon, ShieldCheck, LayoutDashboard, Shield, ShieldCogCorner } from "lucide-react"
+import { Home, Inbox, Calendar, Search, Settings, User, ChevronUp, Plus, Projector, ChevronDown, PlusIcon, ShieldCheck, LayoutDashboard, Shield, ShieldCogCorner, Table2 } from "lucide-react"
 import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupAction, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuBadge, SidebarMenuButton, SidebarMenuItem, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem, SidebarSeparator } from "./ui/sidebar";
 import Link from "next/link";
 import Image from "next/image";
@@ -10,10 +10,12 @@ const items = [
     { title: "Dashboard",     url: "/dashboard",  icon: Home     },
     { title: "RBAC",     url: "/rbac",  icon: ShieldCogCorner     },
     { title: "Inbox",    url: "#",  icon: Inbox    },
-
-    { title: "Components",   url: "/components",  icon: LayoutDashboard   },
+    { title: "Components",   url: "/scomponents",  icon: LayoutDashboard   },
+    { title: "Tables",   url: "/table",  icon: Table2   },
     { title: "Settings", url: "#",  icon: Settings },
 ];
+
+
 
 const AppSidebar = () => {
     return (
@@ -119,7 +121,7 @@ const AppSidebar = () => {
 
                                 <SidebarMenuSubItem>
                                 <SidebarMenuSubButton asChild>
-                                    <Link href="/login">
+                                    <Link href="/auth/login">
                                     Login
                                     </Link>
                                 </SidebarMenuSubButton>
@@ -127,7 +129,7 @@ const AppSidebar = () => {
 
                                 <SidebarMenuSubItem>
                                 <SidebarMenuSubButton asChild>
-                                    <Link href="/maintenance">
+                                    <Link href="/auth/register">
                                     Register
                                     </Link>
                                 </SidebarMenuSubButton>
