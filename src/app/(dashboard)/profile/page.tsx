@@ -51,7 +51,7 @@
                 {/* User Info */}
                 <div>
                 <div className="flex items-center gap-2">
-                    <h1 className="text-2xl font-bold">Demo Tester</h1>
+                    <h1 className="text-2xl font-bold">Lastname, Firstname</h1>
 
                     <BadgeCheck className="h-5 w-5 text-primary" />
                 </div>
