@@ -20,10 +20,10 @@ const items = [
 const AppSidebar = () => {
     return (
         
-        <Sidebar collapsible="icon">
+        <Sidebar collapsible="icon" >
 
             {/* Logo */}
-            <SidebarHeader className="py-4"> 
+            <SidebarHeader className="py-4" > 
                 <SidebarMenuItem>
                     <SidebarMenuButton asChild>
                         <Link href="/">
@@ -45,14 +45,15 @@ const AppSidebar = () => {
                         {items
                         .filter((item) => item.title !== "Pages")
                         .map((item) => (
-                            <SidebarMenuItem key={item.title}>
-                            <SidebarMenuButton asChild>
-                                <Link href={item.url}>
+                            <SidebarMenuItem key={item.title} >
+                            <SidebarMenuButton asChild >
+                                <Link href={item.url} >
                                 <item.icon />
                                 <span>{item.title}</span>
                                 </Link>
                             </SidebarMenuButton>
-
+                            
+                            {/* Badge for Inbox */}
                             {item.title === "Inbox" && (
                                 <SidebarMenuBadge>23</SidebarMenuBadge>
                             )}
@@ -134,7 +135,6 @@ const AppSidebar = () => {
                                     </Link>
                                 </SidebarMenuSubButton>
                                 </SidebarMenuSubItem>
-
                             </SidebarMenuSub>
                             </CollapsibleContent>
 
@@ -144,100 +144,6 @@ const AppSidebar = () => {
                         </SidebarMenu>
                     </SidebarGroupContent>
                 </SidebarGroup>
-
-                {/* Static Projects group */}
-                <SidebarGroup> 
-                    <SidebarGroupLabel>Projects</SidebarGroupLabel> 
-                    <SidebarGroupAction>
-                        <Plus /> <span className="sr-only">Add Project</span>
-                    </SidebarGroupAction>
-                    <SidebarGroupContent>
-                        <SidebarMenu>
-                            <SidebarMenuItem>
-                                <SidebarMenuButton asChild>
-                                    <Link href="/#">
-                                        <Projector />
-                                        See All Projects
-                                    </Link>
-                                </SidebarMenuButton>
-                            </SidebarMenuItem>
-                            <SidebarMenuItem>
-                                <SidebarMenuButton asChild>
-                                    <Link href="/#">
-                                        <Plus />
-                                        Add Project 
-                                    </Link>
-                                </SidebarMenuButton>
-                            </SidebarMenuItem>
-                        </SidebarMenu>
-                    </SidebarGroupContent>
-                </SidebarGroup>
-
-                {/* Collapsible group */}
-                <Collapsible defaultOpen className="group/collapsible">
-                    <SidebarGroup>
-                        <SidebarGroupLabel asChild>
-                            <CollapsibleTrigger>
-                                Collapsible Group 
-                               
-                            </CollapsibleTrigger>
-                        </SidebarGroupLabel>
-                        <SidebarGroupAction>
-                            <Plus /> <span className="sr-only">Add Project</span>
-                        </SidebarGroupAction>
-
-                        <CollapsibleContent> 
-                            <SidebarGroupContent>
-                                <SidebarMenu>
-                                    <SidebarMenuItem>
-                                        <SidebarMenuButton asChild>
-                                            <Link href="/#">
-                                                <Projector />
-                                                See All Projects
-                                            </Link>
-                                        </SidebarMenuButton>
-                                    </SidebarMenuItem>
-                                    <SidebarMenuItem>
-                                        <SidebarMenuButton asChild>
-                                            <Link href="/#">
-                                                <Plus />
-                                                Add Project
-                                            </Link>
-                                        </SidebarMenuButton>
-                                    </SidebarMenuItem>
-                                </SidebarMenu>
-                            </SidebarGroupContent>
-                        </CollapsibleContent>
-                    </SidebarGroup>
-                </Collapsible>
-
-                {/* Nested group */}
-                <SidebarGroup> 
-                    <SidebarGroupLabel>Nested Items</SidebarGroupLabel> 
-                    <SidebarGroupContent>
-                        <SidebarMenu>
-                            <SidebarMenuItem>
-                                <SidebarMenuButton asChild>
-                                    <Link href="/#">
-                                        <Projector />
-                                        See All Projects
-                                    </Link>
-                                </SidebarMenuButton>
-                                <SidebarMenuSub>
-                                    <SidebarMenuSubItem>
-                                        <SidebarMenuSubButton asChild>
-                                            <Link href={"/"}>
-                                                <PlusIcon />
-                                                Add Project
-                                            </Link>
-                                        </SidebarMenuSubButton>
-                                    </SidebarMenuSubItem>
-                                </SidebarMenuSub>
-                            </SidebarMenuItem>
-                        </SidebarMenu>
-                    </SidebarGroupContent>
-                </SidebarGroup>
-
             </SidebarContent>
 
             <SidebarFooter>

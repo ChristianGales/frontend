@@ -65,10 +65,11 @@
   /* =========================
      PRIMARY BRAND 
   ========================= */
-  --primary: oklch(0.62 0.22 255);
+  --primary: oklch(0.29 0.14 268);
   --primary-foreground: oklch(0.99 0 0);
 
-  --secondary: oklch(0.95 0.015 255);
+  /* --secondary: oklch(0.95 0.015 255); */
+  --secondary: oklch(0.75 0.183 55.934);
   --secondary-foreground: oklch(0.3 0.02 255);
 
   --accent: oklch(0.94 0.03 250);

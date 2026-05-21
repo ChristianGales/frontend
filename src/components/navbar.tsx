@@ -41,7 +41,7 @@ const Navbar = () => {
             </div>
             {/* {right} */}
             <div className="flex item-center gap-4">
-                 <Link href="/">Dashboard</Link>
+
                  {/* Theme */}
                  <DropdownMenu>
                     <DropdownMenuTrigger asChild>
@@ -77,8 +77,10 @@ const Navbar = () => {
                         <DropdownMenuGroup>
                         <DropdownMenuLabel>My Account</DropdownMenuLabel>
                         <DropdownMenuItem>
+                           <Link href="/profile" className="flex items-center gap-2">
                             <User className="h[1.2rem] w-[1.2rem] mr-2"/>
                             Profile
+                            </Link>
                         </DropdownMenuItem>
                         <DropdownMenuItem>
                             <Settings className="h[1.2rem] w-[1.2rem] mr-2"/>

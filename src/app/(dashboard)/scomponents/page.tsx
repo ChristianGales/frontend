@@ -67,7 +67,7 @@ const SampleComponentPage = () => {
                 <div className="flex flex-wrap gap-4">
 
                 <Button
-                    className="bg-[var(--success)] text-[var(--success-foreground)] hover:opacity-90"
+                    className="bg-[var(--success)] text-[var(--success-foreground)] "
                     onClick={() =>
                     appAlert.success(
                         "Success!",
@@ -79,7 +79,7 @@ const SampleComponentPage = () => {
                 </Button>
 
                 <Button
-                    className="bg-[var(--danger)] text-[var(--danger-foreground)] hover:opacity-90"
+                    className="bg-[var(--danger)] text-[var(--danger-foreground)] "
                     onClick={() =>
                     appAlert.error(
                         "Error!",
@@ -91,7 +91,7 @@ const SampleComponentPage = () => {
                 </Button>
 
                 <Button
-                    className="bg-[var(--warning)] text-[var(--warning-foreground)] hover:opacity-90"
+                    className="bg-[var(--warning)] text-[var(--warning-foreground)] "
                     onClick={() =>
                     appAlert.warning(
                         "Warning!",
@@ -103,7 +103,7 @@ const SampleComponentPage = () => {
                 </Button>
 
                 <Button
-                    className="bg-[var(--info)] text-[var(--info-foreground)] hover:opacity-90"
+                    className="bg-[var(--info)] text-[var(--info-foreground)] "
                     onClick={() =>
                     appAlert.info(
                         "Info",
@@ -250,7 +250,7 @@ const SampleComponentPage = () => {
                     className="
                     bg-[var(--info)]
                     text-[var(--info-foreground)]
-                    hover:opacity-90
+                    
                     "
                 >
                     <Download className="h-4 w-4" />
@@ -262,7 +262,7 @@ const SampleComponentPage = () => {
                     className="
                     bg-[var(--success)]
                     text-[var(--success-foreground)]
-                    hover:opacity-90
+                    
                     "
                 >
                     <Check className="h-4 w-4" />
@@ -549,7 +549,7 @@ const SampleComponentPage = () => {
                         flex-1
                         bg-[var(--success)]
                         text-[var(--success-foreground)]
-                        hover:opacity-90
+                        
                     "
                     >
                     Download
@@ -808,7 +808,7 @@ const SampleComponentPage = () => {
                     className="
                         bg-[var(--info)]
                         text-[var(--info-foreground)]
-                        hover:opacity-90
+                        
                     "
                     >
                     Large Dialog
@@ -1221,8 +1221,8 @@ const SampleComponentPage = () => {
             </div>
         </div>
 
-        
-        </div>
+
+      </div>
     </div>
   );
 };
