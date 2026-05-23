@@ -1,9 +1,12 @@
+"use client";
+
 import { Home, Inbox, Calendar, Search, Settings, User, ChevronUp, Plus, Projector, ChevronDown, PlusIcon, ShieldCheck, LayoutDashboard, Shield, ShieldCogCorner, Table2 } from "lucide-react"
 import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupAction, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuBadge, SidebarMenuButton, SidebarMenuItem, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem, SidebarSeparator } from "./ui/sidebar";
 import Link from "next/link";
 import Image from "next/image";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "./ui/collapsible"; 
+import { usePathname } from "next/navigation";
 
 //dummy records
 const items = [
@@ -18,6 +21,9 @@ const items = [
 
 
 const AppSidebar = () => {
+
+    const pathname = usePathname();
+
     return (
         
         <Sidebar collapsible="icon" >
@@ -46,7 +52,16 @@ const AppSidebar = () => {
                         .filter((item) => item.title !== "Pages")
                         .map((item) => (
                             <SidebarMenuItem key={item.title} >
-                            <SidebarMenuButton asChild >
+                            <SidebarMenuButton asChild 
+                            isActive={pathname === item.url}
+                            className="
+                                data-[active=true]:bg-[var(--primary)]
+                                data-[active=true]:text-white
+                                data-[active=true]:font-medium
+                                hover:bg-[var(--primary)]/10
+                                transition-colors
+                            "
+                            >
                                 <Link href={item.url} >
                                 <item.icon />
                                 <span>{item.title}</span>
@@ -122,7 +137,7 @@ const AppSidebar = () => {
 
                                 <SidebarMenuSubItem>
                                 <SidebarMenuSubButton asChild>
-                                    <Link href="/auth/login">
+                                    <Link href="/login">
                                     Login
                                     </Link>
                                 </SidebarMenuSubButton>
@@ -130,11 +145,28 @@ const AppSidebar = () => {
 
                                 <SidebarMenuSubItem>
                                 <SidebarMenuSubButton asChild>
-                                    <Link href="/auth/register">
+                                    <Link href="/registration">
                                     Register
                                     </Link>
                                 </SidebarMenuSubButton>
                                 </SidebarMenuSubItem>
+
+                                <SidebarMenuSubItem>
+                                <SidebarMenuSubButton asChild>
+                                    <Link href="/otp">
+                                    OTP Verification
+                                    </Link>
+                                </SidebarMenuSubButton>
+                                </SidebarMenuSubItem>
+
+                                <SidebarMenuSubItem>
+                                <SidebarMenuSubButton asChild>
+                                    <Link href="/reset-password">
+                                    Reset Password
+                                    </Link>
+                                </SidebarMenuSubButton>
+                                </SidebarMenuSubItem>
+
                             </SidebarMenuSub>
                             </CollapsibleContent>
 

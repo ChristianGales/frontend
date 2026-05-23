@@ -67,7 +67,9 @@ const SampleComponentPage = () => {
                 <div className="flex flex-wrap gap-4">
 
                 <Button
-                    className="bg-[var(--success)] text-[var(--success-foreground)] "
+                    className="bg-[var(--success)] 
+                    text-[var(--success-foreground)]
+                    hover:bg-[var(--success)]/80"
                     onClick={() =>
                     appAlert.success(
                         "Success!",
@@ -79,7 +81,9 @@ const SampleComponentPage = () => {
                 </Button>
 
                 <Button
-                    className="bg-[var(--danger)] text-[var(--danger-foreground)] "
+                    className="bg-[var(--danger)] 
+                    text-[var(--danger-foreground)] 
+                    hover:bg-[var(--danger)]/80"
                     onClick={() =>
                     appAlert.error(
                         "Error!",
@@ -91,7 +95,9 @@ const SampleComponentPage = () => {
                 </Button>
 
                 <Button
-                    className="bg-[var(--warning)] text-[var(--warning-foreground)] "
+                    className="bg-[var(--warning)] 
+                    text-[var(--warning-foreground)]
+                    hover:bg-[var(--warning)]/80"
                     onClick={() =>
                     appAlert.warning(
                         "Warning!",
@@ -103,7 +109,9 @@ const SampleComponentPage = () => {
                 </Button>
 
                 <Button
-                    className="bg-[var(--info)] text-[var(--info-foreground)] "
+                    className="bg-[var(--info)] 
+                    text-[var(--info-foreground)] 
+                    hover:bg-[var(--info)]/80"
                     onClick={() =>
                     appAlert.info(
                         "Info",
@@ -174,31 +182,79 @@ const SampleComponentPage = () => {
                 </h3>
 
                 <div className="flex flex-wrap gap-4">
-
-                <Button>
+                {/* Primary */}
+                <Button
+                    className="
+                    bg-[var(--primary)]
+                    text-white
+                    hover:opacity-90
+                    shadow-sm
+                    transition-all
+                    "
+                >
                     <Plus className="h-4 w-4" />
                     Add User
                 </Button>
 
-                <Button variant="secondary">
-                    <Download className="h-4 w-4" />
-                    Export
+                {/* Outline */}
+                <Button
+                    className="
+                    border
+                    border-[var(--primary)]
+                    bg-transparent
+                    text-[var(--primary)]
+                    hover:bg-[var(--primary)]
+                    hover:text-white
+                    shadow-sm
+                    transition-all
+                    "
+                >
+                    <Plus className="h-4 w-4" />
+                    Add User
                 </Button>
 
-                <Button variant="outline">
-                    <Upload className="h-4 w-4" />
-                    Upload
+                {/* Secondary */}
+                <Button
+                    className="
+                    bg-orange-500
+                    text-white
+                    hover:bg-orange-600
+                    shadow-sm
+                    transition-all
+                    "
+                >
+                    <Plus className="h-4 w-4" />
+                    Secondary
                 </Button>
 
-                <Button variant="ghost">
-                    <Settings className="h-4 w-4" />
-                    Settings
+                {/* Destructive */}
+                <Button
+                    className="
+                    bg-red-500
+                    text-white
+                    hover:bg-red-600
+                    shadow-sm
+                    transition-all
+                    "
+                >
+                    <Plus className="h-4 w-4" />
+                    Destructive
                 </Button>
 
-                <Button variant="destructive">
-                    <Trash2 className="h-4 w-4" />
-                    Delete
+                {/* Export */}
+                <Button
+                    className="
+                    bg-muted
+                    text-foreground
+                    hover:bg-muted/80
+                    shadow-sm
+                    transition-all
+                    "
+                >
+                    <Plus className="h-4 w-4" />
+                    Back
                 </Button>
+
 
                 </div>
             </div>
@@ -275,48 +331,110 @@ const SampleComponentPage = () => {
 
             {/* BADGES */}
             <div className="rounded-xl border bg-background p-6 space-y-4">
-
-                <div>
+            <div>
                 <h2 className="text-xl font-semibold">
-                    Badges
+                Badges
                 </h2>
 
                 <p className="text-sm text-muted-foreground">
-                    Different badge variants.
+                Different badge styles.
                 </p>
-                </div>
+            </div>
 
-                <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-4">
 
-                <Badge>
-                    Default
+                {/* Primary */}
+                <Badge
+                className="
+                    rounded-full
+                    bg-[var(--primary)]
+                    px-4 py-1
+                    text-white
+                    hover:opacity-90
+                "
+                >
+                Primary
                 </Badge>
 
-                <Badge variant="secondary">
-                    Secondary
+                {/* Success */}
+                <Badge
+                className="
+                    rounded-full
+                    bg-emerald-500
+                    px-4 py-1
+                    text-white
+                    hover:opacity-90
+                "
+                >
+                Success
                 </Badge>
 
-                <Badge variant="outline">
-                    Outline
+                {/* Error */}
+                <Badge
+                className="
+                    rounded-full
+                    bg-red-500
+                    px-4 py-1
+                    text-white
+                    hover:opacity-90
+                "
+                >
+                Error
                 </Badge>
 
-                <Badge variant="destructive">
-                    Destructive
+                {/* Warning */}
+                <Badge
+                className="
+                    rounded-full
+                    bg-amber-500
+                    px-4 py-1
+                    text-white
+                    hover:opacity-90
+                "
+                >
+                Warning
                 </Badge>
 
-                <Badge className="bg-[var(--success)] text-[var(--success-foreground)]">
-                    Success
+                {/* Info */}
+                <Badge
+                className="
+                    rounded-full
+                    bg-sky-500
+                    px-4 py-1
+                    text-white
+                    hover:opacity-90
+                "
+                >
+                Info
                 </Badge>
 
-                <Badge className="bg-[var(--warning)] text-[var(--warning-foreground)]">
-                    Warning
+                {/* Light */}
+                <Badge
+                className="
+                    rounded-full
+                    bg-slate-200
+                    px-4 py-1
+                    text-slate-800
+                    hover:opacity-90
+                "
+                >
+                Light
                 </Badge>
 
-                <Badge className="bg-[var(--info)] text-[var(--info-foreground)]">
-                    Info
+                {/* Dark */}
+                <Badge
+                className="
+                    rounded-full
+                    bg-slate-800
+                    px-4 py-1
+                    text-white
+                    hover:opacity-90
+                "
+                >
+                Dark
                 </Badge>
 
-                </div>
+            </div>
             </div>
 
             {/* CARDS */}

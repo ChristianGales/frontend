@@ -106,7 +106,16 @@ export function DataTable<TData, TValue>({
 
                 <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                    <Button variant="outline" className="gap-2">
+                    <Button variant="outline"  
+                    className="
+                    border-[var(--primary)]
+                    text-[var(--primary)]
+                    hover:bg-[var(--primary)]
+                    hover:text-white
+                    shadow-sm
+                    transition-all
+                    gap-2
+                ">
                     <ListFilter className="size-4" />
                     Columns
                     </Button>
@@ -142,10 +151,6 @@ export function DataTable<TData, TValue>({
             </div>
 
         
-      
-
-
-
             <div className="overflow-hidden rounded-md border">
                 <Table>
                     <TableHeader>

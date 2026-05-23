@@ -84,7 +84,7 @@ export function LoginForm({
         {/* Login Button */}
         <Field>
           <Link href="/dashboard">
-            <Button type="submit" className="w-full" >
+            <Button type="submit" className="w-full h-10" >
               Login
             </Button>
           </Link>
@@ -95,7 +95,7 @@ export function LoginForm({
           <FieldDescription className="text-center">
             Don&apos;t have an account?{" "}
             <a
-              href="/auth/registration"
+              href="/registration"
               className="underline underline-offset-4"
             >
               Sign up
