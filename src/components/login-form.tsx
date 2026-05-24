@@ -84,7 +84,7 @@ export function LoginForm({
         {/* Login Button */}
         <Field>
           <Link href="/dashboard">
-            <Button type="submit" className="w-full h-10" >
+            <Button type="submit" className="w-full h-10 text-white" >
               Login
             </Button>
           </Link>

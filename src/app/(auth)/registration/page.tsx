@@ -155,18 +155,18 @@ export default function RegistrationForm() {
         <CardHeader className="bg-primary text-primary-foreground py-5 border-b border-white/10 grid gap-4 md:grid-cols-[minmax(0,1fr)_auto] items-center">
             <div className="flex flex-col gap-1">
 
-                <p className="text-sm text-primary-foreground/80">
+                <p className="text-sm text-white">
                     Student Registration Form
                 </p>
 
-                <CardTitle className="text-2xl font-semibold">
+                <CardTitle className="text-2xl font-semiboldn text-white">
                     {tabTitles[activeTab]}
                 </CardTitle>
             </div>
 
             <div className="flex flex-col gap-1 items-start md:items-end">
             
-                <p className="text-sm text-primary-foreground/80">
+                <p className="text-sm text-white">
                     SY 2026-2027 · 1st Sem
                 </p>
             </div>
@@ -376,7 +376,7 @@ export default function RegistrationForm() {
                         </div>
 
                         <div className="flex justify-end">
-                        <Button onClick={nextStep}>
+                        <Button onClick={nextStep} className="text-white">
                             Next
                             <ChevronRight className="ml-1 h-4 w-4" />
                         </Button>
@@ -500,7 +500,7 @@ export default function RegistrationForm() {
                         Previous
                         </Button>
 
-                        <Button onClick={nextStep}>
+                        <Button onClick={nextStep} className="text-white">
                         Next
                         <ChevronRight className="ml-1 h-4 w-4" />
                         </Button>
@@ -554,7 +554,7 @@ export default function RegistrationForm() {
                             Previous
                         </Button>
 
-                        <Button onClick={nextStep}>
+                        <Button onClick={nextStep} className="text-white">
                             Next
                             <ChevronRight className="ml-1 h-4 w-4" />
                         </Button>
@@ -697,7 +697,7 @@ export default function RegistrationForm() {
                     Previous
                     </Button>
 
-                    <Button onClick={nextStep}>
+                    <Button onClick={nextStep} className="text-white">
                     Next
                     <ChevronRight className="ml-1 h-4 w-4" />
                     </Button>
@@ -821,7 +821,7 @@ export default function RegistrationForm() {
                             Previous
                         </Button>
 
-                        <Button onClick={nextStep}>
+                        <Button onClick={nextStep} className="text-white">
                             Next
                             <ChevronRight className="ml-1 h-4 w-4" />
                         </Button>
@@ -871,8 +871,10 @@ export default function RegistrationForm() {
                         Previous
                     </Button>
 
-                    <Button>
-                        Submit Registration
+                    <Button asChild className="text-white">
+                        <Link href="/dashboard">
+                            Submit Registration
+                        </Link>
                     </Button>
                     </div>
                 </FieldGroup>
