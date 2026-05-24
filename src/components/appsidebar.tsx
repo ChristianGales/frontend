@@ -167,6 +167,15 @@ const AppSidebar = () => {
                                 </SidebarMenuSubButton>
                                 </SidebarMenuSubItem>
 
+                                
+                                <SidebarMenuSubItem>
+                                <SidebarMenuSubButton asChild>
+                                    <Link href="privacy-policy">
+                                    Privacy Policy
+                                    </Link>
+                                </SidebarMenuSubButton>
+                                </SidebarMenuSubItem>
+
                             </SidebarMenuSub>
                             </CollapsibleContent>
 

@@ -121,9 +121,7 @@ export const columns: ColumnDef<Payment>[] = [
                 Cancel
               </AlertDialogCancel>
       
-              <AlertDialogAction
-                onClick={() => console.log("Delete")}
-              >
+              <AlertDialogAction className="bg-red-500 hover:bg-red-600 text-white" onClick={() => console.log("Delete")}>
                 Delete
               </AlertDialogAction>
             </AlertDialogFooter>
