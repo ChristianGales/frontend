@@ -22,7 +22,7 @@ const TodoList = () => {
             {/* Popover Calendar */}
             <Popover>
                 <PopoverTrigger asChild>
-                    <Button  className="w-full">
+                    <Button  className="w-full text-white">
                         <CalendarIcon />
                         {date ? format(date, "PPP") : <span>Pick a date</span>} 
                     </Button>
@@ -43,14 +43,11 @@ const TodoList = () => {
             </Popover>
 
 
-            
-
-
 
             {/* Todo List */}
             <ScrollArea className="max-h-[400px] mt-4 overflow-y-auto">
                 <div className="flex flex-col gap-4 m-2">
-                     <Card className="p-4">
+                    <Card className="p-4">
                         <div className="flex items-center gap-4">
                             <Checkbox id="item1"  />
 

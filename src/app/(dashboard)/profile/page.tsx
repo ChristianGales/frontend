@@ -10,7 +10,20 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 const ProfilePage = () => {
   return (
-    <Tabs defaultValue="profile" className="w-full">
+
+    <div className="flex flex-col min-h-[calc(100vh-136px)] rounded-xl border border-dashed p-6 mb-4">
+      
+      {/* Page Header Area */}
+      <div className="mb-2 pb-2 ">
+        <h1 className="text-3xl font-bold tracking-tight ">
+          Profile Page
+        </h1>
+      </div>
+
+      {/* COMPONENT PASTE ZONE: The main container for your content */}
+      <div className="flex-1 w-full h-full">
+
+         <Tabs defaultValue="profile" className="w-full">
       <div className="grid gap-6 lg:grid-cols-[260px_1fr]">
 
       {/*  */}
@@ -23,12 +36,12 @@ const ProfilePage = () => {
               flex-1 lg:flex-none
               justify-center lg:justify-start gap-2 sm:gap-3 
               rounded-xl px-3 sm:px-4 py-2.5 text-xs sm:text-sm font-medium
-              data-[state=active]:bg-muted
-              data-[state=active]:text-foreground
+              data-[state=active]:bg-[var(--primary)]
+              data-[state=active]:text-white
               data-[state=active]:shadow-none
               hover:bg-muted/70
-              transition-all
-              whitespace-nowrap
+           
+              transition-colors
               
             "
           >
@@ -37,17 +50,16 @@ const ProfilePage = () => {
           </TabsTrigger>
 
           <TabsTrigger
+            
             value="security"
             className="
               flex-1 lg:flex-none
               justify-center lg:justify-start gap-2 sm:gap-3 
               rounded-xl px-3 sm:px-4 py-2.5 text-xs sm:text-sm font-medium
-              data-[state=active]:bg-muted
-              data-[state=active]:text-foreground
-              data-[state=active]:shadow-none
+              data-[state=active]:bg-[var(--primary)]
+              data-[state=active]:text-primary
               hover:bg-muted/70
               transition-all
-              whitespace-nowrap
             "
           >
             <Shield className="h-4 w-4 shrink-0" />
@@ -181,14 +193,19 @@ const ProfilePage = () => {
 
               {/* Footer */}
               <div className="mt-6 flex justify-end">
-                <Button className="rounded-full px-6">Change Password</Button>
+                <Button className="rounded-full text-white px-6">Change Password</Button>
               </div>
             </div>
           </TabsContent>
 
-       
       </div>
     </Tabs>
+        
+      </div>
+
+    </div>
+
+   
   )
 }
 
