@@ -95,7 +95,7 @@ export function LoginForm({
           <FieldDescription className="text-center">
             Don&apos;t have an account?{" "}
             <a
-              href="/registration"
+              href="/programs"
               className="underline underline-offset-4"
             >
               Sign up

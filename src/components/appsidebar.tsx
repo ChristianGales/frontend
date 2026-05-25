@@ -176,6 +176,14 @@ const AppSidebar = () => {
                                 </SidebarMenuSubButton>
                                 </SidebarMenuSubItem>
 
+                                <SidebarMenuSubItem>
+                                <SidebarMenuSubButton asChild>
+                                    <Link href="programs">
+                                    Programs
+                                    </Link>
+                                </SidebarMenuSubButton>
+                                </SidebarMenuSubItem>
+
                             </SidebarMenuSub>
                             </CollapsibleContent>
 

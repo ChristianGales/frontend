@@ -3,6 +3,7 @@ import {
     GraduationCap,
     School,
   } from "lucide-react"
+import Link from "next/link"
   
   const ProgramsPage = () => {
     return (
@@ -57,7 +58,8 @@ import {
             </div>
   
             <div className="grid gap-6 lg:grid-cols-2">
-            <button
+            <Link href="/registration">
+                <button 
               className="
                 group relative overflow-hidden rounded-3xl border border-white/10
                 bg-white/5 p-8 text-left backdrop-blur-xl
@@ -100,9 +102,12 @@ import {
                   </div>
                 </div>
               </div>
-            </button>
-  
-            <button
+                </button>
+            </Link>
+
+
+            <Link href="registration">
+              <button
                 className="
                   group relative overflow-hidden rounded-3xl border border-white/10
                   bg-white/5 p-8 text-left backdrop-blur-xl
@@ -144,6 +149,8 @@ import {
                   </div>
                 </div>
             </button>
+            </Link>
+          
             </div>
           </div>
         </main>
