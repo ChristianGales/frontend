@@ -43,7 +43,7 @@ import Link from "next/link"
 
 export default function RegistrationForm() {
 
-    const steps = [
+  const steps = [
         "basic-info",
         "personal-info",
         "emergency-contact",
@@ -52,14 +52,14 @@ export default function RegistrationForm() {
         "file-upload",
       ]
       
-
-  const [activeTab, setActiveTab] = useState(steps[0])
   const [birthDate, setBirthDate] = useState("");
   const [age, setAge] = useState("");
+
   const [civilStatus, setCivilStatus] = useState("");
+  const [activeTab, setActiveTab] = useState(steps[0])
   const currentStep = steps.indexOf(activeTab)
   
-  // Calculate age based on birthDate   
+  // age calc  
   useEffect(() => {
     if (!birthDate) return
   
@@ -83,7 +83,7 @@ export default function RegistrationForm() {
     setAge(calculatedAge.toString())
   }, [birthDate])
 
-  // Navigation functions
+  // nav
   const nextStep = () => {
     if (currentStep < steps.length - 1) {
       setActiveTab(steps[currentStep + 1])
@@ -109,13 +109,14 @@ export default function RegistrationForm() {
 
   return (
     <div className="flex min-h-svh flex-col items-center justify-center bg-muted p-6 md:p-10">
+         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:60px_60px]" />
+
+
         <div className="w-full max-w-sm md:max-w-4xl">
 
-        {/* STICKY NAVBAR */}
         <div className="sticky top-0 z-50 mb-6">
             <div className="flex items-center justify-between rounded-2xl border bg-background/95 backdrop-blur px-6 py-4 shadow-sm">
 
-                {/* LEFT */}
                 <div className="flex items-center gap-4">
 
                 <img
@@ -136,7 +137,6 @@ export default function RegistrationForm() {
 
                 </div>
 
-                {/* RIGHT */}
                 <Button
                 asChild
                 variant="outline"
