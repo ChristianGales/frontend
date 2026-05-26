@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import {
+    ArrowLeft,
   ChevronLeft,
   ChevronRight,
   Upload,
@@ -138,11 +139,19 @@ export default function RegistrationForm() {
 
                 <Button
                 asChild
-                variant="outline"
                 className="border-primary/20"
                 >
-                <Link href="/">
-                    ← Back to Home
+                <Link
+                    href="/login"
+                    className="
+                        inline-flex items-center gap-2
+                        text-sm font-medium
+                        text-[var(--primary)]
+                        hover:underline
+                    "
+                    >
+                    <ArrowLeft className="h-4 w-4" />
+                    Back to Login
                 </Link>
                 </Button>
 
