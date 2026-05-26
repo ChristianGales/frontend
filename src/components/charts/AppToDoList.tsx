@@ -1,12 +1,12 @@
 "use client"
 
 import React from "react";
-import { Button } from "./ui/button";
-import { Calendar } from "./ui/calendar";
-import { Card } from "./ui/card";
-import { Checkbox } from "./ui/checkbox";
-import { Popover, PopoverContent, PopoverDescription, PopoverHeader, PopoverTitle, PopoverTrigger } from "./ui/popover";
-import { ScrollArea } from "./ui/scroll-area";
+import { Button } from "@/components/ui/button";
+import { Calendar } from "@/components/ui/calendar";
+import { Card } from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Popover, PopoverContent, PopoverDescription, PopoverHeader, PopoverTitle, PopoverTrigger } from "@/components/ui/popover";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { CalendarIcon } from "lucide-react";
 import { format } from "date-fns";
 

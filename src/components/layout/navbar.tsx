@@ -2,7 +2,7 @@
 
 import { Bell, LogOut, Moon, Settings, SquareMenuIcon, Sun, User, X } from "lucide-react"
 import Link from "next/link"
-import { Avatar, AvatarImage, AvatarFallback } from "./ui/avatar"
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
@@ -14,7 +14,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { useTheme } from "next-themes"
-import { SidebarTrigger, useSidebar } from "./ui/sidebar"
+import { SidebarTrigger, useSidebar } from "@/components/ui/sidebar"
 import AppBreadcrumb from "./AppBreadCrumb"
 
 const Navbar = () => {

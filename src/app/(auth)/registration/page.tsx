@@ -100,8 +100,7 @@ export default function RegistrationForm() {
   const tabTitles: Record<string, string> = {
     "basic-info": "Basic Information",
     "personal-info": "Personal Information",
-    "emergency-contact":
-      "Person to Notify in Case of Emergency",
+    "emergency-contact":"Person to Notify in Case of Emergency",
     "academic-info": "Academic Information",
     "family-info": "Family Information",
     "file-upload": "File Upload",
@@ -511,56 +510,62 @@ export default function RegistrationForm() {
 
                 {/* EMERGENCY CONTACT */}
                 <TabsContent value="emergency-contact">
-                    <FieldGroup className="space-y-2">
+                <FieldGroup className="space-y-6">
 
-                        <div className="space-y-4">
-                        <h3 className="text-sm font-semibold uppercase tracking-wide text-primary">
-                            Emergency Contact Information
-                        </h3>
+                    <div className="space-y-4">
+                    <h3 className="text-sm font-semibold uppercase tracking-wide text-primary">
+                        Emergency Contact Information
+                    </h3>
 
-                        <div className="grid gap-4 md:grid-cols-2">
+                    <div className="grid gap-4 md:grid-cols-2">
 
-                            <Field>
-                            <FieldLabel>Guardian / Contact Name</FieldLabel>
-                            <Input />
-                            </Field>
+                        <Field>
+                        <FieldLabel>Guardian / Contact Name</FieldLabel>
+                        <Input />
+                        </Field>
 
-                            <Field>
-                            <FieldLabel>Mobile Number</FieldLabel>
-                            <Input />
-                            </Field>
+                        <Field>
+                        <FieldLabel>Mobile Number</FieldLabel>
+                        <Input />
+                        </Field>
 
-                            <Field>
-                            <FieldLabel>Phone Number</FieldLabel>
-                            <Input />
-                            </Field>
+                        <Field>
+                        <FieldLabel>Phone Number</FieldLabel>
+                        <Input />
+                        </Field>
 
-                            <Field>
-                            <FieldLabel>Email Address</FieldLabel>
-                            <Input type="email" />
-                            </Field>
+                        <Field>
+                        <FieldLabel>Email Address</FieldLabel>
+                        <Input type="email" />
+                        </Field>
 
-                            <Field>
-                            <FieldLabel>Address</FieldLabel>
-                            <Input />
-                            </Field>
+                        <Field className="md:col-span-2">
+                        <FieldLabel>Address</FieldLabel>
+                        <Input />
+                        </Field>
 
-                        </div>
-                        </div>
+                    </div>
+                    </div>
 
-                        <div className="flex items-center justify-between">
-                        <Button variant="outline" onClick={prevStep}>
-                            <ChevronLeft className="mr-1 h-4 w-4" />
-                            Previous
-                        </Button>
+                    <div className="flex items-center justify-between">
+                    <Button
+                        variant="outline"
+                        onClick={prevStep}
+                    >
+                        <ChevronLeft className="mr-1 h-4 w-4" />
+                        Previous
+                    </Button>
 
-                        <Button onClick={nextStep} className="text-white">
-                            Next
-                            <ChevronRight className="ml-1 h-4 w-4" />
-                        </Button>
-                        </div>
+                    <Button
+                        onClick={nextStep}
+                        className="text-white"
+                    >
+                        Next
+                        <ChevronRight className="ml-1 h-4 w-4" />
+                    </Button>
+                    </div>
 
-                    </FieldGroup>
+                </FieldGroup>
                 </TabsContent>
 
                 {/* ACADEMIC INFO */}

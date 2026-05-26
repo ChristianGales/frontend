@@ -1,7 +1,6 @@
 "use client";
 import { ChartContainer, ChartLegend, ChartLegendContent, ChartTooltip, ChartTooltipContent, type ChartConfig } from "@/components/ui/chart"
 import { Area, AreaChart, BarChart, CartesianGrid, XAxis, YAxis } from "recharts";
-import { Bar } from "recharts";
 
 const chartConfig = {
   desktop: {

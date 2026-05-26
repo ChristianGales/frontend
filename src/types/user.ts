@@ -1,0 +1,11 @@
+export type UserRole =
+  | "ADMIN"
+  | "REGISTRAR"
+  | "BASIC EDUCATION REGISTRAR"
+  | "COLLEGE REGISTRAR"
+  | "FACULTY"
+  | "TEACHER"
+  | "INSTRUCTOR"
+  | "STUDENT"
+  | "ACCOUNTING"
+

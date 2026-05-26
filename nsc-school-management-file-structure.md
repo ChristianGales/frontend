@@ -1,137 +1,246 @@
-# NSC School Management System
-```txt
 src/
 │
 ├── app/
 │   │
 │   ├── (public)/
 │   │   ├── page.tsx
-│   │   ├── about/page.tsx
-│   │   ├── contact/page.tsx
-│   │   └── login/page.tsx
+│   │   ├── about/
+│   │   │   └── page.tsx
+│   │   ├── contact/
+│   │   │   └── page.tsx
+│   │   ├── privacy-policy/
+│   │   │   └── page.tsx
+│   │   └── terms-and-conditions/
+│   │       └── page.tsx
 │   │
 │   ├── (auth)/
-│   │   ├── sign-in/page.tsx
-│   │   ├── forgot-password/page.tsx
-│   │   ├── reset-password/page.tsx
-│   │   └── layout.tsx
-│   │
-│   ├── dashboard/
 │   │   ├── layout.tsx
-│   │   ├── page.tsx
+│   │   ├── loading.tsx
 │   │   │
+│   │   ├── login/
+│   │   │   └── page.tsx
+│   │   │
+│   │   ├── otp/
+│   │   │   └── page.tsx
+│   │   │
+│   │   ├── registration/
+│   │   │   └── page.tsx
+│   │   │
+│   │   ├── forgot-password/
+│   │   │   └── page.tsx
+│   │   │
+│   │   └── reset-password/
+│   │       └── page.tsx
+│   │
+│   ├── (dashboard)/
+│   │   │
+│   │   ├── layout.tsx
+│   │   ├── loading.tsx
+│   │   ├── error.tsx
+│   │   ├── not-found.tsx
+│   │   └── page.tsx
+│   │
+│   │
 │   │   ├── admin/
+│   │   │   │
 │   │   │   ├── page.tsx
 │   │   │   │
 │   │   │   ├── users/
 │   │   │   │   ├── page.tsx
-│   │   │   │   ├── create/page.tsx
-│   │   │   │   └── [id]/page.tsx
+│   │   │   │   ├── create/
+│   │   │   │   │   └── page.tsx
+│   │   │   │   └── [id]/
+│   │   │   │       ├── page.tsx
+│   │   │   │       └── edit/
+│   │   │   │           └── page.tsx
 │   │   │   │
-│   │   │   ├── faculty/
-│   │   │   │   ├── page.tsx
-│   │   │   │   ├── teachers/
-│   │   │   │   ├── instructors/
-│   │   │   │   └── assignments/
+│   │   │   ├── roles/
+│   │   │   │   └── page.tsx
 │   │   │   │
-│   │   │   ├── academic/
-│   │   │   │   ├── basic-ed/
-│   │   │   │   └── college/
+│   │   │   ├── permissions/
+│   │   │   │   └── page.tsx
+│   │   │   │
+│   │   │   ├── audit-logs/
+│   │   │   │   └── page.tsx
+│   │   │   │
+│   │   │   ├── maintenance/
+│   │   │   │   ├── school-year/
+│   │   │   │   ├── semester/
+│   │   │   │   ├── departments/
+│   │   │   │   ├── sections/
+│   │   │   │   ├── subjects/
+│   │   │   │   └── rooms/
 │   │   │   │
 │   │   │   ├── reports/
-│   │   │   ├── audit-logs/
-│   │   │   └── settings/
-│   │   │
-│   │   ├── basic-ed/
-│   │   │   │
-│   │   │   ├── registrar/
-│   │   │   │   ├── page.tsx
 │   │   │   │   ├── enrollment/
+│   │   │   │   ├── academic/
+│   │   │   │   ├── finance/
+│   │   │   │   └── faculty/
+│   │   │   │
+│   │   │   └── settings/
+│   │   │       ├── general/
+│   │   │       ├── security/
+│   │   │       └── appearance/
+│   │   │
+│   │   │
+│   │   ├── registrar/
+│   │   │   │
+│   │   │   ├── basic-ed/
+│   │   │   │   │
+│   │   │   │   ├── page.tsx
+│   │   │   │   │
+│   │   │   │   ├── enrollment/
+│   │   │   │   │   ├── page.tsx
+│   │   │   │   │   ├── create/
+│   │   │   │   │   └── [id]/
+│   │   │   │   │
 │   │   │   │   ├── students/
+│   │   │   │   │   ├── page.tsx
+│   │   │   │   │   ├── create/
+│   │   │   │   │   └── [id]/
+│   │   │   │   │
 │   │   │   │   ├── sections/
+│   │   │   │   │   ├── page.tsx
+│   │   │   │   │   ├── create/
+│   │   │   │   │   └── [id]/
+│   │   │   │   │
 │   │   │   │   ├── grading/
+│   │   │   │   │   ├── quarterly/
+│   │   │   │   │   ├── final/
+│   │   │   │   │   └── report-cards/
+│   │   │   │   │
+│   │   │   │   ├── attendance/
+│   │   │   │   │
 │   │   │   │   └── records/
+│   │   │   │       ├── sf1/
+│   │   │   │       ├── sf2/
+│   │   │   │       ├── sf9/
+│   │   │   │       └── sf10/
+│   │   │   │
+│   │   │   │
+│   │   │   └── college/
+│   │   │       │
+│   │   │       ├── page.tsx
+│   │   │       │
+│   │   │       ├── enrollment/
+│   │   │       │   ├── page.tsx
+│   │   │       │   ├── regular/
+│   │   │       │   ├── irregular/
+│   │   │       │   └── transferee/
+│   │   │       │
+│   │   │       ├── students/
+│   │   │       │   ├── page.tsx
+│   │   │       │   ├── regular/
+│   │   │       │   ├── irregular/
+│   │   │       │   └── graduating/
+│   │   │       │
+│   │   │       ├── evaluation/
+│   │   │       │
+│   │   │       ├── curriculums/
+│   │   │       │
+│   │   │       ├── schedules/
+│   │   │       │
+│   │   │       ├── grades/
+│   │   │       │
+│   │   │       └── records/
+│   │   │           ├── tor/
+│   │   │           ├── cog/
+│   │   │           └── diploma/
+│   │   │
+│   │   │
+│   │   ├── faculty/
 │   │   │   │
 │   │   │   ├── teachers/
+│   │   │   │   │
 │   │   │   │   ├── page.tsx
+│   │   │   │   │
 │   │   │   │   ├── advisory/
 │   │   │   │   ├── attendance/
 │   │   │   │   ├── grades/
-│   │   │   │   └── schedules/
-│   │   │   │
-│   │   │   ├── students/
-│   │   │   │   ├── page.tsx
-│   │   │   │   ├── profile/
-│   │   │   │   ├── grades/
 │   │   │   │   ├── schedules/
-│   │   │   │   ├── attendance/
-│   │   │   │   └── billing/
+│   │   │   │   └── students/
 │   │   │   │
-│   │   │   └── guidance/
+│   │   │   └── instructors/
+│   │   │       │
+│   │   │       ├── page.tsx
+│   │   │       │
+│   │   │       ├── classes/
+│   │   │       ├── attendance/
+│   │   │       ├── grades/
+│   │   │       ├── schedules/
+│   │   │       ├── subject-loads/
+│   │   │       └── students/
 │   │   │
-│   │   ├── college/
+│   │   │
+│   │   ├── students/
 │   │   │   │
-│   │   │   ├── registrar/
-│   │   │   │   ├── page.tsx
-│   │   │   │   ├── enrollment/
-│   │   │   │   ├── evaluation/
-│   │   │   │   ├── schedules/
-│   │   │   │   ├── curriculums/
-│   │   │   │   └── records/
-│   │   │   │
-│   │   │   ├── instructors/
-│   │   │   │   ├── page.tsx
-│   │   │   │   ├── classes/
-│   │   │   │   ├── attendance/
-│   │   │   │   ├── grades/
-│   │   │   │   ├── schedules/
-│   │   │   │   └── subject-loads/
-│   │   │   │
-│   │   │   ├── students/
+│   │   │   ├── basic-ed/
+│   │   │   │   │
 │   │   │   │   ├── page.tsx
 │   │   │   │   ├── profile/
 │   │   │   │   ├── grades/
+│   │   │   │   ├── attendance/
 │   │   │   │   ├── schedules/
 │   │   │   │   ├── billing/
-│   │   │   │   ├── evaluation/
-│   │   │   │   └── subjects/
+│   │   │   │   └── announcements/
 │   │   │   │
-│   │   │   └── departments/
+│   │   │   └── college/
+│   │   │       │
+│   │   │       ├── page.tsx
+│   │   │       ├── profile/
+│   │   │       ├── grades/
+│   │   │       ├── schedules/
+│   │   │       ├── evaluation/
+│   │   │       ├── subjects/
+│   │   │       ├── billing/
+│   │   │       └── announcements/
+│   │   │
 │   │   │
 │   │   ├── accounting/
+│   │   │   │
 │   │   │   ├── page.tsx
+│   │   │   │
 │   │   │   ├── billing/
 │   │   │   ├── payments/
 │   │   │   ├── invoices/
 │   │   │   ├── expenses/
+│   │   │   ├── discounts/
+│   │   │   ├── scholarships/
 │   │   │   └── reports/
 │   │   │
-│   │   └── shared/
-│   │       ├── announcements/
-│   │       ├── notifications/
-│   │       ├── profile/
-│   │       ├── settings/
-│   │       └── help/
+│   │   │
+│   │   ├── shared/
+│   │   │   ├── profile/
+│   │   │   ├── notifications/
+│   │   │   ├── announcements/
+│   │   │   ├── calendar/
+│   │   │   └── help/
+│   │   │
+│   │   │
+│   │   └── system/
+│   │       ├── components/
+│   │       ├── tables/
+│   │       ├── charts/
+│   │       └── blank/
+│   │
 │   │
 │   ├── api/
 │   │   │
 │   │   ├── auth/
 │   │   │
-│   │   ├── users/
+│   │   ├── admin/
 │   │   │
-│   │   ├── basic-ed/
-│   │   │   ├── students/
+│   │   ├── registrar/
+│   │   │   ├── basic-ed/
+│   │   │   └── college/
+│   │   │
+│   │   ├── faculty/
 │   │   │   ├── teachers/
-│   │   │   ├── enrollment/
-│   │   │   ├── grades/
-│   │   │   └── sections/
+│   │   │   └── instructors/
 │   │   │
-│   │   ├── college/
-│   │   │   ├── students/
-│   │   │   ├── instructors/
-│   │   │   ├── curriculums/
-│   │   │   ├── schedules/
-│   │   │   └── evaluation/
+│   │   ├── students/
+│   │   │   ├── basic-ed/
+│   │   │   └── college/
 │   │   │
 │   │   ├── accounting/
 │   │   │
@@ -139,36 +248,100 @@ src/
 │   │   │
 │   │   └── notifications/
 │   │
+│   │
 │   ├── globals.css
 │   ├── layout.tsx
 │   ├── loading.tsx
 │   ├── not-found.tsx
-│   └── error.tsx
+│   ├── error.tsx
+│   └── page.tsx
+│
 │
 ├── components/
 │   │
+│   ├── providers/
+│   │   ├── theme-provider.tsx
+│   │   ├── auth-provider.tsx
+│   │   ├── session-provider.tsx
+│   │   └── query-provider.tsx
+│   │
+│   │
 │   ├── ui/
 │   │
-│   ├── shared/
-│   │   ├── navbar.tsx
+│   │
+│   ├── layout/
 │   │   ├── app-sidebar.tsx
 │   │   ├── mobile-sidebar.tsx
+│   │   ├── navbar.tsx
 │   │   ├── footer.tsx
-│   │   ├── page-header.tsx
 │   │   ├── breadcrumb.tsx
-│   │   ├── data-table.tsx
-│   │   └── loading-spinner.tsx
+│   │   ├── page-header.tsx
+│   │   └── dashboard-shell.tsx
+│   │
+│   │
+│   ├── shared/
+│   │   ├── loading-spinner.tsx
+│   │   ├── empty-state.tsx
+│   │   ├── error-state.tsx
+│   │   ├── no-data.tsx
+│   │   └── section-title.tsx
+│   │
 │   │
 │   ├── dashboard/
 │   │   ├── stat-card.tsx
-│   │   ├── chart-card.tsx
 │   │   ├── analytics-card.tsx
-│   │   └── recent-activity.tsx
+│   │   ├── chart-card.tsx
+│   │   ├── recent-activity.tsx
+│   │   └── dashboard-header.tsx
+│   │
+│   │
+│   ├── registrar/
+│   │   │
+│   │   ├── basic-ed/
+│   │   │   ├── enrollment/
+│   │   │   ├── sections/
+│   │   │   ├── grading/
+│   │   │   └── records/
+│   │   │
+│   │   └── college/
+│   │       ├── evaluation/
+│   │       ├── curriculums/
+│   │       ├── schedules/
+│   │       └── records/
+│   │
+│   │
+│   ├── faculty/
+│   │   │
+│   │   ├── teachers/
+│   │   │   ├── advisory/
+│   │   │   ├── grades/
+│   │   │   └── attendance/
+│   │   │
+│   │   └── instructors/
+│   │       ├── classes/
+│   │       ├── grades/
+│   │       └── schedules/
+│   │
+│   │
+│   ├── students/
+│   │   │
+│   │   ├── basic-ed/
+│   │   │
+│   │   └── college/
+│   │
+│   │
+│   ├── accounting/
+│   │   ├── billing/
+│   │   ├── invoices/
+│   │   └── payments/
+│   │
 │   │
 │   ├── forms/
 │   │   │
 │   │   ├── auth/
-│   │   │   └── login-form.tsx
+│   │   │   ├── login-form.tsx
+│   │   │   ├── otp-form.tsx
+│   │   │   └── reset-password-form.tsx
 │   │   │
 │   │   ├── employee/
 │   │   │   ├── employee-form.tsx
@@ -203,68 +376,87 @@ src/
 │   │       ├── payment-form.tsx
 │   │       └── invoice-form.tsx
 │   │
+│   │
 │   ├── tables/
+│   │   ├── data-table.tsx
 │   │   ├── students-table.tsx
 │   │   ├── faculty-table.tsx
 │   │   ├── grades-table.tsx
 │   │   ├── schedules-table.tsx
 │   │   └── payments-table.tsx
 │   │
-│   └── charts/
-│       ├── enrollment-chart.tsx
-│       ├── finance-chart.tsx
-│       └── attendance-chart.tsx
+│   │
+│   ├── charts/
+│   │   ├── area-chart.tsx
+│   │   ├── bar-chart.tsx
+│   │   ├── pie-chart.tsx
+│   │   ├── line-chart.tsx
+│   │   ├── enrollment-chart.tsx
+│   │   ├── attendance-chart.tsx
+│   │   └── finance-chart.tsx
+│   │
+│   │
+│   └── user/
+│       ├── user-avatar.tsx
+│       ├── user-dropdown.tsx
+│       ├── user-profile-card.tsx
+│       └── user-menu.tsx
 │
-├── lib/
-│   ├── auth.ts
-│   ├── db.ts
-│   ├── prisma.ts
-│   ├── permissions.ts
-│   ├── role-access.ts
-│   ├── utils.ts
-│   │
-│   ├── validations/
-│   │   ├── auth.ts
-│   │   ├── student.ts
-│   │   ├── employee.ts
-│   │   └── billing.ts
-│   │
-│   └── constants/
-│       ├── roles.ts
-│       ├── academic-division.ts
-│       └── navigation.ts
 │
 ├── hooks/
 │   ├── use-auth.ts
+│   ├── use-user.ts
 │   ├── use-role.ts
 │   ├── use-sidebar.ts
 │   ├── use-theme.ts
-│   └── use-user.ts
+│   └── use-mobile.ts
+│
+│
+├── lib/
+│   │
+│   ├── auth.ts
+│   ├── prisma.ts
+│   ├── db.ts
+│   ├── utils.ts
+│   ├── permissions.ts
+│   ├── role-access.ts
+│   │
+│   ├── constants/
+│   │   ├── roles.ts
+│   │   ├── navigation.ts
+│   │   ├── academic-division.ts
+│   │   └── routes.ts
+│   │
+│   └── validations/
+│       ├── auth.ts
+│       ├── employee.ts
+│       ├── student.ts
+│       ├── registrar.ts
+│       └── accounting.ts
+│
 │
 ├── services/
 │   │
 │   ├── auth/
 │   │
-│   ├── basic-ed/
-│   │   ├── enrollment-service.ts
-│   │   ├── grading-service.ts
-│   │   ├── section-service.ts
-│   │   └── attendance-service.ts
+│   ├── registrar/
+│   │   ├── basic-ed/
+│   │   └── college/
 │   │
-│   ├── college/
-│   │   ├── evaluation-service.ts
-│   │   ├── curriculum-service.ts
-│   │   ├── scheduling-service.ts
-│   │   └── subject-load-service.ts
+│   ├── faculty/
+│   │   ├── teachers/
+│   │   └── instructors/
+│   │
+│   ├── students/
+│   │   ├── basic-ed/
+│   │   └── college/
 │   │
 │   ├── accounting/
-│   │   ├── billing-service.ts
-│   │   ├── payment-service.ts
-│   │   └── invoice-service.ts
 │   │
 │   └── shared/
-│       ├── notification-service.ts
-│       └── report-service.ts
+│       ├── report-service.ts
+│       └── notification-service.ts
+│
 │
 ├── store/
 │   ├── auth-store.ts
@@ -272,15 +464,18 @@ src/
 │   ├── notification-store.ts
 │   └── theme-store.ts
 │
+│
 ├── types/
 │   ├── auth.d.ts
 │   ├── user.d.ts
 │   ├── employee.d.ts
 │   ├── student.d.ts
 │   ├── academic.d.ts
-│   └── billing.d.ts
+│   ├── billing.d.ts
+│   └── permissions.d.ts
+│
 │
 ├── middleware.ts
 ├── env.ts
-└── middleware.ts
-```
+├── declarations.d.ts
+└── tsconfig.json

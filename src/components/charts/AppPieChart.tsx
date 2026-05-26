@@ -2,8 +2,8 @@
 
 import React from "react";
 import { Label, Pie, PieChart, PieSectorShapeProps, Sector, } from "recharts";
-import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent, } from "./ui/chart";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue, } from "./ui/select";
+import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent, } from "@/components/ui/chart";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue, } from "@/components/ui/select";
 import { TrendingUp } from "lucide-react";
 
 const chartConfig = {
