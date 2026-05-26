@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react"
 import {
-    ArrowLeft,
   ChevronLeft,
   ChevronRight,
   Upload,
@@ -114,7 +113,7 @@ export default function RegistrationForm() {
 
         <div className="w-full max-w-sm md:max-w-4xl">
 
-        <div className="sticky top-0 z-50 mb-6">
+        <div className="top-0 z-50 mb-6">
             <div className="flex items-center justify-between rounded-2xl border bg-background/95 backdrop-blur px-6 py-4 shadow-sm">
 
                 <div className="flex items-center gap-4">
@@ -150,7 +149,7 @@ export default function RegistrationForm() {
                         hover:underline
                     "
                     >
-                    <ArrowLeft className="h-4 w-4" />
+                    <ChevronLeft className="h-4 w-4" />
                     Back to Login
                 </Link>
                 </Button>

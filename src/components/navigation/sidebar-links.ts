@@ -60,6 +60,14 @@ import {
         title: "404 Page",
         url: "/unknown-page",
       },
+      {
+        title: "Privacy Policy",
+        url: "/privacy-policy",
+      },
+      {
+        title: "Programs",
+        url: "/programs",
+      },
     ],
   
     auth: [
@@ -76,16 +84,12 @@ import {
         url: "/otp",
       },
       {
+        title: "Forgot Password",
+        url: "/forgot-password",
+      },
+      {
         title: "Reset Password",
         url: "/reset-password",
-      },
-      {
-        title: "Privacy Policy",
-        url: "/privacy-policy",
-      },
-      {
-        title: "Programs",
-        url: "/programs",
       },
     ],
   }
