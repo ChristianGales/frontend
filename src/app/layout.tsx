@@ -5,6 +5,7 @@ import "@/app/globals.css";
 
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import { Toaster } from "@/components/ui/sonner";
 
 const figtree = Figtree({
   subsets: ["latin"],
@@ -47,6 +48,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <Toaster position="top-center" richColors/>
         </ThemeProvider>
       </body>
     </html>
