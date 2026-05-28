@@ -10,6 +10,8 @@ import {
 
 import SidebarAdmin from "@/components/navigation/sidebar-admin"
 import SidebarStudent from "@/components/navigation/sidebar-student"
+import SidebarCollegeRegistrar from "@/components/navigation/sidebar-college-registrar"
+
 
 import {
   DropdownMenu,
@@ -30,11 +32,12 @@ import {
 
 import type { UserRole } from "@/types/user"
 
+
 const AppSidebar = () => {
 
 
   // Temporary Role (Replace with actual user role from auth context or API)
-  const role = "ADMIN" as UserRole
+  const role = "COLLEGE REGISTRAR" as UserRole
 
   return (
     <Sidebar collapsible="icon">
@@ -74,6 +77,10 @@ const AppSidebar = () => {
 
         {role === "STUDENT" && (
           <SidebarStudent />
+        )}
+
+        {role === "COLLEGE REGISTRAR" && (
+          <SidebarCollegeRegistrar />
         )}
 
       </SidebarContent>

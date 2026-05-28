@@ -113,3 +113,21 @@ import {
       },
     ],
   }
+
+
+  export const collegeRegistrarSidebarLinks = {
+    main: [
+      {
+        title: "Dashboard",
+        url: "/college-registrar/dashboard",
+        icon: LayoutDashboard,
+      },
+      {
+        title: "Adminssions",
+        url: "/admission",
+        icon: BookOpen,
+        badge: 5,
+      },
+    ],
+    
+  }
