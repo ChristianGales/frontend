@@ -1,7 +1,7 @@
-import AppAreaChart from "@/components/AppAreaChart";
-import AppBarChart from "@/components/AppBarChart";
-import AppPieChart from "@/components/AppPieChart";
-import TodoList from "@/components/AppToDoList";
+import AppAreaChart from "@/components//charts/AppAreaChart";
+import AppBarChart from "@/components//charts/AppBarChart";
+import AppPieChart from "@/components//charts/AppPieChart";
+import TodoList from "@/components//charts/AppToDoList";
 import CardList from "@/components/CardList";
 
 const Homepage = () => {

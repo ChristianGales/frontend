@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import {
-  BadgeCheck, ChevronDown, Lock, Shield, User,
+  BadgeCheck, ChevronDown, CircleAlert, Lock, Shield, User,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -14,11 +14,11 @@ const ProfilePage = () => {
     <div className="flex flex-col min-h-[calc(100vh-136px)] rounded-xl border border-dashed p-6 mb-4">
       
       {/* Page Header Area */}
-      <div className="mb-2 pb-2 ">
+      {/* <div className="mb-2 pb-2 ">
         <h1 className="text-3xl font-bold tracking-tight ">
           Profile Page
         </h1>
-      </div>
+      </div> */}
 
       {/* COMPONENT PASTE ZONE: The main container for your content */}
       <div className="flex-1 w-full h-full">
@@ -57,7 +57,8 @@ const ProfilePage = () => {
               justify-center lg:justify-start gap-2 sm:gap-3 
               rounded-xl px-3 sm:px-4 py-2.5 text-xs sm:text-sm font-medium
               data-[state=active]:bg-[var(--primary)]
-              data-[state=active]:text-primary
+              data-[state=active]:text-white
+              data-[state=active]:shadow-none
               hover:bg-muted/70
               transition-all
             "
@@ -179,13 +180,14 @@ const ProfilePage = () => {
                 </div>
 
                 {/* Security Notice */}
-                <div className="md:col-span-2 rounded-xl border bg-muted/40 p-4 flex gap-3 text-sm">
-                  <span className="mt-0.5 text-muted-foreground">⚠️</span>
+                <div className="md:col-span-2 rounded-xl border border-[var(--danger)] p-4 flex gap-3 text-sm">
+                  <span className="mt-0.5 text-[var(--danger)]">
+                    <CircleAlert />
+                  </span>
                   <div>
-                    <p className="font-semibold text-muted-foreground mb-1">Security Notice</p>
-                    <p className="text-muted-foreground leading-relaxed">
-                      After changing your password, you'll remain logged in on this device.
-                      However, you'll need to sign in again on other devices.
+                    <p className="font-semibold text-[var(--danger)] mb-1">Security Notice</p>
+                    <p className="text-[var(--danger)] leading-relaxed">
+                      You will need to login again after changing your password.
                     </p>
                   </div>
                 </div>

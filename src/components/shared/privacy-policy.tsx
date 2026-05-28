@@ -1,10 +1,16 @@
-import Link from "next/link"
+"use client"
 
-const PrivacyPolicyPage = () => {
+type PrivacyPolicyPageProps = {
+  onAgree: () => void
+}
+
+const PrivacyPolicyPage = ({
+  onAgree,
+}: PrivacyPolicyPageProps) => {
   return (
     <div className="min-h-screen bg-muted/30 flex flex-col items-center">
 
-      {/* Header */}
+
       <div className="w-full bg-primary text-primary-foreground py-8">
         <div className=" flex flex-col items-center justify-center text-center space-y-3">
 
@@ -175,12 +181,10 @@ const PrivacyPolicyPage = () => {
                 Your data is protected under RA 10173
               </p>
 
-            <Link href="/registration">
-                <button className="rounded-xl bg-primary px-6 py-2.5 text-sm font-medium text-white transition hover:opacity-90">
+          
+                <button  onClick={onAgree} className="rounded-xl bg-primary px-6 py-2.5 text-sm font-medium text-white transition hover:opacity-90">
                     I Have Read and Agreed
                 </button>
-            </Link>
-              
 
             </div>
 
