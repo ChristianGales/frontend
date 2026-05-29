@@ -9,7 +9,7 @@ import AppPieChart from "@/components/charts/AppPieChart"
 import TodoList from "@/components/charts/AppToDoList"
 import CardList from "@/components/CardList"
 
-const Homepage = () => {
+const CollegeRegistrarDashboard = () => {
 
   const [time, setTime] = useState("")
   const [period, setPeriod] = useState("")
@@ -73,7 +73,7 @@ const Homepage = () => {
         <div className="relative z-10 flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
           <div>
             <h1 className="text-4xl font-black tracking-tight">
-              {greeting}, Firstname
+              {greeting}, College Registrar!
             </h1>
 
             <p className="mt-2 flex items-center gap-2 text-muted-foreground">
@@ -133,4 +133,4 @@ const Homepage = () => {
   )
 }
 
-export default Homepage;
+export default CollegeRegistrarDashboard;

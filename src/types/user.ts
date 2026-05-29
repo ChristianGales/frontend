@@ -1,6 +1,5 @@
 export type UserRole =
   | "ADMIN"
-  | "REGISTRAR"
   | "BASIC EDUCATION REGISTRAR"
   | "COLLEGE REGISTRAR"
   | "FACULTY"
