@@ -124,7 +124,7 @@
         },
         {
           title: "Adminssions",
-          url: "./college/admission",
+          url: "/registrar/college/admission",
           icon: BookOpen,
           badge: 5,
         },

@@ -33,76 +33,52 @@ import {
 import type { UserRole } from "@/types/user"
 
 
+const getTemporaryRole = (): UserRole => {
+  return "ADMIN"
+}
+
 const AppSidebar = () => {
-
-
   // Temporary Role (Replace with actual user role from auth context or API)
-  const role = "COLLEGE REGISTRAR" as UserRole
+  const role = getTemporaryRole()
 
   return (
     <Sidebar collapsible="icon">
-
       {/* Logo */}
       <SidebarHeader className="py-4">
-
         <SidebarMenu>
           <SidebarMenuItem>
-
             <SidebarMenuButton asChild>
               <Link href="/dashboard">
-
                 <Image
                   src="/images/nsc-logoo.png"
                   alt="NSC Logo"
                   width={40}
                   height={40}
                 />
-
                 <span>NSC SMS</span>
-
               </Link>
             </SidebarMenuButton>
-
           </SidebarMenuItem>
         </SidebarMenu>
-
       </SidebarHeader>
 
       {/* Sidebar Content */}
       <SidebarContent>
-
-        {role === "ADMIN" && (
-          <SidebarAdmin />
-        )}
-
-        {role === "STUDENT" && (
-          <SidebarStudent />
-        )}
-
-        {role === "COLLEGE REGISTRAR" && (
-          <SidebarCollegeRegistrar />
-        )}
-
+        {role === "ADMIN" && <SidebarAdmin />}
+        {role === "STUDENT" && <SidebarStudent />}
+        {role === "COLLEGE REGISTRAR" && <SidebarCollegeRegistrar />}
       </SidebarContent>
 
       {/* Footer */}
       <SidebarFooter>
-
         <SidebarMenu>
           <SidebarMenuItem>
-
             <DropdownMenu>
-
               <DropdownMenuTrigger asChild>
-
                 <SidebarMenuButton>
-
                   <User />
-
                   <ChevronUp className="ml-auto" />
-
                 </SidebarMenuButton>
-
               </DropdownMenuTrigger>
 
               <DropdownMenuContent
@@ -110,34 +86,25 @@ const AppSidebar = () => {
                 align="end"
                 className="w-48"
               >
-
                 <DropdownMenuItem asChild>
-                  <Link href="/profile">
-                    Account
-                  </Link>
+                  <Link href="/profile">Account</Link>
                 </DropdownMenuItem>
 
                 <DropdownMenuItem asChild>
-                  <Link href="/settings">
-                    Settings
-                  </Link>
+                  <Link href="/settings">Settings</Link>
                 </DropdownMenuItem>
 
-                <DropdownMenuItem>
-                  Sign Out
-                </DropdownMenuItem>
-
+                <DropdownMenuItem>Sign Out</DropdownMenuItem>
               </DropdownMenuContent>
-
             </DropdownMenu>
-
           </SidebarMenuItem>
         </SidebarMenu>
-
       </SidebarFooter>
-
     </Sidebar>
   )
 }
 
 export default AppSidebar;
+
+
+
