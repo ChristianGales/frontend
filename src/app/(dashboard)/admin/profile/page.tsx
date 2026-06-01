@@ -1,6 +1,5 @@
 "use client"
 
-import { useState } from "react"
 import {
   BadgeCheck, ChevronDown, CircleAlert, Lock, Shield, User,
 } from "lucide-react"
@@ -12,21 +11,11 @@ const ProfilePage = () => {
   return (
 
     <div className="flex flex-col min-h-[calc(100vh-136px)] rounded-xl border border-dashed p-6 mb-4">
-      
-      {/* Page Header Area */}
-      {/* <div className="mb-2 pb-2 ">
-        <h1 className="text-3xl font-bold tracking-tight ">
-          Profile Page
-        </h1>
-      </div> */}
-
-      {/* COMPONENT PASTE ZONE: The main container for your content */}
       <div className="flex-1 w-full h-full">
 
-         <Tabs defaultValue="profile" className="w-full">
+      <Tabs defaultValue="profile" className="w-full">
       <div className="grid gap-6 lg:grid-cols-[260px_1fr]">
 
-      {/*  */}
       <div className="rounded-2xl sm:rounded-3xl border bg-card p-2 sm:p-3">
         <TabsList className="flex h-fit w-full flex-row lg:flex-col items-stretch gap-1 lg:mt-8 sm:gap-2 bg-transparent p-0">
 
@@ -40,9 +29,7 @@ const ProfilePage = () => {
               data-[state=active]:text-white
               data-[state=active]:shadow-none
               hover:bg-muted/70
-           
               transition-colors
-              
             "
           >
             <User className="h-4 w-4 shrink-0" />
@@ -70,12 +57,9 @@ const ProfilePage = () => {
         </TabsList>
       </div>
 
-        
-      {/* Profile */}
           <TabsContent value="profile" className="mt-0">
             <div className="rounded-3xl border bg-card p-6">
 
-           {/* Header */}
           <div className="mb-8 flex items-start gap-4 border-b pb-6">
             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-muted">
               <User className="h-5 w-5 text-muted-foreground" />
@@ -103,7 +87,6 @@ const ProfilePage = () => {
             </Button>
           </div>
 
-          {/* Mobile Button */}
           <Button
             variant="outline"
             className="mb-6 w-full rounded-full sm:hidden"
@@ -111,7 +94,6 @@ const ProfilePage = () => {
             Edit Profile
           </Button>
 
-              {/* Form */}
               <div className="grid gap-6 md:grid-cols-2">
                 <div className="space-y-2">
                   <label className="text-sm font-medium">First Name</label>
@@ -149,11 +131,9 @@ const ProfilePage = () => {
             </div>
           </TabsContent>
 
-          {/* Security */}
           <TabsContent value="security" className="mt-0">
             <div className="rounded-3xl border bg-card p-6">
 
-              {/* Header */}
               <div className="mb-8 flex items-center gap-4 border-b pb-6">
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-muted">
                   <Lock className="h-5 w-5 text-muted-foreground" />
@@ -164,7 +144,6 @@ const ProfilePage = () => {
                 </div>
               </div>
 
-              {/* Form */}
               <div className="grid gap-6 md:grid-cols-2">
                 <div className="space-y-2 md:col-span-2">
                   <label className="text-sm font-medium">Current Password</label>
@@ -179,7 +158,6 @@ const ProfilePage = () => {
                   <Input type="password" placeholder="Confirm your new password" />
                 </div>
 
-                {/* Security Notice */}
                 <div className="md:col-span-2 rounded-xl border border-[var(--danger)] p-4 flex gap-3 text-sm">
                   <span className="mt-0.5 text-[var(--danger)]">
                     <CircleAlert />
@@ -193,7 +171,6 @@ const ProfilePage = () => {
                 </div>
               </div>
 
-              {/* Footer */}
               <div className="mt-6 flex justify-end">
                 <Button className="rounded-full text-white px-6">Change Password</Button>
               </div>

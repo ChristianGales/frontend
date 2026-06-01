@@ -33,7 +33,6 @@ export function LoginForm({
           </p>
         </div>
 
-        {/* Email */}
         <Field>
           <FieldLabel htmlFor="email">Email</FieldLabel>
 
@@ -46,7 +45,6 @@ export function LoginForm({
           />
         </Field>
 
-        {/* Password */}
         <Field>
           <div className="flex items-center">
             <FieldLabel htmlFor="password">Password</FieldLabel>
@@ -81,7 +79,6 @@ export function LoginForm({
           </div>
         </Field>
 
-        {/* Login Button */}
         <Field>
           <Link href="/dashboard">
             <Button type="submit" className="w-full h-10 text-white" >
@@ -90,7 +87,6 @@ export function LoginForm({
           </Link>
         </Field>
 
-        {/* Register */}
         <Field>
           <FieldDescription className="text-center">
             Don&apos;t have an account?{" "}

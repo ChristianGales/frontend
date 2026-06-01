@@ -19,9 +19,8 @@ const AdminDashboard = () => {
   useEffect(() => {
 
     const updateClock = () => {
-      const now = new Date()
+    const now = new Date()
 
-      // TIME
       const formattedTime = now.toLocaleTimeString([], {
         hour: "2-digit",
         minute: "2-digit",
@@ -33,7 +32,6 @@ const AdminDashboard = () => {
       setTime(clock)
       setPeriod(meridian)
 
-      // DATE
       const formattedDate = now.toLocaleDateString([], {
         weekday: "long",
         month: "long",

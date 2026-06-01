@@ -1,7 +1,5 @@
-import DashboardShell from "@/components/layout/dashboard-shell"
+import DashboardShell from "@/components/dashboard/dashboard-shell"
 import { cookies } from "next/headers"
-
-
 
 export default async function DashboardLayout({
   children,

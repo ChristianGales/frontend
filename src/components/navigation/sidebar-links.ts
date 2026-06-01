@@ -12,38 +12,63 @@
       ClipboardList,
     } from "lucide-react"
     
-    export const adminSidebarLinks = {
+    export const SideBarLinks = {
       main: [
         {
           title: "Dashboard",
           url: "/dashboard",
           icon: Home,
+          visible: ["ADMIN", "STUDENT", "COLLEGE REGISTRAR"],
         },
         {
           title: "RBAC",
           url: "/rbac",
           icon: ShieldCogCorner,
+          visible: ["ADMIN"],
         },
         {
           title: "Inbox",
           url: "#",
           icon: Inbox,
           badge: 23,
+          visible: ["ADMIN", "STUDENT", "COLLEGE REGISTRAR"],
+        },
+        {
+          title: "Admissions",
+          url: "/admissions",
+          icon: ShieldCheck,
+          badge: 5,
+          visible: ["COLLEGE REGISTRAR"],
+        },
+        {
+          title: "Schedule",
+          url: "/schedule",
+          icon: Calendar,
+          visible: ["STUDENT"],
+        },
+        {
+          title: "Enrollment",
+          url: "/enrollment",
+          icon: ClipboardList,
+          visible: ["STUDENT"],
         },
         {
           title: "Components",
           url: "/scomponents",
           icon: LayoutDashboard,
+          visible: ["ADMIN"],
         },
         {
           title: "Tables",
           url: "/table",
           icon: Table2,
+          visible: ["ADMIN"],
         },
         {
           title: "Settings",
           url: "#",
           icon: Settings,
+          visible: ["ADMIN", "STUDENT", "COLLEGE REGISTRAR"],
         },
       ],
     

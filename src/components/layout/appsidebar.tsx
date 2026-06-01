@@ -2,16 +2,32 @@
 
 import Image from "next/image"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
+
+import { ChevronUp, User, ChevronDown, Calendar, ShieldCheck } from "lucide-react"
 
 import {
-  ChevronUp,
-  User,
-} from "lucide-react"
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarGroupLabel,
+  SidebarHeader,
+  SidebarMenu,
+  SidebarMenuBadge,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  SidebarMenuSub,
+  SidebarMenuSubButton,
+  SidebarMenuSubItem,
+} from "@/components/ui/sidebar"
 
-import SidebarAdmin from "@/components/navigation/sidebar-admin"
-import SidebarStudent from "@/components/navigation/sidebar-student"
-import SidebarCollegeRegistrar from "@/components/navigation/sidebar-college-registrar"
-
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible"
 
 import {
   DropdownMenu,
@@ -20,30 +36,19 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
-import {
-  Sidebar,
-  SidebarContent,
-  SidebarFooter,
-  SidebarHeader,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
-} from "@/components/ui/sidebar"
-
-import type { UserRole } from "@/types/user"
-
-
-const getTemporaryRole = (): UserRole => {
-  return "ADMIN"
-}
+import { SideBarLinks } from "@/components/navigation/sidebar-links"
+import { role } from "@/lib/data"
 
 const AppSidebar = () => {
-  // Temporary Role (Replace with actual user role from auth context or API)
-  const role = getTemporaryRole()
+  const pathname = usePathname()
+
+  const filteredLinks = SideBarLinks.main.filter((item) =>
+    item.visible.includes(role)
+  )
 
   return (
     <Sidebar collapsible="icon">
-      {/* Logo */}
+
       <SidebarHeader className="py-4">
         <SidebarMenu>
           <SidebarMenuItem>
@@ -62,14 +67,93 @@ const AppSidebar = () => {
         </SidebarMenu>
       </SidebarHeader>
 
-      {/* Sidebar Content */}
       <SidebarContent>
-        {role === "ADMIN" && <SidebarAdmin />}
-        {role === "STUDENT" && <SidebarStudent />}
-        {role === "COLLEGE REGISTRAR" && <SidebarCollegeRegistrar />}
+        <SidebarGroup>
+          <SidebarGroupLabel>Applications</SidebarGroupLabel>
+
+          <SidebarGroupContent>
+            <SidebarMenu>
+
+              {/* links filtered by role for ui */}
+              {/* change to filtered by permessions for rbac */}
+              {filteredLinks.map((item) => (
+                <SidebarMenuItem key={item.title}>
+                  <SidebarMenuButton
+                    asChild
+                    isActive={pathname === item.url}
+                    className="
+                      data-[active=true]:bg-[var(--primary)]
+                      data-[active=true]:text-white
+                      data-[active=true]:font-medium
+                      hover:bg-[var(--primary)]/10
+                      transition-colors
+                    "
+                  >
+                    <Link href={item.url}>
+                      <item.icon />
+                      <span>{item.title}</span>
+                    </Link>
+                  </SidebarMenuButton>
+
+                  {item.badge && (
+                    <SidebarMenuBadge>{item.badge}</SidebarMenuBadge>
+                  )}
+                </SidebarMenuItem>
+              ))}
+
+              <Collapsible className="group/collapsible">
+                <SidebarMenuItem>
+                  <CollapsibleTrigger asChild>
+                    <SidebarMenuButton>
+                      <Calendar />
+                      <span>Pages</span>
+                      <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
+                    </SidebarMenuButton>
+                  </CollapsibleTrigger>
+
+                  <CollapsibleContent>
+                    <SidebarMenuSub>
+                      {SideBarLinks.pages.map((item) => (
+                        <SidebarMenuSubItem key={item.title}>
+                          <SidebarMenuSubButton asChild>
+                            <Link href={item.url}>{item.title}</Link>
+                          </SidebarMenuSubButton>
+                        </SidebarMenuSubItem>
+                      ))}
+                    </SidebarMenuSub>
+                  </CollapsibleContent>
+                </SidebarMenuItem>
+              </Collapsible>
+
+              <Collapsible className="group/collapsible">
+                <SidebarMenuItem>
+                  <CollapsibleTrigger asChild>
+                    <SidebarMenuButton>
+                      <ShieldCheck />
+                      <span>Authentication</span>
+                      <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
+                    </SidebarMenuButton>
+                  </CollapsibleTrigger>
+
+                  <CollapsibleContent>
+                    <SidebarMenuSub>
+                      {SideBarLinks.auth.map((item) => (
+                        <SidebarMenuSubItem key={item.title}>
+                          <SidebarMenuSubButton asChild>
+                            <Link href={item.url}>{item.title}</Link>
+                          </SidebarMenuSubButton>
+                        </SidebarMenuSubItem>
+                      ))}
+                    </SidebarMenuSub>
+                  </CollapsibleContent>
+                </SidebarMenuItem>
+              </Collapsible>
+
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
       </SidebarContent>
 
-      {/* Footer */}
       <SidebarFooter>
         <SidebarMenu>
           <SidebarMenuItem>
@@ -81,11 +165,7 @@ const AppSidebar = () => {
                 </SidebarMenuButton>
               </DropdownMenuTrigger>
 
-              <DropdownMenuContent
-                side="top"
-                align="end"
-                className="w-48"
-              >
+              <DropdownMenuContent side="top" align="end" className="w-48">
                 <DropdownMenuItem asChild>
                   <Link href="/profile">Account</Link>
                 </DropdownMenuItem>
@@ -100,11 +180,9 @@ const AppSidebar = () => {
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarFooter>
+
     </Sidebar>
   )
 }
 
 export default AppSidebar;
-
-
-
