@@ -2,12 +2,13 @@
 
 import DashboardHeader from "@/components/dashboard/dashboard-header"
 
-const CollegeRegistrarDashboard = () => {
+const AccountingDashboard = () => {
+
   return (
     <div className="flex min-h-[calc(100vh-136px)] flex-col gap-6">
-        
+
         <DashboardHeader
-          role="College Registrar"
+          role="Accounting"
           subtitle="Ready to make today productive!"
         />
 
@@ -18,4 +19,4 @@ const CollegeRegistrarDashboard = () => {
   )
 }
 
-export default CollegeRegistrarDashboard
+export default AccountingDashboard;
