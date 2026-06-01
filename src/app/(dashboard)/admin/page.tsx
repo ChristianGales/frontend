@@ -1,8 +1,5 @@
 "use client"
 
-import { useEffect, useState } from "react"
-import { CalendarDays, Rocket} from "lucide-react"
-
 import AppAreaChart from "@/components/charts/AppAreaChart"
 import AppBarChart from "@/components/charts/AppBarChart"
 import AppPieChart from "@/components/charts/AppPieChart"

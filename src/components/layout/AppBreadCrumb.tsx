@@ -23,10 +23,13 @@ const AppBreadcrumb = () => {
   <div className="w-full px-4 md:px-6 lg:px-8">
       <Breadcrumb>
         <BreadcrumbList>
-          {/* Home */}
+
+          {/* make this responsive based on the path of the user trype */}
           <BreadcrumbItem>
             <BreadcrumbLink asChild>
-              <Link href="/">Home</Link>
+              <Link href="/admin">
+                Dashboard
+              </Link>
             </BreadcrumbLink>
           </BreadcrumbItem>
 
@@ -37,9 +40,25 @@ const AppBreadcrumb = () => {
             const isLast =
               index === pathSegments.length - 1
 
-            const label =
-              segment.charAt(0).toUpperCase() +
-              segment.slice(1).replace(/-/g, " ")
+              const breadcrumbLabels: Record<string, string> = {
+                registrar: "Registrar",
+                "basic-ed": "Basic Education",
+                college: "College",
+                admission: "Admissions",
+                accounting: "Accounting",
+                admin: "Administrator",
+                faculty: "Faculty",
+                instructor: "Instructor",
+                teacher: "Teacher",
+                student: "Student",
+                profile: "Profile",
+                rbac: "Role Management",
+              }
+              
+              const label =
+                breadcrumbLabels[segment] ??
+                segment.charAt(0).toUpperCase() +
+                  segment.slice(1).replace(/-/g, " ")
 
             return (
               <Fragment key={href}>
