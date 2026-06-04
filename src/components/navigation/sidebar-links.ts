@@ -183,6 +183,7 @@
     ClipboardCheck,
     School,
     Wallet,
+    FileMinus,
   } from "lucide-react"
   
   export const SideBarLinks = {
@@ -298,63 +299,50 @@
         url: "/registrar/college/admissions",
         icon: ShieldCheck,
         badge: 5,
-        visible: ["COLLEGE REGISTRAR"],
+        visible: ["COLLEGE REGISTRAR"]
       },
       {
         title: "Enrollment",
-        url: "/enrollment",
+        url: "/registrar/college/enrollment",
         icon: ClipboardList,
         visible: ["COLLEGE REGISTRAR", "BASIC EDUCATION REGISTRAR"],
       },
       {
         title: "Students",
-        url: "/students",
+        url: "/registrar/college/students",
         icon: GraduationCap,
         visible: ["COLLEGE REGISTRAR", "BASIC EDUCATION REGISTRAR", "ADMIN"],
       },
       {
         title: "Curriculum",
-        url: "/curriculum",
+        url: "/registrar/college/curriculum",
         icon: BookMarked,
         visible: ["COLLEGE REGISTRAR", "BASIC EDUCATION REGISTRAR", "ADMIN"],
       },
       {
         title: "Courses",
-        url: "/courses",
+        url: "/registrar/college/courses",
         icon: BookOpen,
         visible: ["COLLEGE REGISTRAR", "BASIC EDUCATION REGISTRAR", "ADMIN"],
       },
       {
         title: "Subjects",
-        url: "/subjects",
+        url: "/registrar/college/subjects",
         icon: FileText,
-        visible: ["COLLEGE REGISTRAR", "BASIC EDUCATION REGISTRAR", "ADMIN"],
-      },
-      {
-        title: "Calendar",
-        url: "/calendar",
-        icon: Calendar,
-        visible: [
-          "COLLEGE REGISTRAR",
-          "BASIC EDUCATION REGISTRAR",
-          "ADMIN",
-          "FACULTY",
-          "TEACHER",
-          "INSTRUCTOR",
-        ],
+        visible: ["COLLEGE REGISTRAR"],
       },
       {
         title: "Classes",
-        url: "/classes",
+        url: "/registrar/college/classes",
         icon: School,
-        visible: [
-          "COLLEGE REGISTRAR",
-          "BASIC EDUCATION REGISTRAR",
-          "ADMIN",
-          "FACULTY",
-          "TEACHER",
-          "INSTRUCTOR",
-        ],
+        visible: ["COLLEGE REGISTRAR"],
+      },
+      {
+        title: "Transcript",
+        url: "/registrar/college/transcript",
+        icon: FileMinus,
+        visible: [ "COLLEGE REGISTRAR" ]
+
       },
   
       // ─── FACULTY / TEACHER / INSTRUCTOR ──────────────────────
