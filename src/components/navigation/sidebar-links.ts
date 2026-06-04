@@ -198,8 +198,6 @@
           "ADMIN",
           "STUDENT",
           "FACULTY",
-          "TEACHER",
-          "INSTRUCTOR",
           "ACCOUNTING",
         ],
       },
@@ -309,8 +307,8 @@
         url: "/registrar/college/transcript",
         icon: FileMinus,
         visible: [ "COLLEGE REGISTRAR" ]
-
       },
+      
       // ─── BASIC ED REGISTRAR ────────────────────────────────────
       {
         title: "Dashboard",
@@ -375,19 +373,52 @@
         visible: ["BASIC EDUCATION REGISTRAR"]
 
       },
-
-      // ─── FACULTY / TEACHER / INSTRUCTOR ──────────────────────
+      // ─── TEACHER ──────────────────────
       {
-        title: "My Classes",
+        tiitle: "Dashboard",
+        url: "faculty/teacher",
+        icon: LayoutDashboard,
+        visible: ["Teacher"] 
+      },
+      {
+        title: "Schedule",
         url: "/my-classes",
         icon: ClipboardCheck,
-        visible: ["FACULTY", "TEACHER", "INSTRUCTOR"],
+        visible: ["TEACHER"],
       },
       {
         title: "Grades",
         url: "/grades",
         icon: FileText,
-        visible: ["FACULTY", "TEACHER", "INSTRUCTOR", "COLLEGE REGISTRAR", "BASIC EDUCATION REGISTRAR"],
+        visible: ["TEACHER"],
+      },
+      {
+        title: "Report Card",
+        url: "/grades",
+        icon: FileText,
+        visible: ["TEACHER"],
+      },
+
+
+
+      // ─── INSTRUCTOR ──────────────────────
+      {
+        title: "Dashboard",
+        url: "faculty/instructor",
+        icon: LayoutDashboard,
+        visible: ["INSTRUCTOR"] 
+      },
+      {
+        title: "Schedule",
+        url: "/my-classes",
+        icon: Calendar,
+        visible: ["INSTRUCTOR"],
+      },
+      {
+        title: "Classes",
+        url: "/grades",
+        icon: Building2,
+        visible: ["INSTRUCTOR"],
       },
       // {
       //   title: "Attendance",
