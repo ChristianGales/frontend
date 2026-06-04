@@ -17,7 +17,7 @@ import { Input } from "@/components/ui/input"
 export function LoginForm({
   className,
   ...props
-}: React.ComponentProps<"form">) {
+}: React.ComponentProps<"form">) { 
 
   const [showPassword, setShowPassword] = React.useState(false)
 

@@ -195,7 +195,7 @@
         visible: [
           "ADMIN",
           "STUDENT",
-          "COLLEGE REGISTRAR",
+         
           "BASIC EDUCATION REGISTRAR",
           "FACULTY",
           "TEACHER",
@@ -288,11 +288,17 @@
   
       // ─── COLLEGE REGISTRAR ────────────────────────────────────
       {
+        title: "Dashboard",
+        url: "/registrar/college",
+        icon: LayoutDashboard,
+        visible: ["COLLEGE REGISTRAR"],
+      },
+      {
         title: "Admissions",
-        url: "/admissions",
+        url: "/registrar/college/admissions",
         icon: ShieldCheck,
         badge: 5,
-        visible: ["COLLEGE REGISTRAR", "BASIC EDUCATION REGISTRAR"],
+        visible: ["COLLEGE REGISTRAR"],
       },
       {
         title: "Enrollment",

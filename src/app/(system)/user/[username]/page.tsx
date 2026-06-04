@@ -21,7 +21,23 @@ const SingleUserpage = () => {
             <div className="flex-1 w-full h-full">
                 <div>
                   
-                  
+                    <Breadcrumb>
+                    <BreadcrumbList>
+                        <BreadcrumbItem>
+                        <BreadcrumbLink href="/">Home</BreadcrumbLink>
+                        </BreadcrumbItem>
+                        <BreadcrumbSeparator />
+                        <BreadcrumbItem>
+                        <BreadcrumbLink href="/users">
+                            Components
+                        </BreadcrumbLink>
+                        </BreadcrumbItem>
+                        <BreadcrumbSeparator />
+                        <BreadcrumbItem>
+                        <BreadcrumbPage>User 1</BreadcrumbPage>
+                        </BreadcrumbItem>
+                    </BreadcrumbList>
+                </Breadcrumb>
 
                 {/* containter */}
                 <div className="mt-4 flex flex-col xl:flex-row gap-8">

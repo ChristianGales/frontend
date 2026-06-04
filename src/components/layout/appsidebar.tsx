@@ -36,8 +36,19 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+
 import { SideBarLinks } from "@/components/navigation/sidebar-links"
-import { role } from "@/lib/data"
+import { role } from "@/lib/dummy/user"
+
+const SCHOOL_YEARS = ["2023-2024", "2024-2025", "2025-2026", "2026-2027"]
+const SEMESTERS = ["1st Semester", "2nd Semester", "Summer"]
 
 const AppSidebar = () => {
   const pathname = usePathname()
@@ -70,12 +81,9 @@ const AppSidebar = () => {
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel>Applications</SidebarGroupLabel>
-
           <SidebarGroupContent>
             <SidebarMenu>
 
-              {/* links filtered by role for ui */}
-              {/* change to filtered by permessions for rbac */}
               {filteredLinks.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton
@@ -110,7 +118,6 @@ const AppSidebar = () => {
                       <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
                     </SidebarMenuButton>
                   </CollapsibleTrigger>
-
                   <CollapsibleContent>
                     <SidebarMenuSub>
                       {SideBarLinks.pages.map((item) => (
@@ -134,7 +141,6 @@ const AppSidebar = () => {
                       <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
                     </SidebarMenuButton>
                   </CollapsibleTrigger>
-
                   <CollapsibleContent>
                     <SidebarMenuSub>
                       {SideBarLinks.auth.map((item) => (
@@ -155,34 +161,53 @@ const AppSidebar = () => {
       </SidebarContent>
 
       <SidebarFooter>
-        <SidebarMenu>
-          <SidebarMenuItem>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <SidebarMenuButton>
-                  <User />
-                  <ChevronUp className="ml-auto" />
-                </SidebarMenuButton>
-              </DropdownMenuTrigger>
+        {role === "ADMIN" && (
+          <div className="px-2 pb-1 flex flex-col gap-2">
+            <p className="text-xs font-semibold text-sidebar-foreground/60 uppercase tracking-wide px-1">
+              Active Term
+            </p>
 
-              <DropdownMenuContent side="top" align="end" className="w-48">
-                <DropdownMenuItem asChild>
-                  <Link href="/profile">Account</Link>
-                </DropdownMenuItem>
+            <Select >
+              <SelectTrigger className="w-full h-8 text-xs">
+                <SelectValue placeholder="School Year" />
+              </SelectTrigger>
+              <SelectContent>
+                {SCHOOL_YEARS.map((sy) => (
+                  <SelectItem key={sy} value={sy} className="text-xs">
+                    {sy}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
 
-                <DropdownMenuItem asChild>
-                  <Link href="/settings">Settings</Link>
-                </DropdownMenuItem>
+            <Select>
+              <SelectTrigger className="w-full h-8 text-xs">
+                <SelectValue placeholder="Semester" />
+              </SelectTrigger>
+              <SelectContent>
+                {SEMESTERS.map((sem) => (
+                  <SelectItem key={sem} value={sem} className="text-xs">
+                    {sem}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
 
-                <DropdownMenuItem>Sign Out</DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </SidebarMenuItem>
-        </SidebarMenu>
+            <button
+              className="w-full h-8 rounded-md bg-[var(--primary)] text-white text-xs font-medium hover:bg-[var(--primary)]/90 transition-colors"
+              onClick={() => {
+                // wire up save logic here
+              }}
+            >
+              Set Active Term
+            </button>
+          </div>
+        )}
+
+        
       </SidebarFooter>
-
     </Sidebar>
   )
 }
 
-export default AppSidebar;
+export default AppSidebar

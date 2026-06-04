@@ -6,8 +6,8 @@ const PageRBAC = () => {
                     Roles and Permissions
                 </h1>
 
-                <div className="flex items-center gap-2 text-muted-foreground">
-dfsdf
+                <div className="flex items-center gap-2">
+
                 </div>
             </div>
         </div>
