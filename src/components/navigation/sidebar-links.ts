@@ -184,6 +184,7 @@
     School,
     Wallet,
     FileMinus,
+    Boxes,
   } from "lucide-react"
   
   export const SideBarLinks = {
@@ -196,46 +197,12 @@
         visible: [
           "ADMIN",
           "STUDENT",
-         
-          "BASIC EDUCATION REGISTRAR",
           "FACULTY",
           "TEACHER",
           "INSTRUCTOR",
           "ACCOUNTING",
         ],
       },
-      // inbox not sure / if needed 
-      // {
-      //   title: "Inbox",
-      //   url: "/inbox",
-      //   icon: Inbox,
-      //   badge: 23,
-      //   visible: [
-      //     "ADMIN",
-      //     "STUDENT",
-      //     "COLLEGE REGISTRAR",
-      //     "BASIC EDUCATION REGISTRAR",
-      //     "FACULTY",
-      //     "TEACHER",
-      //     "INSTRUCTOR",
-      //     "ACCOUNTING",
-      //   ],
-      // },
-      // {
-      //   title: "Settings",
-      //   url: "/settings",
-      //   icon: Settings,
-      //   visible: [
-      //     "ADMIN",
-      //     "STUDENT",
-      //     "COLLEGE REGISTRAR",
-      //     "BASIC EDUCATION REGISTRAR",
-      //     "FACULTY",
-      //     "TEACHER",
-      //     "INSTRUCTOR",
-      //     "ACCOUNTING",
-      //   ],
-      // },
   
       // ─── ADMIN only ───────────────────────────────────────────
       {
@@ -305,25 +272,25 @@
         title: "Enrollment",
         url: "/registrar/college/enrollment",
         icon: ClipboardList,
-        visible: ["COLLEGE REGISTRAR", "BASIC EDUCATION REGISTRAR"],
+        visible: ["COLLEGE REGISTRAR"],
       },
       {
         title: "Students",
         url: "/registrar/college/students",
         icon: GraduationCap,
-        visible: ["COLLEGE REGISTRAR", "BASIC EDUCATION REGISTRAR", "ADMIN"],
+        visible: ["COLLEGE REGISTRAR"],
       },
       {
         title: "Curriculum",
         url: "/registrar/college/curriculum",
         icon: BookMarked,
-        visible: ["COLLEGE REGISTRAR", "BASIC EDUCATION REGISTRAR", "ADMIN"],
+        visible: ["COLLEGE REGISTRAR"],
       },
       {
         title: "Courses",
         url: "/registrar/college/courses",
         icon: BookOpen,
-        visible: ["COLLEGE REGISTRAR", "BASIC EDUCATION REGISTRAR", "ADMIN"],
+        visible: ["COLLEGE REGISTRAR"],
       },
       {
         title: "Subjects",
@@ -344,7 +311,71 @@
         visible: [ "COLLEGE REGISTRAR" ]
 
       },
-  
+      // ─── BASIC ED REGISTRAR ────────────────────────────────────
+      {
+        title: "Dashboard",
+        url: "/registrar/basic-ed",
+        icon: LayoutDashboard,
+        visible: ["BASIC EDUCATION REGISTRAR"],
+      },
+      {
+        title: "Admissions",
+        url: "/registrar/college/admissions",
+        icon: ShieldCheck,
+        badge: 5,
+        visible: ["BASIC EDUCATION REGISTRAR"],
+      },
+      {
+        title: "Enrollment",
+        url: "/registrar/college/enrollment",
+        icon: ClipboardList,
+        visible: ["BASIC EDUCATION REGISTRAR"],
+      },
+      //Drop Down Elementary, Junior High, Senior High
+      {
+        title: "Students",
+        url: "/registrar/college/students",
+        icon: GraduationCap,
+        visible: ["BASIC EDUCATION REGISTRAR"],
+      },
+      {
+        title: "Curriculum",
+        url: "/registrar/college/curriculum",
+        icon: BookMarked,
+        visible: ["BASIC EDUCATION REGISTRAR"],
+      },
+      {
+        title: "Grade Level",
+        url: "/registrar/college/courses",
+        icon: BookOpen,
+        visible: ["BASIC EDUCATION REGISTRAR"],
+      },
+      {
+        title: "Subjects",
+        url: "/registrar/college/subjects",
+        icon: FileText,
+        visible: ["BASIC EDUCATION REGISTRAR"],
+      },
+      {
+        title: "Classes",
+        url: "/registrar/college/classes",
+        icon: School,
+        visible: ["BASIC EDUCATION REGISTRAR"],
+      },
+      {
+        title: "Section",
+        url: "/registrar/college/section",
+        icon: Boxes,
+        visible: ["BASIC EDUCATION REGISTRAR"]
+      },
+      {
+        title: "Report Card",
+        url: "registrar/basic-ed/reportCard",
+        icon: FileText,
+        visible: ["BASIC EDUCATION REGISTRAR"]
+
+      },
+
       // ─── FACULTY / TEACHER / INSTRUCTOR ──────────────────────
       {
         title: "My Classes",
