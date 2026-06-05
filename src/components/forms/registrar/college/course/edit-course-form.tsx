@@ -94,7 +94,6 @@ export function EditCourseForm({ course, open, onOpenChange, onSubmit }: EditCou
           {/* Course Code */}
           <div className="grid gap-1.5">
             <Label htmlFor="edit-course-code" className="flex items-center gap-1.5">
-              <Hash className="size-3.5 text-muted-foreground" />
               Course Code
             </Label>
             <Input
@@ -113,7 +112,6 @@ export function EditCourseForm({ course, open, onOpenChange, onSubmit }: EditCou
           {/* Course Name */}
           <div className="grid gap-1.5">
             <Label htmlFor="edit-course-name" className="flex items-center gap-1.5">
-              <BookOpen className="size-3.5 text-muted-foreground" />
               Course Name
             </Label>
             <Input
@@ -134,9 +132,6 @@ export function EditCourseForm({ course, open, onOpenChange, onSubmit }: EditCou
         <Separator />
 
         <DialogFooter className="flex-row justify-end gap-2">
-          <Button variant="outline" size="sm" onClick={handleClose}>
-            Cancel
-          </Button>
           <Button size="sm" onClick={handleSubmit} disabled={!canSubmit}>
             Save Changes
           </Button>

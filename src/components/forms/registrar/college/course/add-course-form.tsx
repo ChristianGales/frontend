@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import { Hash, BookOpen } from "lucide-react"
 
 import {
   Dialog,
@@ -77,7 +76,6 @@ export function AddCourseForm({ open, onOpenChange, onSubmit }: AddCourseFormPro
           {/* Course Code */}
           <div className="grid gap-1.5">
             <Label htmlFor="course-code" className="flex items-center gap-1.5">
-              <Hash className="size-3.5 text-muted-foreground" />
               Course Code
             </Label>
             <Input
@@ -96,7 +94,6 @@ export function AddCourseForm({ open, onOpenChange, onSubmit }: AddCourseFormPro
           {/* Course Name */}
           <div className="grid gap-1.5">
             <Label htmlFor="course-name" className="flex items-center gap-1.5">
-              <BookOpen className="size-3.5 text-muted-foreground" />
               Course Name
             </Label>
             <Input
@@ -117,9 +114,6 @@ export function AddCourseForm({ open, onOpenChange, onSubmit }: AddCourseFormPro
         <Separator />
 
         <DialogFooter className="flex-row justify-end gap-2">
-          <Button variant="outline" size="sm" onClick={handleClose}>
-            Cancel
-          </Button>
           <Button size="sm" onClick={handleSubmit} disabled={!canSubmit}>
             Add Course
           </Button>

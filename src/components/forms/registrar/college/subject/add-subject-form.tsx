@@ -23,8 +23,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+import { Subject } from "@/types/registrar/college/subject"
 
-import { Subject } from "@/types/subject"
+
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 type AddSubjectFormProps = {
@@ -100,7 +101,6 @@ export function AddSubjectForm({ open, onOpenChange, onSubmit }: AddSubjectFormP
           {/* Subject Code */}
           <div className="grid gap-1.5">
             <Label htmlFor="subject-code" className="flex items-center gap-1.5">
-              <Hash className="size-3.5 text-muted-foreground" />
               Subject Code
             </Label>
             <Input
@@ -119,7 +119,6 @@ export function AddSubjectForm({ open, onOpenChange, onSubmit }: AddSubjectFormP
           {/* Subject Title */}
           <div className="grid gap-1.5">
             <Label htmlFor="subject-title" className="flex items-center gap-1.5">
-              <BookOpen className="size-3.5 text-muted-foreground" />
               Subject Title
             </Label>
             <Input
@@ -141,7 +140,6 @@ export function AddSubjectForm({ open, onOpenChange, onSubmit }: AddSubjectFormP
             {/* Subject Type */}
             <div className="grid gap-1.5">
               <Label className="flex items-center gap-1.5">
-                <FlaskConical className="size-3.5 text-muted-foreground" />
                 Subject Type
               </Label>
               <Select
@@ -167,7 +165,6 @@ export function AddSubjectForm({ open, onOpenChange, onSubmit }: AddSubjectFormP
             {/* Units */}
             <div className="grid gap-1.5">
               <Label htmlFor="units" className="flex items-center gap-1.5">
-                <Sigma className="size-3.5 text-muted-foreground" />
                 Units
               </Label>
               <Input
@@ -220,9 +217,6 @@ export function AddSubjectForm({ open, onOpenChange, onSubmit }: AddSubjectFormP
         <Separator />
 
         <DialogFooter className="flex-row justify-end gap-2">
-          <Button variant="outline" size="sm" onClick={handleClose}>
-            Cancel
-          </Button>
           <Button size="sm" onClick={handleSubmit} disabled={!canSubmit}>
             Add Subject
           </Button>

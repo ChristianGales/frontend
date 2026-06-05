@@ -132,7 +132,6 @@ export function EditSubjectForm({ subject, open, onOpenChange, onSubmit }: EditS
           {/* Subject Code */}
           <div className="grid gap-1.5">
             <Label htmlFor="edit-subject-code" className="flex items-center gap-1.5">
-              <Hash className="size-3.5 text-muted-foreground" />
               Subject Code
             </Label>
             <Input
@@ -149,7 +148,6 @@ export function EditSubjectForm({ subject, open, onOpenChange, onSubmit }: EditS
           {/* Subject Title */}
           <div className="grid gap-1.5">
             <Label htmlFor="edit-subject-title" className="flex items-center gap-1.5">
-              <BookOpen className="size-3.5 text-muted-foreground" />
               Subject Title
             </Label>
             <Input
@@ -169,7 +167,6 @@ export function EditSubjectForm({ subject, open, onOpenChange, onSubmit }: EditS
             {/* Subject Type */}
             <div className="grid gap-1.5">
               <Label className="flex items-center gap-1.5">
-                <FlaskConical className="size-3.5 text-muted-foreground" />
                 Subject Type
               </Label>
               <Select
@@ -195,7 +192,6 @@ export function EditSubjectForm({ subject, open, onOpenChange, onSubmit }: EditS
             {/* Units */}
             <div className="grid gap-1.5">
               <Label htmlFor="edit-units" className="flex items-center gap-1.5">
-                <Sigma className="size-3.5 text-muted-foreground" />
                 Units
               </Label>
               <Input
@@ -243,9 +239,7 @@ export function EditSubjectForm({ subject, open, onOpenChange, onSubmit }: EditS
         <Separator />
 
         <DialogFooter className="flex-row justify-end gap-2">
-          <Button variant="outline" size="sm" onClick={handleClose}>
-            Cancel
-          </Button>
+          
           <Button size="sm" onClick={handleSubmit} disabled={!canSubmit}>
             Save Changes
           </Button>
