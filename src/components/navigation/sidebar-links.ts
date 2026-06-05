@@ -286,13 +286,13 @@
       },
       {
         title: "Courses",
-        url: "/registrar/college/courses",
+        url: "/registrar/college/course",
         icon: BookOpen,
         visible: ["COLLEGE REGISTRAR"],
       },
       {
         title: "Subjects",
-        url: "/registrar/college/subjects",
+        url: "/registrar/college/subject",
         icon: FileText,
         visible: ["COLLEGE REGISTRAR"],
       },
@@ -398,8 +398,6 @@
         icon: FileText,
         visible: ["TEACHER"],
       },
-
-
 
       // ─── INSTRUCTOR ──────────────────────
       {

@@ -1,5 +1,5 @@
 // temp date for ui
-export let role = "INSTRUCTOR";
+export let role = "COLLEGE REGISTRAR";
 
 export const teachersData = [
   {
