@@ -17,8 +17,8 @@ import {
 
 import { Plus, X } from "lucide-react"
 
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+import { Button }   from "@/components/ui/button"
+import { Input }    from "@/components/ui/input"
 import {
   Select,
   SelectContent,
@@ -36,35 +36,37 @@ import {
 } from "@/components/ui/table"
 
 import { AddSubjectForm } from "@/components/forms/registrar/college/subject/add-subject-form"
-import { Subject } from "@/types/registrar/college/subject"
+import { Subject }        from "@/types/registrar/college/subject"
+import { AlertState }     from "@/types/ui"
 
 
 interface DataTableProps<TData, TValue> {
-  columns: ColumnDef<TData, TValue>[]
-  data: TData[]
+  columns:  ColumnDef<TData, TValue>[]
+  data:     TData[]
+  onAlert?: (alert: AlertState) => void   // ← new
 }
 
 export function DataTable<TData, TValue>({
   columns,
   data,
+  onAlert,
 }: DataTableProps<TData, TValue>) {
-  const [sorting, setSorting] = React.useState<SortingState>([])
-  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([])
+  const [sorting,          setSorting]          = React.useState<SortingState>([])
+  const [columnFilters,    setColumnFilters]    = React.useState<ColumnFiltersState>([])
   const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({})
 
-  // ── Add Subject modal state ──────────────────────────────────────────────────
   const [addOpen, setAddOpen] = React.useState(false)
 
   const table = useReactTable({
     data,
     columns,
-    onSortingChange: setSorting,
-    onColumnFiltersChange: setColumnFilters,
+    onSortingChange:          setSorting,
+    onColumnFiltersChange:    setColumnFilters,
     onColumnVisibilityChange: setColumnVisibility,
-    getCoreRowModel: getCoreRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
-    getSortedRowModel: getSortedRowModel(),
-    getFilteredRowModel: getFilteredRowModel(),
+    getCoreRowModel:          getCoreRowModel(),
+    getPaginationRowModel:    getPaginationRowModel(),
+    getSortedRowModel:        getSortedRowModel(),
+    getFilteredRowModel:      getFilteredRowModel(),
     state: { sorting, columnFilters, columnVisibility },
   })
 
@@ -227,6 +229,7 @@ export function DataTable<TData, TValue>({
         open={addOpen}
         onOpenChange={setAddOpen}
         onSubmit={handleAddSubject}
+        onAlert={onAlert}        // ← forwarded
       />
     </>
   )
