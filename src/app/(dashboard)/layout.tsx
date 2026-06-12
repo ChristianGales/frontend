@@ -1,5 +1,6 @@
 import DashboardShell from "@/components/dashboard/dashboard-shell"
 import { cookies } from "next/headers"
+import { Toaster } from "@/components/ui/sonner"
 
 export default async function DashboardLayout({
   children,

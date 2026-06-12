@@ -37,19 +37,16 @@ import {
 
 import { AddSubjectForm } from "@/components/forms/registrar/college/subject/add-subject-form"
 import { Subject }        from "@/types/registrar/college/subject"
-import { AlertState }     from "@/types/ui"
 
 
 interface DataTableProps<TData, TValue> {
-  columns:  ColumnDef<TData, TValue>[]
-  data:     TData[]
-  onAlert?: (alert: AlertState) => void   // ← new
+  columns: ColumnDef<TData, TValue>[]
+  data:    TData[]
 }
 
 export function DataTable<TData, TValue>({
   columns,
   data,
-  onAlert,
 }: DataTableProps<TData, TValue>) {
   const [sorting,          setSorting]          = React.useState<SortingState>([])
   const [columnFilters,    setColumnFilters]    = React.useState<ColumnFiltersState>([])
@@ -229,7 +226,6 @@ export function DataTable<TData, TValue>({
         open={addOpen}
         onOpenChange={setAddOpen}
         onSubmit={handleAddSubject}
-        onAlert={onAlert}        // ← forwarded
       />
     </>
   )

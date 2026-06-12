@@ -36,9 +36,9 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 
-import { Subject }                              from "@/types/registrar/college/subject"
-import { AlertState }                           from "@/types/ui"
+import { Subject }                               from "@/types/registrar/college/subject"
 import { AddSubjectFormValues, addSubjectSchema } from "@/lib/schemas/subject"
+import { appAlert }                              from "@/lib/alerts"
 
 // STEP 4 (future) — Once your Server Action exists, import it here:
 // import { createSubject } from "@/app/actions/subject"
@@ -49,7 +49,6 @@ type AddSubjectFormProps = {
   open:         boolean
   onOpenChange: (open: boolean) => void
   onSubmit?:    (subject: Omit<Subject, "id">) => void
-  onAlert?:     (alert: AlertState) => void   // ← new; pushes outcome up to the page
 }
 
 // ─── Default form state ───────────────────────────────────────────────────────
@@ -62,7 +61,7 @@ const defaultForm = {
 }
 
 // ─── Add Subject Form ─────────────────────────────────────────────────────────
-export function AddSubjectForm({ open, onOpenChange, onSubmit, onAlert }: AddSubjectFormProps) {
+export function AddSubjectForm({ open, onOpenChange, onSubmit }: AddSubjectFormProps) {
   const [form,   setForm]   = useState(defaultForm)
   const [errors, setErrors] = useState<Record<string, string>>({})
 
@@ -73,14 +72,10 @@ export function AddSubjectForm({ open, onOpenChange, onSubmit, onAlert }: AddSub
     setTimeout(() => {
       setForm(defaultForm)
       setErrors({})
-      // Note: we intentionally do NOT clear the page alert here —
-      // the user should still be able to read it after the modal closes.
     }, 200)
   }
 
   function handleSubmit() {
-    // Clear stale page alert + field errors before each attempt
-    onAlert?.(null)
     setErrors({})
 
     const result = addSubjectSchema.safeParse(form)
@@ -93,12 +88,11 @@ export function AddSubjectForm({ open, onOpenChange, onSubmit, onAlert }: AddSub
       }
       setErrors(fieldErrors)
 
-      // Field errors stay in the modal; outcome summary goes to the page
-      onAlert?.({
-        type:        "error",
-        title:       "Subject was not added.",
-        description: "Please fix the errors in the form.",
-      })
+      // Field errors shown inline; toast gives a quick top-level hint
+      appAlert.error(
+        "Subject was not added.",
+        "Please fix the errors in the form."
+      )
       return
     }
 
@@ -108,20 +102,16 @@ export function AddSubjectForm({ open, onOpenChange, onSubmit, onAlert }: AddSub
     //   setLoading(false)
     //   if (!response.success) {
     //     setErrors(response.errors)
-    //     onAlert?.({ type: "error", title: "Failed to save subject.", description: "..." })
+    //     appAlert.error("Failed to save subject.", "Please try again.")
     //     return
     //   }
     //   onSubmit?.(response.data)
 
     onSubmit?.(result.data)
 
-    onAlert?.({
-      type:  "success",
-      title: "Subject added successfully.",
-    })
+    appAlert.success("Subject added successfully.")
 
-    // Close faster since the feedback is now on the page, not inside the modal
-    setTimeout(handleClose, 300)
+    handleClose()
   }
 
   const canSubmit = addSubjectSchema.safeParse(form).success
@@ -136,8 +126,6 @@ export function AddSubjectForm({ open, onOpenChange, onSubmit, onAlert }: AddSub
         <Separator />
 
         <div className="grid gap-4 py-1">
-
-          {/* No AppAlert here — outcome is shown on the page instead */}
 
           {/* Subject Code */}
           <div className="grid gap-1.5">
