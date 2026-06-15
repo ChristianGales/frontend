@@ -13,9 +13,7 @@ export const addSubjectSchema = z.object({
   include_in_latin_honors: z.boolean().default(false),
 })
 
-export type AddSubjectFormValues = z.infer<typeof addSubjectSchema>
-
-
 export const editSubjectSchema = addSubjectSchema.partial()
 
+export type AddSubjectFormValues = z.infer<typeof addSubjectSchema>
 export type EditSubjectFormValues = z.infer<typeof editSubjectSchema>
