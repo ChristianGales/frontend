@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { BookOpen, Hash, FlaskConical, Sigma, Award } from "lucide-react"
+import { Award } from "lucide-react"
 
 import {
   Dialog,
@@ -10,12 +10,11 @@ import {
   DialogTitle,
   DialogFooter,
 } from "@/components/ui/dialog"
-
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+import { Button }    from "@/components/ui/button"
+import { Input }     from "@/components/ui/input"
+import { Label }     from "@/components/ui/label"
 import { Separator } from "@/components/ui/separator"
-import { Checkbox } from "@/components/ui/checkbox"
+import { Checkbox }  from "@/components/ui/checkbox"
 import {
   Select,
   SelectContent,
@@ -23,45 +22,52 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { Subject } from "@/types/registrar/college/subject"
 
+import { Subject }                                 from "@/types/registrar/college/subject"
+import { EditSubjectFormValues, editSubjectSchema } from "@/lib/schemas/subject"
+import { appAlert }                                from "@/lib/alerts"
+
+// STEP 4 (future) — Once your Server Action exists, import it here:
+// import { updateSubject } from "@/app/actions/subject"
 
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 type EditSubjectFormProps = {
-  subject: Subject | null
-  open: boolean
+  subject:      Subject | null
+  open:         boolean
   onOpenChange: (open: boolean) => void
-  onSubmit?: (updated: Subject) => void
+  onSubmit?:    (updated: Subject) => void
 }
 
 type FormState = {
-  subject_code: string
-  subject_title: string
-  subject_type: Subject["subject_type"] | ""
-  units: string
+  subject_code:            string
+  subject_title:           string
+  subject_type:            EditSubjectFormValues["subject_type"] | ""
+  units:                   string
   include_in_latin_honors: boolean
 }
 
 // ─── Edit Subject Form ────────────────────────────────────────────────────────
 export function EditSubjectForm({ subject, open, onOpenChange, onSubmit }: EditSubjectFormProps) {
-  const [form, setForm] = useState<FormState>({
-    subject_code: "",
-    subject_title: "",
-    subject_type: "",
-    units: "",
+  const [form,   setForm]   = useState<FormState>({
+    subject_code:            "",
+    subject_title:           "",
+    subject_type:            "",
+    units:                   "",
     include_in_latin_honors: false,
   })
-  const [errors, setErrors] = useState<Partial<Record<keyof FormState, string>>>({})
+  const [errors, setErrors] = useState<Record<string, string>>({})
+
+  // STEP 4 (future) — const [loading, setLoading] = useState(false)
 
   // Populate form when subject changes
   useEffect(() => {
     if (subject) {
       setForm({
-        subject_code: subject.subject_code,
-        subject_title: subject.subject_title,
-        subject_type: subject.subject_type,
-        units: String(subject.units),
+        subject_code:            subject.subject_code,
+        subject_title:           subject.subject_title,
+        subject_type:            subject.subject_type,
+        units:                   String(subject.units),
         include_in_latin_honors: subject.include_in_latin_honors,
       })
       setErrors({})
@@ -73,37 +79,46 @@ export function EditSubjectForm({ subject, open, onOpenChange, onSubmit }: EditS
     setTimeout(() => setErrors({}), 200)
   }
 
-  function validate() {
-    const next: typeof errors = {}
-    if (!form.subject_code.trim()) next.subject_code = "Subject code is required."
-    if (!form.subject_title.trim()) next.subject_title = "Subject title is required."
-    if (!form.subject_type) next.subject_type = "Subject type is required."
-    if (!form.units || isNaN(Number(form.units)) || Number(form.units) <= 0)
-      next.units = "Enter a valid number of units."
-    setErrors(next)
-    return Object.keys(next).length === 0
-  }
-
   function handleSubmit() {
-    if (!validate() || !subject) return
-    onSubmit?.({
-      ...subject,
-      subject_code: form.subject_code.trim(),
-      subject_title: form.subject_title.trim(),
-      subject_type: form.subject_type as Subject["subject_type"],
-      units: Number(form.units),
-      include_in_latin_honors: form.include_in_latin_honors,
-    })
+    setErrors({})
+
+    const result = editSubjectSchema.safeParse(form)
+
+    if (!result.success) {
+      const fieldErrors: Record<string, string> = {}
+      for (const issue of result.error.issues) {
+        const field = issue.path[0] as string
+        if (!fieldErrors[field]) fieldErrors[field] = issue.message
+      }
+      setErrors(fieldErrors)
+
+      appAlert.error(
+        "Subject was not updated.",
+        "Please fix the errors in the form."
+      )
+      return
+    }
+
+    // STEP 4 (future) — Replace the block below with:
+    //   setLoading(true)
+    //   const response = await updateSubject(subject!.id, result.data)
+    //   setLoading(false)
+    //   if (!response.success) {
+    //     setErrors(response.errors)
+    //     appAlert.error("Failed to update subject.", "Please try again.")
+    //     return
+    //   }
+    //   onSubmit?.(response.data)
+
+    onSubmit?.({ ...subject!, ...result.data })
+
+    appAlert.success("Subject updated successfully.")
+
     handleClose()
   }
 
-  const canSubmit =
-    !!form.subject_code.trim() &&
-    !!form.subject_title.trim() &&
-    !!form.subject_type &&
-    !!form.units &&
-    !isNaN(Number(form.units)) &&
-    Number(form.units) > 0
+  // Derived from schema — stays in sync with handleSubmit automatically
+  const canSubmit = editSubjectSchema.safeParse(form).success
 
   return (
     <Dialog open={open} onOpenChange={handleClose}>
@@ -131,9 +146,7 @@ export function EditSubjectForm({ subject, open, onOpenChange, onSubmit }: EditS
 
           {/* Subject Code */}
           <div className="grid gap-1.5">
-            <Label htmlFor="edit-subject-code" className="flex items-center gap-1.5">
-              Subject Code
-            </Label>
+            <Label htmlFor="edit-subject-code">Subject Code</Label>
             <Input
               id="edit-subject-code"
               placeholder="e.g. GE 110"
@@ -147,9 +160,7 @@ export function EditSubjectForm({ subject, open, onOpenChange, onSubmit }: EditS
 
           {/* Subject Title */}
           <div className="grid gap-1.5">
-            <Label htmlFor="edit-subject-title" className="flex items-center gap-1.5">
-              Subject Title
-            </Label>
+            <Label htmlFor="edit-subject-title">Subject Title</Label>
             <Input
               id="edit-subject-title"
               placeholder="e.g. Understanding the Self"
@@ -166,13 +177,11 @@ export function EditSubjectForm({ subject, open, onOpenChange, onSubmit }: EditS
 
             {/* Subject Type */}
             <div className="grid gap-1.5">
-              <Label className="flex items-center gap-1.5">
-                Subject Type
-              </Label>
+              <Label>Subject Type</Label>
               <Select
                 value={form.subject_type}
                 onValueChange={(val) =>
-                  setForm((f) => ({ ...f, subject_type: val as Subject["subject_type"] }))
+                  setForm((f) => ({ ...f, subject_type: val as EditSubjectFormValues["subject_type"] }))
                 }
               >
                 <SelectTrigger className="w-full">
@@ -191,9 +200,7 @@ export function EditSubjectForm({ subject, open, onOpenChange, onSubmit }: EditS
 
             {/* Units */}
             <div className="grid gap-1.5">
-              <Label htmlFor="edit-units" className="flex items-center gap-1.5">
-                Units
-              </Label>
+              <Label htmlFor="edit-units">Units</Label>
               <Input
                 id="edit-units"
                 type="number"
@@ -239,7 +246,7 @@ export function EditSubjectForm({ subject, open, onOpenChange, onSubmit }: EditS
         <Separator />
 
         <DialogFooter className="flex-row justify-end gap-2">
-          
+          {/* STEP 4 (future) — also disable while loading: disabled={!canSubmit || loading} */}
           <Button size="sm" onClick={handleSubmit} disabled={!canSubmit}>
             Save Changes
           </Button>

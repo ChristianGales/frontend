@@ -14,3 +14,8 @@ export const addSubjectSchema = z.object({
 })
 
 export type AddSubjectFormValues = z.infer<typeof addSubjectSchema>
+
+
+export const editSubjectSchema = addSubjectSchema.partial()
+
+export type EditSubjectFormValues = z.infer<typeof editSubjectSchema>
