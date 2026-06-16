@@ -17,7 +17,6 @@ export default function LoginPage() {
           className="object-cover"
         />
 
-
         <div className="absolute inset-0 bg-gradient-to-b from-[#0B1E75]/70 via-[#182B8C]/80 to-[#111C5A]/95" />
         <div className="absolute inset-0 bg-black/20" />
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:60px_60px]" />
@@ -52,7 +51,7 @@ export default function LoginPage() {
           </div>
 
           <div className="mt-16 text-sm tracking-wide text-white/70">
-            Welcome to NSC Portal System
+            Welcome to NSC Student Portal
           </div>
         </div>
       </div>

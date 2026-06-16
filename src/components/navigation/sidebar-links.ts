@@ -192,20 +192,17 @@
       // ─── Universal ───────────────────────────────────────────
       {
         title: "Dashboard",
-        url: "/dashboard",
+        url: "/admin",
         icon: Home,
         visible: [
-          "ADMIN",
-          "STUDENT",
-          "FACULTY",
-          "ACCOUNTING",
+          "ADMIN"
         ],
       },
   
       // ─── ADMIN only ───────────────────────────────────────────
       {
         title: "RBAC",
-        url: "/rbac",
+        url: "/admin/rbac",
         icon: ShieldUser,
         visible: ["ADMIN"],
       },

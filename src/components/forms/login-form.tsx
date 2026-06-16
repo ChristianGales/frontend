@@ -79,6 +79,7 @@ export function LoginForm({
           </div>
         </Field>
 
+        {/* change to student page */}
         <Field>
           <Link href="/dashboard">
             <Button type="submit" className="w-full h-10 text-white" >
@@ -87,7 +88,7 @@ export function LoginForm({
           </Link>
         </Field>
 
-        <Field>
+        {/* <Field>
           <FieldDescription className="text-center">
             Don&apos;t have an account?{" "}
             <a
@@ -97,7 +98,7 @@ export function LoginForm({
               Sign up
             </a>
           </FieldDescription>
-        </Field>
+        </Field> */}
 
       </FieldGroup>
     </form>
