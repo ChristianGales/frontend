@@ -41,8 +41,8 @@ type RolePermissions = Record<string, Record<string, boolean>>;
 
 const ROLE_ICONS = [Shield, GraduationCap, BookOpen, ClipboardList, Users, Calculator];
 const ROLE_COLORS = [
-    "text-rose-500", "text-blue-500", "text-green-500",
-    "text-amber-500", "text-violet-500", "text-teal-500",
+    "text-red-500", "text-primary-500", "text-green-500",
+    "text-orange-500", "text-violet-500", "text-teal-500",
 ];
 
 const DEFAULT_ROLES: Role[] = [
