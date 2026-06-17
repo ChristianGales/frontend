@@ -208,7 +208,7 @@
       },
       {
         title: "Users",
-        url: "/users",
+        url: "/admin/user",
         icon: UserCog,
         visible: ["ADMIN"],
       },
