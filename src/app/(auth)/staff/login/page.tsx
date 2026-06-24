@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { LoginForm } from "@/components/forms/login-form"
+import { StaffLoginForm } from "@/components/forms/auth/staff-login-form"
 
 export default function LoginPage() {
   return (
@@ -70,8 +70,7 @@ export default function LoginPage() {
               priority
             />
           </div>
-
-          <LoginForm />
+          <StaffLoginForm />
         </div>
       </div>
     </div>

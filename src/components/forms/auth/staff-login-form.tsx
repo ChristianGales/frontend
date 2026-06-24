@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
 
-export function LoginForm({
+export function StaffLoginForm({
   className,
   ...props
 }: React.ComponentProps<"form">) { 
@@ -29,17 +29,17 @@ export function LoginForm({
           <h1 className="text-2xl font-bold">Welcome Back</h1>
 
           <p className="text-sm text-balance text-muted-foreground">
-            Enter your email below to login to your account
+            Enter your Employee Number and Password below to login to your account
           </p>
         </div>
 
         <Field>
-          <FieldLabel htmlFor="email">Email</FieldLabel>
+          <FieldLabel htmlFor="employee_number">Employee Number</FieldLabel>
 
           <Input
-            id="email"
-            type="email"
-            placeholder="m@example.com"
+            id="employee_number"
+            type="text"
+            placeholder="230001"
             required
             className="bg-background"
           />

@@ -268,8 +268,8 @@ export default function CollegeRegistrationForm() {
           </div>
   
           {/* Content */}
+          {/* Remove this for testing purposes */}
           <div className="space-y-10 p-8 sm:p-10">
-  
             {/* Academic Information */}
             <section>
               <div className="mb-5 flex items-center gap-2 border-b pb-2">
@@ -379,6 +379,7 @@ export default function CollegeRegistrationForm() {
                 </Link>
               </Button>
             </div>
+            
           </div>
         </div>
       </div>
@@ -387,7 +388,7 @@ export default function CollegeRegistrationForm() {
 
   // ─────────────────────────────────────────────────────────────────────────────
   return (
-    <div className="relative min-h-screen overflow-hidden bg-gradient-to-br bg-[var(--primary)] text-white">
+    <div className="relative min-h-screen overflow-hidden bg-gradient-to-br bg-[var(--secondary)] text-white">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:60px_60px]" />
 
         <header className="relative z-10 flex items-center justify-between border-b border-white/10 px-6 py-4">
@@ -427,7 +428,7 @@ export default function CollegeRegistrationForm() {
             <div className="w-full max-w-5xl">
 
                 {/* ── CARD ── */}
-                <Card className="overflow-hidden border-primary shadow-sm rounded-2xl p-0">
+                <Card className="overflow-hidden border-primary  shadow-sm rounded-2xl p-0">
                 <CardHeader className="text-primary py-5 border-b border-white/10 grid gap-4 md:grid-cols-[minmax(0,1fr)_auto] items-center">
                     <div className="flex flex-col gap-1">
                     <p className="text-sm text-muted-foreground">
