@@ -366,7 +366,8 @@ export default function CollegeRegistrationForm() {
             </section>
   
             {/* Footer Buttons */}
-            <div className="mt-10 flex flex-col-reverse gap-3 border-t pt-8 sm:flex-row sm:justify-end">
+            {/* No use for now */}
+            {/* <div className="mt-10 flex flex-col-reverse gap-3 border-t pt-8 sm:flex-row sm:justify-end">
               <Button variant="outline" size="lg" asChild className="w-full sm:w-auto">
                 <Link href="/">
                   Back to Home
@@ -378,7 +379,7 @@ export default function CollegeRegistrationForm() {
                   Go to Dashboard
                 </Link>
               </Button>
-            </div>
+            </div> */}
             
           </div>
         </div>
@@ -1030,10 +1031,10 @@ export default function CollegeRegistrationForm() {
                     <TabsContent value="file-upload">
                         <FieldGroup className="space-y-6">
                         <div>
-                            <h2 className="text-lg font-semibold text-primary">Admission Documents</h2>
+                            {/* <h2 className="text-lg font-semibold text-primary">ID Photo</h2>
                                 <p className="text-sm text-muted-foreground mb-2">
-                                Upload your required admission documents (e.g. Form 137, PSA Birth Certificate).
-                                </p>
+                                    Upload your ID Photo.
+                                </p> */}
                             <div className="md:col-span-2 rounded-xl border border-[var(--primary)] p-4 flex gap-3 text-sm">
                             <span className="mt-0.5 text-[var(--primary)]">
                                 <CircleAlert />
@@ -1041,7 +1042,7 @@ export default function CollegeRegistrationForm() {
                             <div>
                                 <p className="font-semibold text-[var(--primary)] mb-1">Notice</p>
                                 <p className="text-[var(--primary)] leading-relaxed">
-                                    Upload your scanned documents in PDF, JPG, or PNG format. Each file should not exceed 10MB in size.
+                                    Upload your scanned / soft copy of your ID Photo in JPG, or PNG format. File should not exceed 10MB in size.
                                 </p>    
                             </div>
                         </div>
@@ -1053,8 +1054,8 @@ export default function CollegeRegistrationForm() {
                                 <Upload className="h-8 w-8 text-primary" />
                             </div>
                             <div>
-                                <p className="font-medium">Upload your documents</p>
-                                <p className="text-sm text-muted-foreground">PDF, JPG, PNG up to 10MB</p>
+                                <p className="font-medium">Upload your ID Photo</p>
+                                <p className="text-sm text-muted-foreground">JPG, PNG up to 10MB</p>
                             </div>
                             <Input
                                 type="file"

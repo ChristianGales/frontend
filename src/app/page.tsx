@@ -14,9 +14,16 @@ export default function HomePage() {
 
         <Link
           href="/login"
-          className="inline-flex items-center justify-center rounded-md bg-primary px-6 py-2 text-primary-foreground"
+          className="inline-flex items-center justify-center rounded-md bg-primary px-6 py-2 m-2 text-primary-foreground"
         >
           Login
+        </Link>
+
+        <Link
+          href="/programs"
+          className="inline-flex items-center justify-center rounded-md bg-primary px-6 py-2 text-primary-foreground"
+        >
+          Admission
         </Link>
       </div>
     </main>

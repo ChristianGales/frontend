@@ -18,20 +18,20 @@
   //         title: "Dashboard",
   //         url: "/dashboard",
   //         icon: Home,
-  //         visible: ["ADMIN", "STUDENT", "COLLEGE REGISTRAR"],
+  //         visible: ["admin", "STUDENT", "COLLEGE REGISTRAR"],
   //       },
   //       {
   //         title: "RBAC",
   //         url: "/rbac",
   //         icon: ShieldCogCorner,
-  //         visible: ["ADMIN"],
+  //         visible: ["admin"],
   //       },
   //       {
   //         title: "Inbox",
   //         url: "#",
   //         icon: Inbox,
   //         badge: 23,
-  //         visible: ["ADMIN", "STUDENT", "COLLEGE REGISTRAR"],
+  //         visible: ["admin", "STUDENT", "COLLEGE REGISTRAR"],
   //       },
   //       {
   //         title: "Admissions",
@@ -56,19 +56,19 @@
   //         title: "Components",
   //         url: "/scomponents",
   //         icon: LayoutDashboard,
-  //         visible: ["ADMIN"],
+  //         visible: ["admin"],
   //       },
   //       {
   //         title: "Tables",
   //         url: "/table",
   //         icon: Table2,
-  //         visible: ["ADMIN"],
+  //         visible: ["admin"],
   //       },
   //       {
   //         title: "Settings",
   //         url: "#",
   //         icon: Settings,
-  //         visible: ["ADMIN", "STUDENT", "COLLEGE REGISTRAR"],
+  //         visible: ["admin", "STUDENT", "COLLEGE REGISTRAR"],
   //       },
   //     ],
     
@@ -148,7 +148,7 @@
   //         icon: LayoutDashboard,
   //       },
   //       {
-  //         title: "Adminssions",
+  //         title: "adminssions",
   //         url: "/registrar/college/admission",
   //         icon: BookOpen,
   //         badge: 5,
@@ -195,58 +195,58 @@
         url: "/admin",
         icon: Home,
         visible: [
-          "ADMIN"
+          "admin"
         ],
       },
   
-      // ─── ADMIN only ───────────────────────────────────────────
+      // ─── admin only ───────────────────────────────────────────
       {
         title: "RBAC",
         url: "/admin/rbac",
         icon: ShieldUser,
-        visible: ["ADMIN"],
+        visible: ["admin"],
       },
       {
         title: "Users",
         url: "/admin/user",
         icon: UserCog,
-        visible: ["ADMIN"],
+        visible: ["admin"],
       },
       {
         title: "Departments",
         url: "/departments",
         icon: Building2,
-        visible: ["ADMIN"],
+        visible: ["admin"],
       },
       {
         title: "Designations",
         url: "/designations",
         icon: Users,
-        visible: ["ADMIN"],
+        visible: ["admin"],
       },
       {
         title: "Rooms",
         url: "/rooms",
         icon: School,
-        visible: ["ADMIN"],
+        visible: ["admin"],
       },
       {
         title: "Reports",
         url: "/reports",
         icon: BarChart3,
-        visible: ["ADMIN"],
+        visible: ["admin"],
       },
       {
         title: "Components",
         url: "/scomponents",
         icon: LayoutDashboard,
-        visible: ["ADMIN"],
+        visible: ["admin"],
       },
       {
         title: "Tables",
         url: "/table",
         icon: Table2,
-        visible: ["ADMIN"],
+        visible: ["admin"],
       },
   
       // ─── COLLEGE REGISTRAR ────────────────────────────────────
@@ -466,31 +466,31 @@
         title: "Fees",
         url: "/fees",
         icon: DollarSign,
-        visible: ["ACCOUNTING", "ADMIN"],
+        visible: ["ACCOUNTING", "admin"],
       },
       {
         title: "Payments",
         url: "/payments",
         icon: CreditCard,
-        visible: ["ACCOUNTING", "ADMIN"],
+        visible: ["ACCOUNTING", "admin"],
       },
       {
         title: "Scholarships",
         url: "/scholarships",
         icon: GraduationCap,
-        visible: ["ACCOUNTING", "ADMIN"],
+        visible: ["ACCOUNTING", "admin"],
       },
       {
         title: "Account Statements",
         url: "/account-statements",
         icon: FileText,
-        visible: ["ACCOUNTING", "ADMIN"],
+        visible: ["ACCOUNTING", "admin"],
       },
       {
         title: "Payroll",
         url: "/payroll",
         icon: DollarSign,
-        visible: ["ACCOUNTING", "ADMIN"],
+        visible: ["ACCOUNTING", "admin"],
       },
     ],
   

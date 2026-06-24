@@ -45,7 +45,7 @@ import {
 } from "@/components/ui/select"
 
 import { SideBarLinks } from "@/components/navigation/sidebar-links"
-import { role } from "@/lib/dummy/user"
+import { activeUser } from "@/lib/dummy/user"
 
 const SCHOOL_YEARS = ["2023-2024", "2024-2025", "2025-2026", "2026-2027"]
 const SEMESTERS = ["1st Semester", "2nd Semester", "Summer"]
@@ -54,7 +54,7 @@ const AppSidebar = () => {
   const pathname = usePathname()
 
   const filteredLinks = SideBarLinks.main.filter((item) =>
-    item.visible.includes(role)
+    item.visible.includes(activeUser.role)
   )
 
   return (
@@ -161,7 +161,7 @@ const AppSidebar = () => {
       </SidebarContent>
 
       <SidebarFooter>
-        {role === "ADMIN" && (
+        {activeUser.role === "admin" && (
           <div className="px-2 pb-1 flex flex-col gap-2">
             <p className="text-xs font-semibold text-sidebar-foreground/60 uppercase tracking-wide px-1">
               Active Term
@@ -210,4 +210,4 @@ const AppSidebar = () => {
   )
 }
 
-export default AppSidebar
+export default AppSidebar;
