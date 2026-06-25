@@ -5,6 +5,23 @@ export const PAGE_ACCESS: Record<string, UserRole[]> = {
     "college_registrar",
     "college_head_registrar",
   ],
+  "/registrar/college/course": [
+    "college_registrar",
+    "college_head_registrar",
+  ],
+  "/registrar/college/admissions": [
+    "college_registrar",
+    "college_head_registrar",
+  ],
+  "/registrar/college/enrollment": [
+    "college_registrar",
+    "college_head_registrar",
+  ],
+  "/registrar/college/curriculum": [
+    "college_registrar",
+    "college_head_registrar",
+  ],
+  
  
 }
 
