@@ -137,4 +137,4 @@ export const dummyUsers: DummyUser[] = [
 ];
 
 // Change this while developing the UI
-export let activeUser = dummyUsers[0];
+export let activeUser = dummyUsers[7];

@@ -18,7 +18,7 @@
   //         title: "Dashboard",
   //         url: "/dashboard",
   //         icon: Home,
-  //         visible: ["admin", "STUDENT", "COLLEGE REGISTRAR"],
+  //         visible: ["admin", "student", "college_registrar"],
   //       },
   //       {
   //         title: "RBAC",
@@ -31,26 +31,26 @@
   //         url: "#",
   //         icon: Inbox,
   //         badge: 23,
-  //         visible: ["admin", "STUDENT", "COLLEGE REGISTRAR"],
+  //         visible: ["admin", "student", "college_registrar"],
   //       },
   //       {
   //         title: "Admissions",
   //         url: "/admissions",
   //         icon: ShieldCheck,
   //         badge: 5,
-  //         visible: ["COLLEGE REGISTRAR"],
+  //         visible: ["college_registrar"],
   //       },
   //       {
   //         title: "Schedule",
   //         url: "/schedule",
   //         icon: Calendar,
-  //         visible: ["STUDENT"],
+  //         visible: ["student"],
   //       },
   //       {
   //         title: "Enrollment",
   //         url: "/enrollment",
   //         icon: ClipboardList,
-  //         visible: ["STUDENT"],
+  //         visible: ["student"],
   //       },
   //       {
   //         title: "Components",
@@ -68,7 +68,7 @@
   //         title: "Settings",
   //         url: "#",
   //         icon: Settings,
-  //         visible: ["admin", "STUDENT", "COLLEGE REGISTRAR"],
+  //         visible: ["admin", "student", "college_registrar"],
   //       },
   //     ],
     
@@ -249,61 +249,61 @@
         visible: ["admin"],
       },
   
-      // ─── COLLEGE REGISTRAR ────────────────────────────────────
+      // ─── college_registrar ────────────────────────────────────
       {
         title: "Dashboard",
         url: "/registrar/college",
         icon: LayoutDashboard,
-        visible: ["COLLEGE REGISTRAR"],
+        visible: ["college_registrar", "college_head_registrar"],
       },
       {
         title: "Admissions",
         url: "/registrar/college/admissions",
         icon: ShieldCheck,
         badge: 5,
-        visible: ["COLLEGE REGISTRAR"]
+        visible: ["college_registrar", "college_head_registrar"]
       },
       {
         title: "Enrollment",
         url: "/registrar/college/enrollment",
         icon: ClipboardList,
-        visible: ["COLLEGE REGISTRAR"],
+        visible: ["college_registrar", "college_head_registrar"],
       },
       {
-        title: "Students",
+        title: "students",
         url: "/registrar/college/students",
         icon: GraduationCap,
-        visible: ["COLLEGE REGISTRAR"],
+        visible: ["college_registrar",  "college_head_registrar"],
       },
       {
         title: "Curriculum",
         url: "/registrar/college/curriculum",
         icon: BookMarked,
-        visible: ["COLLEGE REGISTRAR"],
+        visible: ["college_registrar",  "college_head_registrar"],
       },
       {
         title: "Courses",
         url: "/registrar/college/course",
         icon: BookOpen,
-        visible: ["COLLEGE REGISTRAR"],
+        visible: ["college_registrar",  "college_head_registrar"],
       },
       {
         title: "Subjects",
         url: "/registrar/college/subject",
         icon: FileText,
-        visible: ["COLLEGE REGISTRAR"],
+        visible: ["college_registrar",  "college_head_registrar"],
       },
       {
         title: "Classes",
         url: "/registrar/college/classes",
         icon: School,
-        visible: ["COLLEGE REGISTRAR"],
+        visible: ["college_registrar",  "college_head_registrar"],
       },
       {
         title: "Transcript",
         url: "/registrar/college/transcript",
         icon: FileMinus,
-        visible: [ "COLLEGE REGISTRAR" ]
+        visible: [ "college_registrar",  "college_head_registrar"]
       },
       
       // ─── BASIC ED REGISTRAR ────────────────────────────────────
@@ -311,186 +311,185 @@
         title: "Dashboard",
         url: "/registrar/basic-ed",
         icon: LayoutDashboard,
-        visible: ["BASIC EDUCATION REGISTRAR"],
+        visible: ["basic_education_registrar"],
       },
       {
         title: "Admissions",
         url: "/registrar/college/admissions",
         icon: ShieldCheck,
         badge: 5,
-        visible: ["BASIC EDUCATION REGISTRAR"],
+        visible: ["basic_education_registrar"],
       },
       {
         title: "Enrollment",
         url: "/registrar/college/enrollment",
         icon: ClipboardList,
-        visible: ["BASIC EDUCATION REGISTRAR"],
+        visible: ["basic_education_registrar"],
       },
       //Drop Down Elementary, Junior High, Senior High
       {
-        title: "Students",
+        title: "students",
         url: "/registrar/college/students",
         icon: GraduationCap,
-        visible: ["BASIC EDUCATION REGISTRAR"],
+        visible: ["basic_education_registrar"],
       },
       {
         title: "Curriculum",
         url: "/registrar/college/curriculum",
         icon: BookMarked,
-        visible: ["BASIC EDUCATION REGISTRAR"],
+        visible: ["basic_education_registrar"],
       },
       {
         title: "Grade Level",
         url: "/registrar/college/courses",
         icon: BookOpen,
-        visible: ["BASIC EDUCATION REGISTRAR"],
+        visible: ["basic_education_registrar"],
       },
       {
         title: "Subjects",
         url: "/registrar/college/subjects",
         icon: FileText,
-        visible: ["BASIC EDUCATION REGISTRAR"],
+        visible: ["basic_education_registrar"],
       },
       {
         title: "Classes",
         url: "/registrar/college/classes",
-        icon: School,
-        visible: ["BASIC EDUCATION REGISTRAR"],
+        visible: ["basic_education_registrar"],
       },
       {
         title: "Section",
         url: "/registrar/college/section",
         icon: Boxes,
-        visible: ["BASIC EDUCATION REGISTRAR"]
+        visible: ["basic_education_registrar"]
       },
       {
         title: "Report Card",
         url: "registrar/basic-ed/reportCard",
         icon: FileText,
-        visible: ["BASIC EDUCATION REGISTRAR"]
+        visible: ["basic_education_registrar"]
 
       },
-      // ─── TEACHER ──────────────────────
+      // ─── teacher ──────────────────────
       {
         tiitle: "Dashboard",
         url: "faculty/teacher",
         icon: LayoutDashboard,
-        visible: ["Teacher"] 
+        visible: ["teacher"] 
       },
       {
         title: "Schedule",
         url: "/my-classes",
         icon: ClipboardCheck,
-        visible: ["TEACHER"],
+        visible: ["teacher"],
       },
       {
         title: "Grades",
         url: "/grades",
         icon: FileText,
-        visible: ["TEACHER"],
+        visible: ["teacher"],
       },
       {
         title: "Report Card",
         url: "/grades",
         icon: FileText,
-        visible: ["TEACHER"],
+        visible: ["teacher"],
       },
 
-      // ─── INSTRUCTOR ──────────────────────
+      // ─── instructor ──────────────────────
       {
         title: "Dashboard",
         url: "faculty/instructor",
         icon: LayoutDashboard,
-        visible: ["INSTRUCTOR"] 
+        visible: ["instructor"] 
       },
       {
         title: "Schedule",
         url: "/my-classes",
         icon: Calendar,
-        visible: ["INSTRUCTOR"],
+        visible: ["instructor"],
       },
       {
         title: "Classes",
         url: "/grades",
         icon: Building2,
-        visible: ["INSTRUCTOR"],
+        visible: ["instructor"],
       },
       // {
       //   title: "Attendance",
       //   url: "/attendance",
       //   icon: ClipboardList,
-      //   visible: ["FACULTY", "TEACHER", "INSTRUCTOR"],
+      //   visible: ["FACULTY", "teacher", "instructor"],
       // },
       // {
       //   title: "Payroll",
       //   url: "/payroll",
       //   icon: DollarSign,
-      //   visible: ["FACULTY", "TEACHER", "INSTRUCTOR"],
+      //   visible: ["FACULTY", "teacher", "instructor"],
       // },
   
-      // ─── STUDENT ──────────────────────────────────────────────
+      // ─── student ──────────────────────────────────────────────
       {
         title: "My Schedule",
         url: "/schedule",
         icon: Calendar,
-        visible: ["STUDENT"],
+        visible: ["student"],
       },
       {
         title: "My Enrollment",
         url: "/enrollment",
         icon: ClipboardList,
-        visible: ["STUDENT"],
+        visible: ["student"],
       },
       {
         title: "My Grades",
         url: "/my-grades",
         icon: GraduationCap,
-        visible: ["STUDENT"],
+        visible: ["student"],
       },
       // not visible online
       // {
       //   title: "My Account",
       //   url: "/my-account",
       //   icon: Wallet,
-      //   visible: ["STUDENT"],
+      //   visible: ["student"],
       // },
       // {
       //   title: "Books",
       //   url: "/books",
       //   icon: BookOpen,
-      //   visible: ["STUDENT"],
+      //   visible: ["student"],
       // },
   
-      // ─── ACCOUNTING ───────────────────────────────────────────
+      // ─── accounting ───────────────────────────────────────────
       {
         title: "Fees",
         url: "/fees",
         icon: DollarSign,
-        visible: ["ACCOUNTING", "admin"],
+        visible: ["accounting", "admin"],
       },
       {
         title: "Payments",
         url: "/payments",
         icon: CreditCard,
-        visible: ["ACCOUNTING", "admin"],
+        visible: ["accounting", "admin"],
       },
       {
         title: "Scholarships",
         url: "/scholarships",
         icon: GraduationCap,
-        visible: ["ACCOUNTING", "admin"],
+        visible: ["accounting", "admin"],
       },
       {
         title: "Account Statements",
         url: "/account-statements",
         icon: FileText,
-        visible: ["ACCOUNTING", "admin"],
+        visible: ["accounting", "admin"],
       },
       {
         title: "Payroll",
         url: "/payroll",
         icon: DollarSign,
-        visible: ["ACCOUNTING", "admin"],
+        visible: ["accounting", "admin"],
       },
     ],
   

@@ -28,6 +28,7 @@ import { curriculum } from "@/lib/dummy/registrar/college/curriculum"
 import { Curriculum } from "@/types/registrar/college/curriculum"
 import { course } from "@/lib/dummy/registrar/college/course"
 
+const courseOptions = Array.isArray(course) ? course : []
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 type EditCurriculumFormProps = {
@@ -134,7 +135,7 @@ export function EditCurriculumForm({ curriculum, open, onOpenChange, onSubmit }:
                     <SelectValue placeholder="Select a course" />
                 </SelectTrigger>
                 <SelectContent>
-                    {course.map((item) => (
+                    {courseOptions.map((item) => (
                     <SelectItem key={item.id} value={item.id}>
                         {item.course_code} - {item.course_name}
                     </SelectItem>

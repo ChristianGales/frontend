@@ -3,7 +3,7 @@ import z from "zod/v3"
 export const addSubjectSchema = z.object({
   subject_code: z.string().min(1, "Subject code is required."),
   subject_title: z.string().min(1, "Subject title is required."),
-  subject_type: z.enum(["GE", "Mandatory", "Major"], {
+  subjecType: z.enum(["GE", "Mandatory", "Major"], {
     errorMap: () => ({ message: "Subject type is required." }),
   }),
   units: z.coerce

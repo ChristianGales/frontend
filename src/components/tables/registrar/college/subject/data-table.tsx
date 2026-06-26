@@ -54,8 +54,10 @@ export function DataTable<TData, TValue>({
 
   const [addOpen, setAddOpen] = React.useState(false)
 
+  const tableData = React.useMemo(() => (Array.isArray(data) ? data : []), [data])
+
   const table = useReactTable({
-    data,
+    data: tableData,
     columns,
     onSortingChange:          setSorting,
     onColumnFiltersChange:    setColumnFilters,
@@ -90,7 +92,6 @@ export function DataTable<TData, TValue>({
           </div>
 
           <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
-            {/* Search by title */}
             <div className="w-full lg:max-w-sm">
               <Input
                 placeholder="Search subject title..."

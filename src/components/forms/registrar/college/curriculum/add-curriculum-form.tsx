@@ -26,6 +26,8 @@ import { Separator } from "@/components/ui/separator"
 import { course } from "@/lib/dummy/registrar/college/course"
 import { Curriculum } from "@/types/registrar/college/curriculum"
 
+const courseOptions = Array.isArray(course) ? course : []
+
 // ─── Types ────────────────────────────────────────────────────────────────────
 type AddCurriculumFormProps = {
   open: boolean
@@ -98,7 +100,7 @@ export function AddCurriculumForm({ open, onOpenChange, onSubmit }: AddCurriculu
                 <SelectValue placeholder="Select a course" />
               </SelectTrigger>
               <SelectContent>
-                {course.map((item) => (
+                {courseOptions.map((item) => (
                   <SelectItem key={item.id} value={item.id}>
                     {item.course_code} — {item.course_name}
                   </SelectItem>
@@ -145,8 +147,6 @@ export function AddCurriculumForm({ open, onOpenChange, onSubmit }: AddCurriculu
               <p className="text-xs text-red-500">{errors.curriculum_description}</p>
             )}
           </div>
-
-
         </div>
 
         <Separator />

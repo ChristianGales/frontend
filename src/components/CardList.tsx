@@ -80,8 +80,9 @@ export const popularItems = [
 
 const CardList  = ({title}:{title:string}) => {
 
-    const list = title === "Popular Items" ? popularItems : latestTransactions
-
+    const list = Array.isArray(title === "Popular Items" ? popularItems : latestTransactions)
+        ? (title === "Popular Items" ? popularItems : latestTransactions)
+        : []
 
     return (
         <div className="">
