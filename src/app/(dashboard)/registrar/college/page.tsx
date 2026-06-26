@@ -1,6 +1,5 @@
 "use client"
 
-import RoleGuard from "@/components/auth/role-guard"
 import DashboardHeader from "@/components/dashboard/dashboard-header"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import type { LucideIcon } from "lucide-react"
@@ -47,8 +46,6 @@ const stats: Stat[] = [
 
 const CollegeRegistrarDashboard = () => {
   return (
-    
-    <RoleGuard>
        <div className="flex min-h-[calc(100vh-136px)] flex-col gap-6">
         <DashboardHeader
           role="College Registrar"
@@ -80,8 +77,6 @@ const CollegeRegistrarDashboard = () => {
           })}
         </div>
       </div>
-    </RoleGuard>
-   
   )
 }
 
