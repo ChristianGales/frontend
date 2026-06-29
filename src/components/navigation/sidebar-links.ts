@@ -214,7 +214,7 @@
       },
       {
         title: "Departments",
-        url: "/departments",
+        url: "/admin/department",
         icon: Building2,
         visible: ["admin"],
       },
