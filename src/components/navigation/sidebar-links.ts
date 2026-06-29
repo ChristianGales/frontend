@@ -220,7 +220,7 @@
       },
       {
         title: "Designations",
-        url: "/designations",
+        url: "/admin/designation",
         icon: Users,
         visible: ["admin"],
       },
