@@ -226,7 +226,7 @@
       },
       {
         title: "Rooms",
-        url: "/rooms",
+        url: "/admin/room",
         icon: School,
         visible: ["admin"],
       },
@@ -463,7 +463,7 @@
       // ─── accounting ───────────────────────────────────────────
       {
         title: "Fees",
-        url: "/fees",
+        url: "/admin/fee",
         icon: DollarSign,
         visible: ["accounting", "admin"],
       },
