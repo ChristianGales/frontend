@@ -59,7 +59,6 @@ const AppSidebar = () => {
 
   return (
     <Sidebar collapsible="icon">
-
       <SidebarHeader className="py-4">
         <SidebarMenu>
           <SidebarMenuItem>

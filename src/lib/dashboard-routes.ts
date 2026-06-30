@@ -6,8 +6,6 @@ export const PAGE_ACCESS: Record<string, UserRole[]> = {
     "college_head_registrar",
   ],
  
-  
- 
 }
 
 export function isAllowed(pathname: string, role: UserRole) {

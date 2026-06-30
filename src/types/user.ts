@@ -8,6 +8,7 @@ export type UserRole =
   | "basic_education_registrar"
   | "college_head_registrar"
   | "college_registrar"
+  | "department_head"
   | "faculty"
   | "teacher"
   | "instructor"

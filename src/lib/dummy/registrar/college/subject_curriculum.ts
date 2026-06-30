@@ -1,5 +1,7 @@
 // lib/dummy/registrar/college/subject-curriculum.ts
-import { SubjectCurriculum } from "@/types/registrar/college/subject-curriculum"
+
+import { SubjectCurriculum } from "@/types/registrar/college/subject_curriculum";
+
 
 export const subjectCurricula: SubjectCurriculum[] = [
   // Year 1 - 1st Semester (curr-it-2024)

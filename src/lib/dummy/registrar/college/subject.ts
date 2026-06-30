@@ -1,4 +1,4 @@
-import { Subject } from "@/types/subject";
+import { Subject } from "@/types/registrar/college/subject";
 
 export const subjects: Subject [] = [
     {

@@ -1,6 +1,7 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { Hash, BookOpen, File } from "lucide-react"
 
 import {
   Dialog,
@@ -15,83 +16,68 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Separator } from "@/components/ui/separator"
 import { Room } from "@/types/admin/room"
-import { appAlert } from "@/lib/alerts"
+
 
 
 // ─── Types ────────────────────────────────────────────────────────────────────
-type AddRoomFormProps = {
+type EditRoomFormProps = {
+  room: Room | null
   open: boolean
   onOpenChange: (open: boolean) => void
-  onSubmit?: (room: Omit<Room, "room_id">) => void
+  onSubmit?: (updated: Room) => void
 }
 
-// ─── Default form state ───────────────────────────────────────────────────────
-const defaultForm = {
-  room_code: "",
-  room_location: "",
-}
+// ─── Edit Course Form ─────────────────────────────────────────────────────────
+export function EditRoomForm({ room, open, onOpenChange, onSubmit }: EditRoomFormProps) {
+  const [form, setForm] = useState({ room_code: "", room_location: "" })
+  const [errors, setErrors] = useState<Partial<Record<"room_code" | "room_location", string>>>({})
 
-// ─── Add Course Form ──────────────────────────────────────────────────────────
-export function AddRoomForm({ open, onOpenChange, onSubmit }: AddRoomFormProps) {
-  const [form, setForm] = useState(defaultForm)
-  const [errors, setErrors] = useState<Partial<Record<keyof typeof defaultForm, string>>>({})
+  // Populate form when course changes
+  useEffect(() => {
+    if (room) {
+      setForm({
+        room_code: room.room_code,
+        room_location: room.room_location,
+      })
+      setErrors({})
+    }
+  }, [room])
 
   function handleClose() {
     onOpenChange(false)
-    setTimeout(() => {
-      setForm(defaultForm)
-      setErrors({})
-    }, 200)
+    setTimeout(() => setErrors({}), 200)
   }
 
   function validate() {
     const next: typeof errors = {}
     if (!form.room_code.trim()) next.room_code = "Room code is required."
-    if (!form.room_location.trim()) next.room_location = "Room Location is required."
+    if (!form.room_location.trim()) next.room_location = "Room location is required."
     setErrors(next)
     return Object.keys(next).length === 0
   }
 
   function handleSubmit() {
-    if (!validate()) {
-      appAlert.error(
-        "Missing required fields",
-        "Please fill in the room code and location before submitting."
-      )
-      return
-    }
-
-    try {
-      onSubmit?.({
-        room_code: form.room_code.trim(),
-        room_location: form.room_location.trim(),
-      })
-      appAlert.success(
-        "Room added",
-        `${form.room_code.trim()} has been added successfully.`
-      )
-      handleClose()
-    } catch (err) {
-      appAlert.error(
-        "Failed to add room",
-        "Something went wrong while saving the room. Please try again."
-      )
-    }
+    if (!validate() || !room) return
+    onSubmit?.({
+      ...room,
+      room_code: form.room_code.trim().toUpperCase(),
+      room_location: form.room_location.trim(),
+    })
+    handleClose()
   }
 
- 
+  const canSubmit = !!form.room_code.trim() && !!form.room_location.trim()
 
   return (
     <Dialog open={open} onOpenChange={handleClose}>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
-          <DialogTitle className="text-base font-semibold">Add Department</DialogTitle>
+          <DialogTitle className="text-base font-semibold">Edit Room</DialogTitle>
         </DialogHeader>
 
         <Separator />
 
         <div className="grid gap-4 py-1">
-
           {/* Room Code */}
           <div className="grid gap-1.5">
             <Label htmlFor="room_code" className="flex items-center gap-1.5">
@@ -99,7 +85,7 @@ export function AddRoomForm({ open, onOpenChange, onSubmit }: AddRoomFormProps) 
             </Label>
             <Input
               id="room_code"
-              placeholder="ComLab 1"
+              placeholder="ComLab-1"
               value={form.room_code}
               onChange={(e) =>
                 setForm((f) => ({ ...f, room_code: e.target.value }))
@@ -110,7 +96,7 @@ export function AddRoomForm({ open, onOpenChange, onSubmit }: AddRoomFormProps) 
             )}
           </div>
 
-          {/*  Room Location */}
+          {/* Room Location */}
           <div className="grid gap-1.5">
             <Label htmlFor="room_location" className="flex items-center gap-1.5">
               Room Location
@@ -130,11 +116,10 @@ export function AddRoomForm({ open, onOpenChange, onSubmit }: AddRoomFormProps) 
 
         </div>
 
-        <Separator />
-
         <DialogFooter className="flex-row justify-end gap-2">
-          <Button size="sm" onClick={handleSubmit} >
-            Add Room
+          <Button size="sm" onClick={handleSubmit} disabled={!canSubmit}>
+            <File />
+            Save Changes
           </Button>
         </DialogFooter>
       </DialogContent>

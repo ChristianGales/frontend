@@ -27,11 +27,9 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-import { Room } from "@/types/admin/room"
-import { AddRoomForm } from "@/components/forms/admin/room/add-department-form"
 
-// import { Course } from "@/types/registrar/college/course"
-// import { AddCourseForm } from "@/components/forms/registrar/college/course/add-course-form"
+import { Room } from "@/types/admin/room"
+import { AddRoomForm } from "@/components/forms/admin/room/add-room-form"
 
 
 interface DataTableProps<TData, TValue> {

@@ -41,8 +41,6 @@ import { Admission } from "@/types/admission"
 import { CURRICULA } from "@/lib/dummy/curricula"
 import { COURSES } from "@/lib/dummy/courses"
 
-
-
 // ─── Status badge ─────────────────────────────────────────────────────────────
 function StatusBadge({ status }: { status: Admission["status"] }) {
   const map: Record<Admission["status"], { label: string; className: string }> = {

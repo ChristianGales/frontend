@@ -1,7 +1,7 @@
 "use client"
 
 import { ColumnDef } from "@tanstack/react-table"
-import { Eye, Pencil, Trash2, Check, X } from "lucide-react"
+import { Pencil, Trash2 } from "lucide-react"
 import { useState } from "react"
 
 import {
@@ -15,90 +15,68 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog"
 
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 
-// import { EditUserForm } from "@/components/forms/admin/user/edit-user-form"
-import { User, PendingRegistration } from "@/types/admin/user"
+import { EditSubjectForm } from "@/components/forms/registrar/college/subject/edit-subject-form"
+import { Subject } from "@/types/registrar/college/subject"
 
 
-// ─── Usertype badge ───────────────────────────────────────────────────────
-// NOTE: keys below must match your actual UserRole values from types/user.ts.
-// I'm guessing ADMIN / COLLEGE_REGISTRAR / BASIC_EDUCATION_REGISTRAR / FACULTY
-// / STUDENT / ACCOUNTING based on earlier conversations — adjust if off.
-function UserTypeBadge({ type }: { type: User["user_type"] }) {
-  const map: Record<string, { label: string; className: string }> = {
-    ADMIN: {
-      label: "Admin",
-      className:
-        "bg-red-100 text-red-800 border-red-200 dark:bg-red-900/30 dark:text-red-400 dark:border-red-800",
-    },
-    COLLEGE_REGISTRAR: {
-      label: "College Registrar",
+// ─── Subject Type badge ───────────────────────────────────────────────────────
+function SubjectTypeBadge({ type }: { type: Subject["subject_type"] }) {
+  const map: Record<Subject["subject_type"], { label: string; className: string }> = {
+    GE: {
+      label: "GE",
       className:
         "bg-blue-100 text-blue-800 border-blue-200 dark:bg-blue-900/30 dark:text-blue-400 dark:border-blue-800",
     },
-    BASIC_EDUCATION_REGISTRAR: {
-      label: "Basic Ed Registrar",
-      className:
-        "bg-cyan-100 text-cyan-800 border-cyan-200 dark:bg-cyan-900/30 dark:text-cyan-400 dark:border-cyan-800",
-    },
-    FACULTY: {
-      label: "Faculty",
-      className:
-        "bg-purple-100 text-purple-800 border-purple-200 dark:bg-purple-900/30 dark:text-purple-400 dark:border-purple-800",
-    },
-    STUDENT: {
-      label: "Student",
-      className:
-        "bg-green-100 text-green-800 border-green-200 dark:bg-green-900/30 dark:text-green-400 dark:border-green-800",
-    },
-    ACCOUNTING: {
-      label: "Accounting",
+    Mandatory: {
+      label: "Mandatory",
       className:
         "bg-yellow-100 text-yellow-800 border-yellow-200 dark:bg-yellow-900/30 dark:text-yellow-400 dark:border-yellow-800",
     },
+    Major: {
+      label: "Major",
+      className:
+        "bg-purple-100 text-purple-800 border-purple-200 dark:bg-purple-900/30 dark:text-purple-400 dark:border-purple-800",
+    },
   }
 
-  const entry = map[type] ?? {
-    label: type,
-    className: "bg-muted text-muted-foreground border-border",
-  }
-
+  const { label, className } = map[type]
   return (
-    <Badge variant="outline" className={`font-medium ${entry.className}`}>
-      {entry.label}
+    <Badge variant="outline" className={`font-medium ${className}`}>
+      {label}
     </Badge>
   )
 }
 
-// ─── User actions cell ──────────────────────────────────────────────────────
-function UserActionsCell({ user }: { user: User }) {
-  const [viewOpen, setViewOpen] = useState(false)
+// ─── Latin Honors badge ───────────────────────────────────────────────────────
+function LatinHonorsBadge({ value }: { value: boolean }) {
+  return value ? (
+    <Badge
+      variant="outline"
+      className="bg-green-100 text-green-800 border-green-200 font-medium dark:bg-green-900/30 dark:text-green-400 dark:border-green-800"
+    >
+      Yes
+    </Badge>
+  ) : (
+    <Badge
+      variant="outline"
+      className="bg-muted text-muted-foreground border-border font-medium"
+    >
+      No
+    </Badge>
+  )
+}
+
+// ─── Actions cell ─────────────────────────────────────────────────────────────
+function ActionsCell({ subject }: { subject: Subject }) {
   const [editOpen, setEditOpen] = useState(false)
 
   return (
     <>
       <div className="flex items-center justify-center gap-1">
-
-        {/* View */}
-        <Button
-          size="sm"
-          variant="ghost"
-          className="h-8 gap-1.5 px-2 text-xs"
-          onClick={() => setViewOpen(true)}
-        >
-          <Eye className="size-3.5" />
-          View
-        </Button>
 
         {/* Edit */}
         <Button
@@ -126,10 +104,10 @@ function UserActionsCell({ user }: { user: User }) {
 
           <AlertDialogContent>
             <AlertDialogHeader>
-              <AlertDialogTitle>Delete User?</AlertDialogTitle>
+              <AlertDialogTitle>Delete Subject?</AlertDialogTitle>
               <AlertDialogDescription>
                 <span className="font-medium">
-                  {user.id} — {user.fullname}
+                  {subject.subject_code} — {subject.subject_title}
                 </span>
                 <br />
                 This action cannot be undone.
@@ -139,7 +117,7 @@ function UserActionsCell({ user }: { user: User }) {
               <AlertDialogCancel>Cancel</AlertDialogCancel>
               <AlertDialogAction
                 className="bg-red-500 text-white hover:bg-red-600"
-                onClick={() => console.log("Delete user", user.id)}
+                onClick={() => console.log("Delete subject", subject.id)}
               >
                 Delete
               </AlertDialogAction>
@@ -148,140 +126,42 @@ function UserActionsCell({ user }: { user: User }) {
         </AlertDialog>
       </div>
 
-      {/* View dialog — read-only summary for now */}
-      <Dialog open={viewOpen} onOpenChange={setViewOpen}>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>{user.fullname}</DialogTitle>
-            <DialogDescription>{user.id}</DialogDescription>
-          </DialogHeader>
-          <div className="space-y-2 text-sm">
-            <div className="flex justify-between border-b pb-2">
-              <span className="text-muted-foreground">Email</span>
-              <span className="font-medium">{user.email}</span>
-            </div>
-            <div className="flex justify-between pt-1">
-              <span className="text-muted-foreground">Usertype</span>
-              <UserTypeBadge type={user.user_type} />
-            </div>
-          </div>
-        </DialogContent>
-      </Dialog>
-
-      {/* <EditUserForm
-        user={user}
+      <EditSubjectForm
+        subject={subject}
         open={editOpen}
         onOpenChange={setEditOpen}
-        onSubmit={(updated) => console.log("Updated user:", updated)}
-      /> */}
+        onSubmit={(updated) => console.log("Updated subject:", updated)}
+      />
     </>
   )
 }
 
-// ─── Pending registration actions cell ─────────────────────────────────────
-function PendingActionsCell({ registration }: { registration: PendingRegistration }) {
-  return (
-    <div className="flex items-center justify-center gap-1">
-
-      {/* Approve */}
-      <AlertDialog>
-        <AlertDialogTrigger asChild>
-          <Button
-            size="sm"
-            variant="ghost"
-            className="h-8 gap-1.5 px-2 text-xs text-green-600 hover:text-green-700"
-          >
-            <Check className="size-3.5" />
-            Approve
-          </Button>
-        </AlertDialogTrigger>
-
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>Approve Registration?</AlertDialogTitle>
-            <AlertDialogDescription>
-              <span className="font-medium">
-                {registration.id} — {registration.fullname}
-              </span>
-              <br />
-              This will create an active account for this user.
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction
-              className="bg-green-600 text-white hover:bg-green-700"
-              onClick={() => console.log("Approve registration", registration.id)}
-            >
-              Approve
-            </AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
-
-      {/* Reject */}
-      <AlertDialog>
-        <AlertDialogTrigger asChild>
-          <Button
-            size="sm"
-            variant="ghost"
-            className="h-8 gap-1.5 px-2 text-xs text-red-500 hover:text-red-600"
-          >
-            <X className="size-3.5" />
-            Reject
-          </Button>
-        </AlertDialogTrigger>
-
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>Reject Registration?</AlertDialogTitle>
-            <AlertDialogDescription>
-              <span className="font-medium">
-                {registration.id} — {registration.fullname}
-              </span>
-              <br />
-              This action cannot be undone.
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction
-              className="bg-red-500 text-white hover:bg-red-600"
-              onClick={() => console.log("Reject registration", registration.id)}
-            >
-              Reject
-            </AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
-    </div>
-  )
-}
-
-// ─── Column definitions ──────────────────────────────────────────────────────
-export const userColumns: ColumnDef<User>[] = [
-  { accessorKey: "id", header: "User ID" },
-  { accessorKey: "fullname", header: "Fullname" },
-  { accessorKey: "email", header: "Email" },
+// ─── Column definitions ───────────────────────────────────────────────────────
+export const subjectColumns: ColumnDef<Subject>[] = [
+  { accessorKey: "subject_code", header: "Subject Code" },
+  { accessorKey: "subject_title", header: "Subject Title" },
   {
-    accessorKey: "user_type",
-    header: "Usertype",
-    cell: ({ row }) => <UserTypeBadge type={row.original.user_type} />,
+    accessorKey: "subject_type",
+    header: "Type",
+    cell: ({ row }) => <SubjectTypeBadge type={row.original.subject_type} />,
+  },
+  {
+    accessorKey: "units",
+    header: "Units",
+    cell: ({ row }) => (
+      <span className="font-medium">{row.original.units}</span>
+    ),
+  },
+  {
+    accessorKey: "include_in_latin_honors",
+    header: "Latin Honors",
+    cell: ({ row }) => (
+      <LatinHonorsBadge value={row.original.include_in_latin_honors} />
+    ),
   },
   {
     id: "actions",
-    header: () => <div className="text-center">Action</div>,
-    cell: ({ row }) => <UserActionsCell user={row.original} />,
-  },
-]
-
-export const pendingRegistrationColumns: ColumnDef<PendingRegistration>[] = [
-  { accessorKey: "id", header: "Registration ID" },
-  { accessorKey: "fullname", header: "Fullname" },
-  { accessorKey: "email", header: "Email" },
-  {
-    id: "actions",
-    header: () => <div className="text-center">Action</div>,
-    cell: ({ row }) => <PendingActionsCell registration={row.original} />,
+    header: () => <div className="text-center">Actions</div>,
+    cell: ({ row }) => <ActionsCell subject={row.original} />,
   },
 ]
