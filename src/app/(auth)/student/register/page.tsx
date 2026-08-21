@@ -4,7 +4,7 @@ import { useState } from "react"
 
 
 import PrivacyPolicyPage from "@/components/shared/privacy-policy";
-import CollegeRegistrationForm from "@/components/auth/student/student-registration-form";
+import CollegeRegistrationForm from "@/components/auth/student/student-registration-form-v2";
 
 const CollegeRegistration = () => {
 
