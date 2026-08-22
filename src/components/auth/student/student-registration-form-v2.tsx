@@ -23,11 +23,23 @@ import {
   FieldLabel,
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+
+type StudentType = "new_student" | "transferee" | "old_student"
+type AdmissionType = "college" | "ptcp"
 
 interface RegistrationData {
   firstName: string
   middleName: string
   lastName: string
+  studentType: StudentType | ""
+  admissionType: AdmissionType | ""
   contactNumber: string
   email: string
   password: string
@@ -40,6 +52,8 @@ const initialData: RegistrationData = {
   firstName: "",
   middleName: "",
   lastName: "",
+  studentType: "",
+  admissionType: "",
   contactNumber: "",
   email: "",
   password: "",
@@ -130,6 +144,14 @@ export default function UserRegistrationForm() {
 
     if (!formData.lastName.trim()) {
       nextErrors.lastName = "Last name is required."
+    }
+
+    if (!formData.studentType) {
+      nextErrors.studentType = "Student type is required."
+    }
+
+    if (!formData.admissionType) {
+      nextErrors.admissionType = "Admission type is required."
     }
 
     if (!formData.contactNumber.trim()) {
@@ -233,23 +255,8 @@ export default function UserRegistrationForm() {
               </div>
             </div>
 
-            <div className="mt-7 grid gap-3 text-left sm:grid-cols-3">
-              <div className="rounded-2xl border bg-muted/30 p-4">
-                <CheckCircle2 className="h-5 w-5 text-emerald-500" />
-                <p className="mt-3 text-sm font-semibold">Account submitted</p>
-              </div>
-              <div className="rounded-2xl border border-primary/20 bg-primary/[0.04] p-4">
-                <MailCheck className="h-5 w-5 text-primary" />
-                <p className="mt-3 text-sm font-semibold">Check your inbox</p>
-              </div>
-              <div className="rounded-2xl border bg-muted/30 p-4 opacity-60">
-                <LockKeyhole className="h-5 w-5" />
-                <p className="mt-3 text-sm font-semibold">Account activated</p>
-              </div>
-            </div>
-
             <p className="mt-6 text-sm leading-6 text-muted-foreground">
-              Didn&apos;t receive the email? Check your spam or junk folder and
+              Didn't receive the email? Check your spam or junk folder and
               confirm that the address above is correct.
             </p>
 
@@ -273,7 +280,6 @@ export default function UserRegistrationForm() {
     <div className="relative min-h-svh overflow-hidden bg-slate-50 text-foreground dark:bg-slate-950">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(37,99,235,0.12),transparent_32%),radial-gradient(circle_at_bottom_right,rgba(250,204,21,0.10),transparent_28%)]" />
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(15,23,42,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.025)_1px,transparent_1px)] bg-[size:48px_48px] dark:bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)]" />
-
       <header className="relative z-20 border-b border-slate-200/80 bg-background/85 backdrop-blur-xl dark:border-white/10">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
           <a
@@ -282,7 +288,7 @@ export default function UserRegistrationForm() {
           >
             <div className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-full border border-primary/15 bg-white p-1 shadow-sm">
               <img
-                src="/images/nsc-logoo.png"
+                src="/nsc-logo.png"
                 alt="Northern Samar Colleges logo"
                 className="h-full w-full object-contain"
               />
@@ -298,63 +304,64 @@ export default function UserRegistrationForm() {
             </div>
           </a>
 
-          <Button variant="ghost" size="sm" asChild>
-            <a href="/">
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              <span className="hidden sm:inline">Back to home</span>
-              <span className="sm:hidden">Back</span>
-            </a>
-          </Button>
+          {/* Make this dynamic */}
+          <div className="flex items-center gap-4 sm:gap-6">
+            <div className="flex items-center gap-2">
+              <span className="h-2.5 w-2.5 animate-pulse rounded-full bg-emerald-500" />
+              <span className="text-xs font-semibold text-emerald-600 sm:text-sm">
+                Enrollment Open
+              </span>
+            </div>
+
+            <span className="h-7 w-px bg-border" />
+
+            <span className="rounded-full border border-amber-500/40 bg-amber-500/10 px-3 py-1.5 text-xs font-bold tracking-wide text-amber-600 dark:text-amber-400">
+              SY 2026–2027
+            </span>
+          </div>
+
         </div>
       </header>
 
       <main className="relative z-10 flex items-center justify-center px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
         <Card className="grid w-full max-w-6xl overflow-hidden rounded-3xl border-slate-200/80 bg-background/95 p-0 shadow-2xl shadow-slate-900/[0.08] backdrop-blur dark:border-white/10 md:grid-cols-[0.8fr_1.2fr]">
-          <aside className="relative hidden overflow-hidden bg-primary p-10 text-primary-foreground md:flex md:flex-col md:justify-between lg:p-12">
-            <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full border-[40px] border-white/5" />
-            <div className="pointer-events-none absolute -bottom-28 -left-28 h-72 w-72 rounded-full bg-white/[0.05]" />
+          <aside className="relative hidden overflow-hidden bg-primary p-10 text-white md:flex md:flex-col md:justify-between lg:p-12">
+            <img
+              src="/dalakit-campus.png"
+              alt="Northern Samar Colleges Dalakit Campus"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+            
+            <div className="absolute inset-0 bg-gradient-to-t from-primary/75 via-primary/50 to-slate-250/95" />
+            <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full border-[40px] border-white/10" />
+            <div className="pointer-events-none absolute -bottom-28 -left-28 h-72 w-72 rounded-full bg-white/[0.08]" />
 
             <div className="relative">
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/15 ring-1 ring-white/20 backdrop-blur">
-                <UserPlus className="h-7 w-7" />
-              </div>
-              <h2 className="mt-8 text-3xl font-bold tracking-tight lg:text-4xl">
-                Join the NSC community
-              </h2>
-              <p className="mt-4 max-w-sm leading-7 text-primary-foreground/75">
-                Create your account to access the Northern Samar Colleges online
-                services and student portal.
-              </p>
-            </div>
+              <img
+                src="/logo-lf.png"
+                alt="Northern Samar Colleges logo"
+                className="h-20 w-auto object-contain"
+              />
 
-            <div className="relative space-y-4 text-sm">
-              <div className="flex items-center gap-3">
-                <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/10">
-                  <ShieldCheck className="h-4 w-4" />
-                </div>
-                <span>Your personal information is protected</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/10">
-                  <LockKeyhole className="h-4 w-4" />
-                </div>
-                <span>Secure account access</span>
-              </div>
             </div>
           </aside>
 
           <div>
-            <CardHeader className="border-b px-5 py-6 sm:px-8 lg:px-10 lg:py-8">
-              <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary md:hidden">
-                <UserPlus className="h-5 w-5" />
-              </div>
-              <CardTitle className="text-2xl font-bold tracking-tight sm:text-3xl">
-                Create your account
-              </CardTitle>
-              <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                Enter your personal and account information below.
-              </p>
-            </CardHeader>
+          <CardHeader className="border-b px-5 py-6 sm:px-8 lg:px-10 lg:py-8">
+            <img
+              src="/logo-lf.png"
+              alt="Northern Samar Colleges logo"
+              className="mx-auto mb-5 h-16 w-auto object-contain md:hidden"
+            />
+
+            <CardTitle className="text-2xl font-bold tracking-tight sm:text-3xl">
+              Create your account
+            </CardTitle>
+
+            <p className="mt-2 text-sm leading-6 text-muted-foreground">
+              Enter your personal and account information below.
+            </p>
+          </CardHeader>
 
             <CardContent className="px-5 py-6 sm:px-8 lg:px-10 lg:py-8">
               <form onSubmit={handleSubmit} noValidate>
@@ -421,6 +428,59 @@ export default function UserRegistrationForm() {
 
                   <div className="grid gap-5 sm:grid-cols-2">
                     <Field>
+                      <FieldLabel htmlFor="student-type">
+                        Student type {requiredMark}
+                      </FieldLabel>
+                      <Select
+                        value={formData.studentType}
+                        onValueChange={(value) =>
+                          handleChange("studentType", value as StudentType)
+                        }
+                      >
+                        <SelectTrigger
+                          id="student-type"
+                          className="h-11 w-full"
+                          aria-invalid={Boolean(errors.studentType)}
+                        >
+                          <SelectValue placeholder="Select student type" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="new_student">New Student</SelectItem>
+                          <SelectItem value="transferee">Transferee</SelectItem>
+                          <SelectItem value="old_student">Old Student</SelectItem>
+                        </SelectContent>
+                      </Select>
+                      <ErrorMessage field="studentType" />
+                    </Field>
+
+                    <Field>
+                      <FieldLabel htmlFor="admission-type">
+                        Admission type {requiredMark}
+                      </FieldLabel>
+                      <Select
+                        value={formData.admissionType}
+                        onValueChange={(value) =>
+                          handleChange("admissionType", value as AdmissionType)
+                        }
+                      >
+                        <SelectTrigger
+                          id="admission-type"
+                          className="h-11 w-full"
+                          aria-invalid={Boolean(errors.admissionType)}
+                        >
+                          <SelectValue placeholder="Select admission type" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="college">College</SelectItem>
+                          <SelectItem value="ptcp">PTCP</SelectItem>
+                        </SelectContent>
+                      </Select>
+                      <ErrorMessage field="admissionType" />
+                    </Field>
+                  </div>
+
+                  <div className="grid gap-5 sm:grid-cols-2">
+                    <Field>
                       <FieldLabel htmlFor="contact-number">
                         Contact number {requiredMark}
                       </FieldLabel>
@@ -481,11 +541,6 @@ export default function UserRegistrationForm() {
                     />
                   </div>
 
-                  <FieldDescription className="rounded-xl border border-blue-200 bg-blue-50/70 px-4 py-3 text-blue-800 dark:border-blue-900 dark:bg-blue-950/30 dark:text-blue-200">
-                    Use at least 8 characters for your password. Never share it
-                    with anyone.
-                  </FieldDescription>
-
                   <Button type="submit" size="lg" className="w-full">
                     <UserPlus className="mr-2 h-4 w-4" />
                     Create account
@@ -494,7 +549,7 @@ export default function UserRegistrationForm() {
                   <FieldDescription className="text-center">
                     Already have an account?{" "}
                     <a
-                      href="/login"
+                      href="/student/login"
                       className="font-semibold text-primary underline-offset-4 hover:underline"
                     >
                       Sign in

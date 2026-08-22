@@ -20,11 +20,15 @@ export function StudentLoginForm({
           <form className="p-6 md:p-8">
             <FieldGroup>
               <div className="flex flex-col items-center gap-2 text-center">
-                <h1 className="text-2xl font-bold">Student Login</h1>
 
-                <p className="text-balance text-muted-foreground">
-                  Sign in to your NSC student account
-                </p>
+              <div className="relative">
+                <img
+                  src="/logo-lf.png"
+                  alt="Northern Samar Colleges logo"
+                  className="h-20 w-auto object-contain mb-2"
+                />
+              </div>
+                <h1 className="text-2xl font-bold">Student Login</h1>
               </div>
 
               <Field>
@@ -67,12 +71,12 @@ export function StudentLoginForm({
 
               <Field>
                 <Button type="submit" className="w-full">
-                  Login as Student
+                  Login
                 </Button>
               </Field>
 
               <FieldDescription className="text-center">
-                Don&apos;t have an account?{" "}
+                Don't have an account?{" "}
                 <a
                   href="/student/register"
                   className="font-medium underline underline-offset-4"

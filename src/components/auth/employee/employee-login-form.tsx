@@ -67,7 +67,7 @@ export function EmployeeLoginForm({
 
               <Field>
                 <Button type="submit" className="w-full">
-                  Login as Employee
+                  Login
                 </Button>
               </Field>
 
