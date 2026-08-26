@@ -1,0 +1,41 @@
+import type { StudentUser } from "@/lib/types/student/user"
+
+export const dummyStudentUsers: StudentUser[] = [
+  {
+    id: "STU-001",
+    studentNumber: "2026-00001",
+    firstName: "Juan",
+    middleName: "Santos",
+    lastName: "Dela Cruz",
+    email: "juan.delacruz@nsc.edu.ph",
+    password: "student123",
+    course: "BSIT",
+    yearLevel: 1,
+    status: "active",
+    role: "student",
+  },
+  {
+    id: "STU-002",
+    studentNumber: "2026-00002",
+    firstName: "Maria",
+    lastName: "Reyes",
+    email: "maria.reyes@nsc.edu.ph",
+    password: "student456",
+    course: "BSHM",
+    yearLevel: 2,
+    status: "active",
+    role: "student",
+  },
+  {
+    id: "STU-003",
+    studentNumber: "2026-00003",
+    firstName: "Pedro",
+    lastName: "Garcia",
+    email: "pedro.garcia@nsc.edu.ph",
+    password: "student789",
+    course: "BSOA",
+    yearLevel: 3,
+    status: "active",
+    role: "student",
+  },
+]

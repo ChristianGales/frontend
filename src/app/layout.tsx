@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter, Roboto } from "next/font/google";
-import "./globals.css";
+import "@/app/globals.css";
 import { cn } from "@/lib/utils";
+import { ThemeProvider } from "next-themes";
+import { TooltipProvider } from "@/components/ui/tooltip";
+
 
 const robotoHeading = Roboto({subsets:['latin'],variable:'--font-heading'});
 
@@ -28,11 +31,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn("font-sans", inter.variable, robotoHeading.variable)}>
+    <html
+      lang="en"
+      className={cn("font-sans", inter.variable, robotoHeading.variable)}
+      suppressHydrationWarning
+    >
       <body
+        
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          
+          <TooltipProvider>{children}</TooltipProvider>
+
+        </ThemeProvider>
       </body>
     </html>
   );

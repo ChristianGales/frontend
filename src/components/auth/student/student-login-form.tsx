@@ -1,3 +1,8 @@
+"use client"
+
+import { type FormEvent, useState } from "react"
+import { useRouter } from "next/navigation"
+
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -9,27 +14,141 @@ import {
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
 
+import {
+  studentLoginSchema,
+  type StudentLoginData,
+} from "@/lib/schemas/student/login"
+
+import {
+  authenticateStudent,
+  createStudentSession,
+} from "@/lib/auth/student-auth"
+
+type LoginErrors = Partial<Record<keyof StudentLoginData, string>>
+
+const initialData: StudentLoginData = {
+  studentNumber: "",
+  password: "",
+}
+
 export function StudentLoginForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
+  const router = useRouter()
+
+  const [formData, setFormData] =
+    useState<StudentLoginData>(initialData)
+
+  const [errors, setErrors] = useState<LoginErrors>({})
+  const [loginError, setLoginError] = useState("")
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const handleChange = (
+    field: keyof StudentLoginData,
+    value: string
+  ) => {
+    setFormData((current) => ({
+      ...current,
+      [field]: value,
+    }))
+
+    if (errors[field]) {
+      setErrors((current) => ({
+        ...current,
+        [field]: undefined,
+      }))
+    }
+
+    if (loginError) {
+      setLoginError("")
+    }
+  }
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    setLoginError("")
+
+    const result = studentLoginSchema.safeParse(formData)
+
+    if (!result.success) {
+      const fieldErrors = result.error.flatten().fieldErrors
+
+      setErrors({
+        studentNumber: fieldErrors.studentNumber?.[0],
+        password: fieldErrors.password?.[0],
+      })
+
+      return
+    }
+
+    setErrors({})
+    setIsSubmitting(true)
+
+    const student = authenticateStudent(
+      result.data.studentNumber,
+      result.data.password
+    )
+
+    if (!student) {
+      setLoginError("Invalid student number or password.")
+      setIsSubmitting(false)
+      return
+    }
+
+    if (student.status !== "active") {
+      setLoginError("Your student account is currently inactive.")
+      setIsSubmitting(false)
+      return
+    }
+
+    const session = createStudentSession(student)
+
+    sessionStorage.setItem(
+      "activeStudent",
+      JSON.stringify(session)
+    )
+
+    router.push("/student")
+  }
+
   return (
-    <div className={cn("flex flex-col gap-6", className)} {...props}>
+    <div
+      className={cn("flex flex-col gap-6", className)}
+      {...props}
+    >
       <Card className="overflow-hidden p-0">
         <CardContent className="grid p-0 md:grid-cols-2">
-          <form className="p-6 md:p-8">
+          <form
+            onSubmit={handleSubmit}
+            className="p-6 md:p-8"
+            noValidate
+          >
             <FieldGroup>
               <div className="flex flex-col items-center gap-2 text-center">
-
-              <div className="relative">
                 <img
                   src="/logo-lf.png"
                   alt="Northern Samar Colleges logo"
-                  className="h-20 w-auto object-contain mb-2"
+                  className="mb-2 h-20 w-auto object-contain"
                 />
+
+                <h1 className="text-2xl font-bold">
+                  Student Login
+                </h1>
+
+                <p className="text-sm text-muted-foreground">
+                  Enter your student number and password.
+                </p>
               </div>
-                <h1 className="text-2xl font-bold">Student Login</h1>
-              </div>
+
+              {loginError && (
+                <div
+                  role="alert"
+                  className="rounded-lg border border-destructive/30 bg-destructive/10 px-4 py-3 text-sm font-medium text-destructive"
+                >
+                  {loginError}
+                </div>
+              )}
 
               <Field>
                 <FieldLabel htmlFor="student-number">
@@ -40,10 +159,26 @@ export function StudentLoginForm({
                   id="student-number"
                   name="studentNumber"
                   type="text"
+                  value={formData.studentNumber}
+                  onChange={(event) =>
+                    handleChange(
+                      "studentNumber",
+                      event.target.value
+                    )
+                  }
                   placeholder="2026-00001"
                   autoComplete="username"
-                  required
+                  aria-invalid={Boolean(errors.studentNumber)}
                 />
+
+                {errors.studentNumber && (
+                  <p
+                    role="alert"
+                    className="text-xs font-medium text-destructive"
+                  >
+                    {errors.studentNumber}
+                  </p>
+                )}
               </Field>
 
               <Field>
@@ -64,19 +199,37 @@ export function StudentLoginForm({
                   id="student-password"
                   name="password"
                   type="password"
+                  value={formData.password}
+                  onChange={(event) =>
+                    handleChange("password", event.target.value)
+                  }
+                  placeholder="Enter your password"
                   autoComplete="current-password"
-                  required
+                  aria-invalid={Boolean(errors.password)}
                 />
+
+                {errors.password && (
+                  <p
+                    role="alert"
+                    className="text-xs font-medium text-destructive"
+                  >
+                    {errors.password}
+                  </p>
+                )}
               </Field>
 
               <Field>
-                <Button type="submit" className="w-full">
-                  Login
+                <Button
+                  type="submit"
+                  className="w-full"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Signing in..." : "Login"}
                 </Button>
               </Field>
 
               <FieldDescription className="text-center">
-                Don't have an account?{" "}
+                Don&apos;t have an account?{" "}
                 <a
                   href="/student/register"
                   className="font-medium underline underline-offset-4"
@@ -90,7 +243,7 @@ export function StudentLoginForm({
           <div className="relative hidden bg-muted md:block">
             <img
               src="/student-login.gif"
-              alt="Northern Samar Colleges logo"
+              alt="Student login illustration"
               className="absolute inset-0 h-full w-full object-contain p-12 dark:brightness-[0.2] dark:grayscale"
             />
           </div>
