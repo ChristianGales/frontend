@@ -483,9 +483,14 @@ export default function CollegeRegistrationForm() {
 
   // ─────────────────────────────────────────────────────────────────────────────
   return (
+<<<<<<< Updated upstream:src/components/auth/student/student-registration-form-v1.tsx
     <div className="relative min-h-screen overflow-hidden bg-slate-50 text-foreground dark:bg-slate-950">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(37,99,235,0.12),transparent_32%),radial-gradient(circle_at_bottom_right,rgba(250,204,21,0.10),transparent_28%)]" />
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(15,23,42,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.025)_1px,transparent_1px)] bg-[size:48px_48px] dark:bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)]" />
+=======
+    <div className="relative min-h-screen overflow-hidden bg-gradient-to-br bg-[var(--primary)] text-white">
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:60px_60px]" />
+>>>>>>> Stashed changes:src/components/forms/registration/college/college-registration-form.tsx
 
         <header className="sticky top-0 z-30 border-b border-slate-200/80 bg-background/85 backdrop-blur-xl dark:border-white/10">
           <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
@@ -613,9 +618,15 @@ export default function CollegeRegistrationForm() {
                                 <CircleAlert className="h-5 w-5" />
                             </span>
                             <div>
+<<<<<<< Updated upstream:src/components/auth/student/student-registration-form-v1.tsx
                                 <p className="mb-1 font-semibold text-blue-900 dark:text-blue-100">Before you begin</p>
                                 <p className="leading-relaxed text-blue-800/80 dark:text-blue-200/80">
                                     A digital copy of your filled-out registration form will be sent to your email.
+=======
+                                <p className="font-semibold text-[var(--primary)] mb-1">Notice</p>
+                                <p className="text-[var(--primary)] leading-relaxed">
+                                    A copy of your filled-out registration form will be sent to your email. 
+>>>>>>> Stashed changes:src/components/forms/registration/college/college-registration-form.tsx
                                     Please ensure that the email address you provided is valid and accessible.
                                 </p>
                             </div>

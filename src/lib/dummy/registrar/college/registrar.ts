@@ -1,0 +1,41 @@
+import type { RegistrarUser } from "@/types/registrar/college/registrar"
+
+export const dummyRegistrarUsers: RegistrarUser[] = [
+  {
+    id: "REG-001",
+    employeeId: "210001",
+    firstName: "Elena",
+    middleName: "Santos",
+    lastName: "Mendoza",
+    email: "elena.mendoza@nsc.edu.ph",
+    password: "registrar123",
+    position: "Chief Registrar",
+    office: "Office of the Registrar",
+    status: "active",
+    role: "registrar",
+  },
+  {
+    id: "REG-002",
+    employeeId: "210002",
+    firstName: "Ricardo",
+    lastName: "Torres",
+    email: "ricardo.torres@nsc.edu.ph",
+    password: "registrar456",
+    position: "Assistant Registrar",
+    office: "Office of the Registrar",
+    status: "active",
+    role: "registrar",
+  },
+  {
+    id: "REG-003",
+    employeeId: "210003",
+    firstName: "Sofia",
+    lastName: "Villanueva",
+    email: "sofia.villanueva@nsc.edu.ph",
+    password: "registrar789",
+    position: "Records Officer",
+    office: "Office of the Registrar",
+    status: "active",
+    role: "registrar",
+  },
+]
